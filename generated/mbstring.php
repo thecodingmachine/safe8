@@ -5,11 +5,17 @@ namespace Safe;
 use Safe\Exceptions\MbstringException;
 
 /**
+ * Returns a string containing the character specified by the Unicode code point value,
+ * encoded in the specified encoding.
  *
+ * This function compliments mb_ord.
  *
- * @param int $codepoint
- * @param string $encoding
- * @return string Returns a specific character.
+ * @param int $codepoint A Unicode codepoint value, e.g. 128024 for U+1F418 ELEPHANT
+ * @param string $encoding The encoding
+ * parameter is the character encoding. If it is omitted or NULL, the internal character
+ * encoding value will be used.
+ * @return string A string containing the requested character, if it can be represented in the specified
+ * encoding.
  * @throws MbstringException
  *
  */
@@ -428,11 +434,15 @@ function mb_internal_encoding(string $encoding = null)
 
 
 /**
+ * Returns the Unicode code point value of the given character.
  *
+ * This function compliments mb_chr.
  *
- * @param string $string
- * @param string $encoding
- * @return int Returns a code point of character.
+ * @param string $string A string
+ * @param string $encoding The encoding
+ * parameter is the character encoding. If it is omitted or NULL, the internal character
+ * encoding value will be used.
+ * @return int The Unicode code point for the first character of string.
  * @throws MbstringException
  *
  */
