@@ -8,7 +8,7 @@ use Safe\Exceptions\MbstringException;
  * Returns a string containing the character specified by the Unicode code point value,
  * encoded in the specified encoding.
  *
- * This function compliments mb_ord.
+ * This function complements mb_ord.
  *
  * @param int $codepoint A Unicode codepoint value, e.g. 128024 for U+1F418 ELEPHANT
  * @param string $encoding The encoding
@@ -436,7 +436,7 @@ function mb_internal_encoding(string $encoding = null)
 /**
  * Returns the Unicode code point value of the given character.
  *
- * This function compliments mb_chr.
+ * This function complements mb_chr.
  *
  * @param string $string A string
  * @param string $encoding The encoding
