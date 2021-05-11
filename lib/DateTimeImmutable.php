@@ -53,6 +53,7 @@ class DateTimeImmutable extends \DateTimeImmutable
      * @param string $format
      * @param string $time
      * @param DateTimeZone|null $timezone
+     * @return DateTimeImmutable
      * @throws DatetimeException
      */
     public static function createFromFormat($format, $time, $timezone = null)
