@@ -104,9 +104,13 @@ class Method
             implode("\n", array_map(function (string $line) {
                 return rtrim(' * '.ltrim($line));
             }, \explode("\n", \strip_tags($this->getDocBlock()))))
-            ."\n */\n";
-
-        return $str;
+            ."\n";
+        
+        if (PureFunctionIdentifier::isFunctionPure($this->getFunctionName())) {
+            $str .= " * @psalm-pure\n";
+        }
+        
+        return $str . " */\n";
     }
 
     private function getDocBlock(): string
