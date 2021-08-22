@@ -123,7 +123,7 @@ function msg_queue_exists(int $key): void
  *
  * @psalm-pure
  */
-function msg_receive( $queue, int $desired_message_type, ?int &$received_message_type, int $max_message_size,  &$message, bool $unserialize = true, int $flags = 0, ?int &$error_code = null): void
+function msg_receive($queue, int $desired_message_type, ?int &$received_message_type, int $max_message_size, &$message, bool $unserialize = true, int $flags = 0, ?int &$error_code = null): void
 {
     error_clear_last();
     $result = \msg_receive($queue, $desired_message_type, $received_message_type, $max_message_size, $message, $unserialize, $flags, $error_code);
@@ -144,7 +144,7 @@ function msg_receive( $queue, int $desired_message_type, ?int &$received_message
  *
  * @psalm-pure
  */
-function msg_remove_queue( $queue): void
+function msg_remove_queue($queue): void
 {
     error_clear_last();
     $result = \msg_remove_queue($queue);
@@ -188,7 +188,7 @@ function msg_remove_queue( $queue): void
  *
  * @psalm-pure
  */
-function msg_send( $queue, int $message_type,  $message, bool $serialize = true, bool $blocking = true, ?int &$error_code = null): void
+function msg_send($queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, ?int &$error_code = null): void
 {
     error_clear_last();
     $result = \msg_send($queue, $message_type, $message, $serialize, $blocking, $error_code);
@@ -216,7 +216,7 @@ function msg_send( $queue, int $message_type,  $message, bool $serialize = true,
  *
  * @psalm-pure
  */
-function msg_set_queue( $queue, array $data): void
+function msg_set_queue($queue, array $data): void
 {
     error_clear_last();
     $result = \msg_set_queue($queue, $data);
@@ -310,7 +310,7 @@ function msg_set_queue( $queue, array $data): void
  *
  * @psalm-pure
  */
-function msg_stat_queue( $queue): array
+function msg_stat_queue($queue): array
 {
     error_clear_last();
     $result = \msg_stat_queue($queue);
@@ -341,7 +341,7 @@ function msg_stat_queue( $queue): array
  *
  * @psalm-pure
  */
-function sem_acquire( $semaphore, bool $non_blocking = false): void
+function sem_acquire($semaphore, bool $non_blocking = false): void
 {
     error_clear_last();
     $result = \sem_acquire($semaphore, $non_blocking);
@@ -400,7 +400,7 @@ function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $
  *
  * @psalm-pure
  */
-function sem_release( $semaphore): void
+function sem_release($semaphore): void
 {
     error_clear_last();
     $result = \sem_release($semaphore);
@@ -421,7 +421,7 @@ function sem_release( $semaphore): void
  *
  * @psalm-pure
  */
-function sem_remove( $semaphore): void
+function sem_remove($semaphore): void
 {
     error_clear_last();
     $result = \sem_remove($semaphore);
@@ -461,7 +461,7 @@ function shm_attach(int $key, int $size = null, int $permissions = 0666)
         $result = \shm_attach($key, $size, $permissions);
     } elseif ($size !== null) {
         $result = \shm_attach($key, $size);
-    }else {
+    } else {
         $result = \shm_attach($key);
     }
     if ($result === false) {
@@ -482,7 +482,7 @@ function shm_attach(int $key, int $size = null, int $permissions = 0666)
  *
  * @psalm-pure
  */
-function shm_detach( $shm): void
+function shm_detach($shm): void
 {
     error_clear_last();
     $result = \shm_detach($shm);
@@ -512,7 +512,7 @@ function shm_detach( $shm): void
  *
  * @psalm-pure
  */
-function shm_put_var( $shm, int $key,  $value): void
+function shm_put_var($shm, int $key, $value): void
 {
     error_clear_last();
     $result = \shm_put_var($shm, $key, $value);
@@ -532,7 +532,7 @@ function shm_put_var( $shm, int $key,  $value): void
  *
  * @psalm-pure
  */
-function shm_remove_var( $shm, int $key): void
+function shm_remove_var($shm, int $key): void
 {
     error_clear_last();
     $result = \shm_remove_var($shm, $key);
@@ -551,7 +551,7 @@ function shm_remove_var( $shm, int $key): void
  *
  * @psalm-pure
  */
-function shm_remove( $shm): void
+function shm_remove($shm): void
 {
     error_clear_last();
     $result = \shm_remove($shm);
@@ -559,4 +559,3 @@ function shm_remove( $shm): void
         throw SemException::createFromPhpError();
     }
 }
-

@@ -71,4 +71,3 @@ function ssdeep_fuzzy_hash(string $to_hash): string
     }
     return $result;
 }
-

@@ -102,7 +102,7 @@ use Safe\Exceptions\Oci8Exception;
  *
  * @psalm-pure
  */
-function oci_bind_array_by_name( $statement, string $name, array &$var_array, int $max_table_length, int $max_item_length = -1, int $type = SQLT_AFC): void
+function oci_bind_array_by_name($statement, string $name, array &$var_array, int $max_table_length, int $max_item_length = -1, int $type = SQLT_AFC): void
 {
     error_clear_last();
     $result = \oci_bind_array_by_name($statement, $name, $var_array, $max_table_length, $max_item_length, $type);
@@ -309,7 +309,7 @@ function oci_bind_array_by_name( $statement, string $name, array &$var_array, in
  *
  * @psalm-pure
  */
-function oci_bind_by_name( $statement, string $bv_name,  &$variable, int $maxlength = -1, int $type = SQLT_CHR): void
+function oci_bind_by_name($statement, string $bv_name, &$variable, int $maxlength = -1, int $type = SQLT_CHR): void
 {
     error_clear_last();
     $result = \oci_bind_by_name($statement, $bv_name, $variable, $maxlength, $type);
@@ -328,7 +328,7 @@ function oci_bind_by_name( $statement, string $bv_name,  &$variable, int $maxlen
  *
  * @psalm-pure
  */
-function oci_cancel( $statement): void
+function oci_cancel($statement): void
 {
     error_clear_last();
     $result = \oci_cancel($statement);
@@ -354,7 +354,7 @@ function oci_cancel( $statement): void
  *
  * @psalm-pure
  */
-function oci_close( $connection): void
+function oci_close($connection): void
 {
     error_clear_last();
     $result = \oci_close($connection);
@@ -387,7 +387,7 @@ function oci_close( $connection): void
  *
  * @psalm-pure
  */
-function oci_commit( $connection): void
+function oci_commit($connection): void
 {
     error_clear_last();
     $result = \oci_commit($connection);
@@ -506,7 +506,7 @@ function oci_connect(string $username, string $password, string $connection_stri
         $result = \oci_connect($username, $password, $connection_string, $character_set);
     } elseif ($connection_string !== null) {
         $result = \oci_connect($username, $password, $connection_string);
-    }else {
+    } else {
         $result = \oci_connect($username, $password);
     }
     if ($result === false) {
@@ -543,7 +543,7 @@ function oci_connect(string $username, string $password, string $connection_stri
  *
  * @psalm-pure
  */
-function oci_define_by_name( $statement, string $column_name,  &$variable, int $type = SQLT_CHR): void
+function oci_define_by_name($statement, string $column_name, &$variable, int $type = SQLT_CHR): void
 {
     error_clear_last();
     $result = \oci_define_by_name($statement, $column_name, $variable, $type);
@@ -631,7 +631,7 @@ function oci_define_by_name( $statement, string $column_name,  &$variable, int $
  *
  * @psalm-pure
  */
-function oci_execute( $statement, int $mode = OCI_COMMIT_ON_SUCCESS): void
+function oci_execute($statement, int $mode = OCI_COMMIT_ON_SUCCESS): void
 {
     error_clear_last();
     $result = \oci_execute($statement, $mode);
@@ -734,7 +734,7 @@ function oci_execute( $statement, int $mode = OCI_COMMIT_ON_SUCCESS): void
  *
  * @psalm-pure
  */
-function oci_fetch_all( $statement, ?array &$output, int $skip = 0, int $maxrows = -1, int $flags = OCI_FETCHSTATEMENT_BY_COLUMN + OCI_ASSOC): int
+function oci_fetch_all($statement, ?array &$output, int $skip = 0, int $maxrows = -1, int $flags = OCI_FETCHSTATEMENT_BY_COLUMN + OCI_ASSOC): int
 {
     error_clear_last();
     $result = \oci_fetch_all($statement, $output, $skip, $maxrows, $flags);
@@ -755,7 +755,7 @@ function oci_fetch_all( $statement, ?array &$output, int $skip = 0, int $maxrows
  *
  * @psalm-pure
  */
-function oci_field_name( $statement,  $field): string
+function oci_field_name($statement, $field): string
 {
     error_clear_last();
     $result = \oci_field_name($statement, $field);
@@ -780,7 +780,7 @@ function oci_field_name( $statement,  $field): string
  *
  * @psalm-pure
  */
-function oci_field_precision( $statement,  $field): int
+function oci_field_precision($statement, $field): int
 {
     error_clear_last();
     $result = \oci_field_precision($statement, $field);
@@ -805,7 +805,7 @@ function oci_field_precision( $statement,  $field): int
  *
  * @psalm-pure
  */
-function oci_field_scale( $statement,  $field): int
+function oci_field_scale($statement, $field): int
 {
     error_clear_last();
     $result = \oci_field_scale($statement, $field);
@@ -826,7 +826,7 @@ function oci_field_scale( $statement,  $field): int
  *
  * @psalm-pure
  */
-function oci_field_size( $statement,  $field): int
+function oci_field_size($statement, $field): int
 {
     error_clear_last();
     $result = \oci_field_size($statement, $field);
@@ -849,7 +849,7 @@ function oci_field_size( $statement,  $field): int
  *
  * @psalm-pure
  */
-function oci_field_type_raw( $statement,  $field): int
+function oci_field_type_raw($statement, $field): int
 {
     error_clear_last();
     $result = \oci_field_type_raw($statement, $field);
@@ -870,7 +870,7 @@ function oci_field_type_raw( $statement,  $field): int
  *
  * @psalm-pure
  */
-function oci_field_type( $statement,  $field)
+function oci_field_type($statement, $field)
 {
     error_clear_last();
     $result = \oci_field_type($statement, $field);
@@ -889,7 +889,7 @@ function oci_field_type( $statement,  $field)
  *
  * @psalm-pure
  */
-function oci_free_descriptor( $descriptor): void
+function oci_free_descriptor($descriptor): void
 {
     error_clear_last();
     $result = \oci_free_descriptor($descriptor);
@@ -909,7 +909,7 @@ function oci_free_descriptor( $descriptor): void
  *
  * @psalm-pure
  */
-function oci_free_statement( $statement): void
+function oci_free_statement($statement): void
 {
     error_clear_last();
     $result = \oci_free_statement($statement);
@@ -932,12 +932,12 @@ function oci_free_statement( $statement): void
  *
  * @psalm-pure
  */
-function oci_new_collection( $connection, string $tdo, string $schema = null)
+function oci_new_collection($connection, string $tdo, string $schema = null)
 {
     error_clear_last();
     if ($schema !== null) {
         $result = \oci_new_collection($connection, $tdo, $schema);
-    }else {
+    } else {
         $result = \oci_new_collection($connection, $tdo);
     }
     if ($result === false) {
@@ -1045,7 +1045,7 @@ function oci_new_connect(string $username, string $password, string $connection_
         $result = \oci_new_connect($username, $password, $connection_string, $character_set);
     } elseif ($connection_string !== null) {
         $result = \oci_new_connect($username, $password, $connection_string);
-    }else {
+    } else {
         $result = \oci_new_connect($username, $password);
     }
     if ($result === false) {
@@ -1065,7 +1065,7 @@ function oci_new_connect(string $username, string $password, string $connection_
  *
  * @psalm-pure
  */
-function oci_new_cursor( $connection)
+function oci_new_cursor($connection)
 {
     error_clear_last();
     $result = \oci_new_cursor($connection);
@@ -1089,7 +1089,7 @@ function oci_new_cursor( $connection)
  *
  * @psalm-pure
  */
-function oci_new_descriptor( $connection, int $type = OCI_DTYPE_LOB)
+function oci_new_descriptor($connection, int $type = OCI_DTYPE_LOB)
 {
     error_clear_last();
     $result = \oci_new_descriptor($connection, $type);
@@ -1109,7 +1109,7 @@ function oci_new_descriptor( $connection, int $type = OCI_DTYPE_LOB)
  *
  * @psalm-pure
  */
-function oci_num_fields( $statement): int
+function oci_num_fields($statement): int
 {
     error_clear_last();
     $result = \oci_num_fields($statement);
@@ -1129,7 +1129,7 @@ function oci_num_fields( $statement): int
  *
  * @psalm-pure
  */
-function oci_num_rows( $statement): int
+function oci_num_rows($statement): int
 {
     error_clear_last();
     $result = \oci_num_rows($statement);
@@ -1163,7 +1163,7 @@ function oci_num_rows( $statement): int
  *
  * @psalm-pure
  */
-function oci_parse( $connection, string $sql_text)
+function oci_parse($connection, string $sql_text)
 {
     error_clear_last();
     $result = \oci_parse($connection, $sql_text);
@@ -1273,7 +1273,7 @@ function oci_pconnect(string $username, string $password, string $connection_str
         $result = \oci_pconnect($username, $password, $connection_string, $character_set);
     } elseif ($connection_string !== null) {
         $result = \oci_pconnect($username, $password, $connection_string);
-    }else {
+    } else {
         $result = \oci_pconnect($username, $password);
     }
     if ($result === false) {
@@ -1302,7 +1302,7 @@ function oci_pconnect(string $username, string $password, string $connection_str
  *
  * @psalm-pure
  */
-function oci_result( $statement,  $field): string
+function oci_result($statement, $field): string
 {
     error_clear_last();
     $result = \oci_result($statement, $field);
@@ -1337,7 +1337,7 @@ function oci_result( $statement,  $field): string
  *
  * @psalm-pure
  */
-function oci_rollback( $connection): void
+function oci_rollback($connection): void
 {
     error_clear_last();
     $result = \oci_rollback($connection);
@@ -1356,7 +1356,7 @@ function oci_rollback( $connection): void
  *
  * @psalm-pure
  */
-function oci_server_version( $connection): string
+function oci_server_version($connection): string
 {
     error_clear_last();
     $result = \oci_server_version($connection);
@@ -1389,7 +1389,7 @@ function oci_server_version( $connection): string
  *
  * @psalm-pure
  */
-function oci_set_action( $connection, string $action_name): void
+function oci_set_action($connection, string $action_name): void
 {
     error_clear_last();
     $result = \oci_set_action($connection, $action_name);
@@ -1432,7 +1432,7 @@ function oci_set_action( $connection, string $action_name): void
  *
  * @psalm-pure
  */
-function oci_set_call_timeout( $connection, int $time_out): void
+function oci_set_call_timeout($connection, int $time_out): void
 {
     error_clear_last();
     $result = \oci_set_call_timeout($connection, $time_out);
@@ -1468,7 +1468,7 @@ function oci_set_call_timeout( $connection, int $time_out): void
  *
  * @psalm-pure
  */
-function oci_set_client_identifier( $connection, string $client_identifier): void
+function oci_set_client_identifier($connection, string $client_identifier): void
 {
     error_clear_last();
     $result = \oci_set_client_identifier($connection, $client_identifier);
@@ -1498,7 +1498,7 @@ function oci_set_client_identifier( $connection, string $client_identifier): voi
  *
  * @psalm-pure
  */
-function oci_set_client_info( $connection, string $client_info): void
+function oci_set_client_info($connection, string $client_info): void
 {
     error_clear_last();
     $result = \oci_set_client_info($connection, $client_info);
@@ -1529,7 +1529,7 @@ function oci_set_client_info( $connection, string $client_info): void
  *
  * @psalm-pure
  */
-function oci_set_db_operation( $connection, string $dbop): void
+function oci_set_db_operation($connection, string $dbop): void
 {
     error_clear_last();
     $result = \oci_set_db_operation($connection, $dbop);
@@ -1596,7 +1596,7 @@ function oci_set_edition(string $edition): void
  *
  * @psalm-pure
  */
-function oci_set_module_name( $connection, string $module_name): void
+function oci_set_module_name($connection, string $module_name): void
 {
     error_clear_last();
     $result = \oci_set_module_name($connection, $module_name);
@@ -1661,7 +1661,7 @@ function oci_set_module_name( $connection, string $module_name): void
  *
  * @psalm-pure
  */
-function oci_set_prefetch( $statement, int $rows): void
+function oci_set_prefetch($statement, int $rows): void
 {
     error_clear_last();
     $result = \oci_set_prefetch($statement, $rows);
@@ -1734,7 +1734,7 @@ function oci_set_prefetch( $statement, int $rows): void
  *
  * @psalm-pure
  */
-function oci_statement_type( $statement): string
+function oci_statement_type($statement): string
 {
     error_clear_last();
     $result = \oci_statement_type($statement);
@@ -1756,7 +1756,7 @@ function oci_statement_type( $statement): string
  *
  * @psalm-pure
  */
-function oci_unregister_taf_callback( $connection): void
+function oci_unregister_taf_callback($connection): void
 {
     error_clear_last();
     $result = \oci_unregister_taf_callback($connection);
@@ -1764,4 +1764,3 @@ function oci_unregister_taf_callback( $connection): void
         throw Oci8Exception::createFromPhpError();
     }
 }
-

@@ -22,7 +22,7 @@ function swoole_async_write(string $filename, string $content, int $offset = nul
         $result = \swoole_async_write($filename, $content, $offset, $callback);
     } elseif ($offset !== null) {
         $result = \swoole_async_write($filename, $content, $offset);
-    }else {
+    } else {
         $result = \swoole_async_write($filename, $content);
     }
     if ($result === false) {
@@ -49,7 +49,7 @@ function swoole_async_writefile(string $filename, string $content, callable $cal
         $result = \swoole_async_writefile($filename, $content, $callback, $flags);
     } elseif ($callback !== null) {
         $result = \swoole_async_writefile($filename, $content, $callback);
-    }else {
+    } else {
         $result = \swoole_async_writefile($filename, $content);
     }
     if ($result === false) {
@@ -111,4 +111,3 @@ function swoole_event_write(int $fd, string $data): void
         throw SwooleException::createFromPhpError();
     }
 }
-

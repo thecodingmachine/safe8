@@ -23,7 +23,7 @@ use Safe\Exceptions\ZlibException;
  *
  * @psalm-pure
  */
-function deflate_add( $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
+function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
 {
     error_clear_last();
     $result = \deflate_add($context, $data, $flush_mode);
@@ -144,7 +144,7 @@ function deflate_init(int $encoding, array $options = [])
  * @throws ZlibException
  *
  */
-function gzclose( $stream): void
+function gzclose($stream): void
 {
     error_clear_last();
     $result = \gzclose($stream);
@@ -306,12 +306,12 @@ function gzfile(string $filename, int $use_include_path = 0): array
  *
  * @psalm-pure
  */
-function gzgets( $stream, int $length = null): string
+function gzgets($stream, int $length = null): string
 {
     error_clear_last();
     if ($length !== null) {
         $result = \gzgets($stream, $length);
-    }else {
+    } else {
         $result = \gzgets($stream);
     }
     if ($result === false) {
@@ -336,12 +336,12 @@ function gzgets( $stream, int $length = null): string
  *
  * @psalm-pure
  */
-function gzgetss( $zp, int $length, string $allowable_tags = null): string
+function gzgetss($zp, int $length, string $allowable_tags = null): string
 {
     error_clear_last();
     if ($allowable_tags !== null) {
         $result = \gzgetss($zp, $length, $allowable_tags);
-    }else {
+    } else {
         $result = \gzgetss($zp, $length);
     }
     if ($result === false) {
@@ -388,7 +388,7 @@ function gzinflate(string $data, int $max_length = 0): string
  *
  * @psalm-pure
  */
-function gzpassthru( $stream): int
+function gzpassthru($stream): int
 {
     error_clear_last();
     $result = \gzpassthru($stream);
@@ -413,7 +413,7 @@ function gzpassthru( $stream): int
  *
  * @psalm-pure
  */
-function gzread( $stream, int $length): string
+function gzread($stream, int $length): string
 {
     error_clear_last();
     $result = \gzread($stream, $length);
@@ -433,7 +433,7 @@ function gzread( $stream, int $length): string
  * @throws ZlibException
  *
  */
-function gzrewind( $stream): void
+function gzrewind($stream): void
 {
     error_clear_last();
     $result = \gzrewind($stream);
@@ -484,12 +484,12 @@ function gzuncompress(string $data, int $max_length = 0): string
  * @throws ZlibException
  *
  */
-function gzwrite( $stream, string $data, int $length = null): int
+function gzwrite($stream, string $data, int $length = null): int
 {
     error_clear_last();
     if ($length !== null) {
         $result = \gzwrite($stream, $data, $length);
-    }else {
+    } else {
         $result = \gzwrite($stream, $data);
     }
     if ($result === false) {
@@ -508,7 +508,7 @@ function gzwrite( $stream, string $data, int $length = null): int
  *
  * @psalm-pure
  */
-function inflate_get_read_len( $context): int
+function inflate_get_read_len($context): int
 {
     error_clear_last();
     $result = \inflate_get_read_len($context);
@@ -528,7 +528,7 @@ function inflate_get_read_len( $context): int
  *
  * @psalm-pure
  */
-function inflate_get_status( $context): int
+function inflate_get_status($context): int
 {
     error_clear_last();
     $result = \inflate_get_status($context);
@@ -561,7 +561,7 @@ function inflate_get_status( $context): int
  *
  * @psalm-pure
  */
-function inflate_add( $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
+function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
 {
     error_clear_last();
     $result = \inflate_add($context, $data, $flush_mode);
@@ -701,4 +701,3 @@ function zlib_decode(string $data, int $max_length = 0): string
     }
     return $result;
 }
-

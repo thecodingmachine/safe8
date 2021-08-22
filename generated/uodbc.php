@@ -25,7 +25,7 @@ use Safe\Exceptions\UodbcException;
  *
  * @psalm-pure
  */
-function odbc_autocommit( $odbc, bool $enable = false)
+function odbc_autocommit($odbc, bool $enable = false)
 {
     error_clear_last();
     $result = \odbc_autocommit($odbc, $enable);
@@ -184,7 +184,7 @@ function odbc_binmode(int $statement, int $mode): void
  *
  * @psalm-pure
  */
-function odbc_columnprivileges( $odbc, string $catalog, string $schema, string $table, string $column)
+function odbc_columnprivileges($odbc, string $catalog, string $schema, string $table, string $column)
 {
     error_clear_last();
     $result = \odbc_columnprivileges($odbc, $catalog, $schema, $table, $column);
@@ -241,7 +241,7 @@ function odbc_columnprivileges( $odbc, string $catalog, string $schema, string $
  *
  * @psalm-pure
  */
-function odbc_columns( $odbc, string $catalog = null, string $schema = null, string $table = null, string $column = null)
+function odbc_columns($odbc, string $catalog = null, string $schema = null, string $table = null, string $column = null)
 {
     error_clear_last();
     if ($column !== null) {
@@ -252,7 +252,7 @@ function odbc_columns( $odbc, string $catalog = null, string $schema = null, str
         $result = \odbc_columns($odbc, $catalog, $schema);
     } elseif ($catalog !== null) {
         $result = \odbc_columns($odbc, $catalog);
-    }else {
+    } else {
         $result = \odbc_columns($odbc);
     }
     if ($result === false) {
@@ -271,7 +271,7 @@ function odbc_columns( $odbc, string $catalog = null, string $schema = null, str
  *
  * @psalm-pure
  */
-function odbc_commit( $odbc): void
+function odbc_commit($odbc): void
 {
     error_clear_last();
     $result = \odbc_commit($odbc);
@@ -334,7 +334,7 @@ function odbc_connect(string $dsn, string $user, string $password, int $cursor_o
  *
  * @psalm-pure
  */
-function odbc_cursor( $statement): string
+function odbc_cursor($statement): string
 {
     error_clear_last();
     $result = \odbc_cursor($statement);
@@ -361,7 +361,7 @@ function odbc_cursor( $statement): string
  *
  * @psalm-pure
  */
-function odbc_data_source( $odbc, int $fetch_type): array
+function odbc_data_source($odbc, int $fetch_type): array
 {
     error_clear_last();
     $result = \odbc_data_source($odbc, $fetch_type);
@@ -384,7 +384,7 @@ function odbc_data_source( $odbc, int $fetch_type): array
  *
  * @psalm-pure
  */
-function odbc_exec( $odbc, string $query)
+function odbc_exec($odbc, string $query)
 {
     error_clear_last();
     $result = \odbc_exec($odbc, $query);
@@ -412,7 +412,7 @@ function odbc_exec( $odbc, string $query)
  *
  * @psalm-pure
  */
-function odbc_execute( $statement, array $params = []): void
+function odbc_execute($statement, array $params = []): void
 {
     error_clear_last();
     $result = \odbc_execute($statement, $params);
@@ -437,7 +437,7 @@ function odbc_execute( $statement, array $params = []): void
  *
  * @psalm-pure
  */
-function odbc_fetch_into( $statement, ?array &$array, int $row = 0): int
+function odbc_fetch_into($statement, ?array &$array, int $row = 0): int
 {
     error_clear_last();
     $result = \odbc_fetch_into($statement, $array, $row);
@@ -459,7 +459,7 @@ function odbc_fetch_into( $statement, ?array &$array, int $row = 0): int
  *
  * @psalm-pure
  */
-function odbc_field_len( $statement, int $field): int
+function odbc_field_len($statement, int $field): int
 {
     error_clear_last();
     $result = \odbc_field_len($statement, $field);
@@ -481,7 +481,7 @@ function odbc_field_len( $statement, int $field): int
  *
  * @psalm-pure
  */
-function odbc_field_name( $statement, int $field): string
+function odbc_field_name($statement, int $field): string
 {
     error_clear_last();
     $result = \odbc_field_name($statement, $field);
@@ -504,7 +504,7 @@ function odbc_field_name( $statement, int $field): string
  *
  * @psalm-pure
  */
-function odbc_field_num( $statement, string $field): int
+function odbc_field_num($statement, string $field): int
 {
     error_clear_last();
     $result = \odbc_field_num($statement, $field);
@@ -526,7 +526,7 @@ function odbc_field_num( $statement, string $field): int
  *
  * @psalm-pure
  */
-function odbc_field_scale( $statement, int $field): int
+function odbc_field_scale($statement, int $field): int
 {
     error_clear_last();
     $result = \odbc_field_scale($statement, $field);
@@ -548,7 +548,7 @@ function odbc_field_scale( $statement, int $field): int
  *
  * @psalm-pure
  */
-function odbc_field_type( $statement, int $field): string
+function odbc_field_type($statement, int $field): string
 {
     error_clear_last();
     $result = \odbc_field_type($statement, $field);
@@ -596,7 +596,7 @@ function odbc_field_type( $statement, int $field): string
  *
  * @psalm-pure
  */
-function odbc_foreignkeys( $odbc, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table)
+function odbc_foreignkeys($odbc, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table)
 {
     error_clear_last();
     $result = \odbc_foreignkeys($odbc, $pk_catalog, $pk_schema, $pk_table, $fk_catalog, $fk_schema, $fk_table);
@@ -640,7 +640,7 @@ function odbc_foreignkeys( $odbc, string $pk_catalog, string $pk_schema, string 
  *
  * @psalm-pure
  */
-function odbc_gettypeinfo( $odbc, int $data_type = 0)
+function odbc_gettypeinfo($odbc, int $data_type = 0)
 {
     error_clear_last();
     $result = \odbc_gettypeinfo($odbc, $data_type);
@@ -664,7 +664,7 @@ function odbc_gettypeinfo( $odbc, int $data_type = 0)
  *
  * @psalm-pure
  */
-function odbc_longreadlen( $statement, int $length): void
+function odbc_longreadlen($statement, int $length): void
 {
     error_clear_last();
     $result = \odbc_longreadlen($statement, $length);
@@ -725,7 +725,7 @@ function odbc_pconnect(string $dsn, string $user, string $password, int $cursor_
  *
  * @psalm-pure
  */
-function odbc_prepare( $odbc, string $query)
+function odbc_prepare($odbc, string $query)
 {
     error_clear_last();
     $result = \odbc_prepare($odbc, $query);
@@ -761,7 +761,7 @@ function odbc_prepare( $odbc, string $query)
  *
  * @psalm-pure
  */
-function odbc_primarykeys( $odbc, string $catalog, string $schema, string $table)
+function odbc_primarykeys($odbc, string $catalog, string $schema, string $table)
 {
     error_clear_last();
     $result = \odbc_primarykeys($odbc, $catalog, $schema, $table);
@@ -821,7 +821,7 @@ function odbc_primarykeys( $odbc, string $catalog, string $schema, string $table
  *
  * @psalm-pure
  */
-function odbc_procedurecolumns( $odbc, string $catalog = null, string $schema = null, string $procedure = null, string $column = null)
+function odbc_procedurecolumns($odbc, string $catalog = null, string $schema = null, string $procedure = null, string $column = null)
 {
     error_clear_last();
     if ($column !== null) {
@@ -832,7 +832,7 @@ function odbc_procedurecolumns( $odbc, string $catalog = null, string $schema = 
         $result = \odbc_procedurecolumns($odbc, $catalog, $schema);
     } elseif ($catalog !== null) {
         $result = \odbc_procedurecolumns($odbc, $catalog);
-    }else {
+    } else {
         $result = \odbc_procedurecolumns($odbc);
     }
     if ($result === false) {
@@ -875,7 +875,7 @@ function odbc_procedurecolumns( $odbc, string $catalog = null, string $schema = 
  *
  * @psalm-pure
  */
-function odbc_procedures( $odbc, string $catalog = null, string $schema = null, string $procedure = null)
+function odbc_procedures($odbc, string $catalog = null, string $schema = null, string $procedure = null)
 {
     error_clear_last();
     if ($procedure !== null) {
@@ -884,7 +884,7 @@ function odbc_procedures( $odbc, string $catalog = null, string $schema = null, 
         $result = \odbc_procedures($odbc, $catalog, $schema);
     } elseif ($catalog !== null) {
         $result = \odbc_procedures($odbc, $catalog);
-    }else {
+    } else {
         $result = \odbc_procedures($odbc);
     }
     if ($result === false) {
@@ -909,7 +909,7 @@ function odbc_procedures( $odbc, string $catalog = null, string $schema = null, 
  *
  * @psalm-pure
  */
-function odbc_result_all( $statement, string $format = ""): int
+function odbc_result_all($statement, string $format = ""): int
 {
     error_clear_last();
     $result = \odbc_result_all($statement, $format);
@@ -933,7 +933,7 @@ function odbc_result_all( $statement, string $format = ""): int
  *
  * @psalm-pure
  */
-function odbc_result( $statement,  $field)
+function odbc_result($statement, $field)
 {
     error_clear_last();
     $result = \odbc_result($statement, $field);
@@ -953,7 +953,7 @@ function odbc_result( $statement,  $field)
  *
  * @psalm-pure
  */
-function odbc_rollback( $odbc): void
+function odbc_rollback($odbc): void
 {
     error_clear_last();
     $result = \odbc_rollback($odbc);
@@ -994,7 +994,7 @@ function odbc_rollback( $odbc): void
  *
  * @psalm-pure
  */
-function odbc_setoption( $odbc, int $which, int $option, int $value): void
+function odbc_setoption($odbc, int $which, int $option, int $value): void
 {
     error_clear_last();
     $result = \odbc_setoption($odbc, $which, $option, $value);
@@ -1038,7 +1038,7 @@ function odbc_setoption( $odbc, int $which, int $option, int $value): void
  *
  * @psalm-pure
  */
-function odbc_specialcolumns( $odbc, int $type, string $catalog, string $schema, string $table, int $scope, int $nullable)
+function odbc_specialcolumns($odbc, int $type, string $catalog, string $schema, string $table, int $scope, int $nullable)
 {
     error_clear_last();
     $result = \odbc_specialcolumns($odbc, $type, $catalog, $schema, $table, $scope, $nullable);
@@ -1085,7 +1085,7 @@ function odbc_specialcolumns( $odbc, int $type, string $catalog, string $schema,
  *
  * @psalm-pure
  */
-function odbc_statistics( $odbc, string $catalog, string $schema, string $table, int $unique, int $accuracy)
+function odbc_statistics($odbc, string $catalog, string $schema, string $table, int $unique, int $accuracy)
 {
     error_clear_last();
     $result = \odbc_statistics($odbc, $catalog, $schema, $table, $unique, $accuracy);
@@ -1128,7 +1128,7 @@ function odbc_statistics( $odbc, string $catalog, string $schema, string $table,
  *
  * @psalm-pure
  */
-function odbc_tableprivileges( $odbc, string $catalog, string $schema, string $table)
+function odbc_tableprivileges($odbc, string $catalog, string $schema, string $table)
 {
     error_clear_last();
     $result = \odbc_tableprivileges($odbc, $catalog, $schema, $table);
@@ -1213,7 +1213,7 @@ function odbc_tableprivileges( $odbc, string $catalog, string $schema, string $t
  *
  * @psalm-pure
  */
-function odbc_tables( $odbc, string $catalog = null, string $schema = null, string $table = null, string $types = null)
+function odbc_tables($odbc, string $catalog = null, string $schema = null, string $table = null, string $types = null)
 {
     error_clear_last();
     if ($types !== null) {
@@ -1224,7 +1224,7 @@ function odbc_tables( $odbc, string $catalog = null, string $schema = null, stri
         $result = \odbc_tables($odbc, $catalog, $schema);
     } elseif ($catalog !== null) {
         $result = \odbc_tables($odbc, $catalog);
-    }else {
+    } else {
         $result = \odbc_tables($odbc);
     }
     if ($result === false) {
@@ -1232,4 +1232,3 @@ function odbc_tables( $odbc, string $catalog = null, string $schema = null, stri
     }
     return $result;
 }
-

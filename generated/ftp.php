@@ -16,7 +16,7 @@ use Safe\Exceptions\FtpException;
  *
  * @psalm-pure
  */
-function ftp_alloc( $ftp, int $size, ?string &$response = null): void
+function ftp_alloc($ftp, int $size, ?string &$response = null): void
 {
     error_clear_last();
     $result = \ftp_alloc($ftp, $size, $response);
@@ -37,7 +37,7 @@ function ftp_alloc( $ftp, int $size, ?string &$response = null): void
  *
  * @psalm-pure
  */
-function ftp_append( $ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY): void
+function ftp_append($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY): void
 {
     error_clear_last();
     $result = \ftp_append($ftp, $remote_filename, $local_filename, $mode);
@@ -55,7 +55,7 @@ function ftp_append( $ftp, string $remote_filename, string $local_filename, int 
  *
  * @psalm-pure
  */
-function ftp_cdup( $ftp): void
+function ftp_cdup($ftp): void
 {
     error_clear_last();
     $result = \ftp_cdup($ftp);
@@ -74,7 +74,7 @@ function ftp_cdup( $ftp): void
  *
  * @psalm-pure
  */
-function ftp_chdir( $ftp, string $directory): void
+function ftp_chdir($ftp, string $directory): void
 {
     error_clear_last();
     $result = \ftp_chdir($ftp, $directory);
@@ -96,7 +96,7 @@ function ftp_chdir( $ftp, string $directory): void
  *
  * @psalm-pure
  */
-function ftp_chmod( $ftp, int $permissions, string $filename): int
+function ftp_chmod($ftp, int $permissions, string $filename): int
 {
     error_clear_last();
     $result = \ftp_chmod($ftp, $permissions, $filename);
@@ -115,7 +115,7 @@ function ftp_chmod( $ftp, int $permissions, string $filename): int
  * @throws FtpException
  *
  */
-function ftp_close( $ftp): void
+function ftp_close($ftp): void
 {
     error_clear_last();
     $result = \ftp_close($ftp);
@@ -163,7 +163,7 @@ function ftp_connect(string $hostname, int $port = 21, int $timeout = 90)
  *
  * @psalm-pure
  */
-function ftp_delete( $ftp, string $filename): void
+function ftp_delete($ftp, string $filename): void
 {
     error_clear_last();
     $result = \ftp_delete($ftp, $filename);
@@ -187,7 +187,7 @@ function ftp_delete( $ftp, string $filename): void
  *
  * @psalm-pure
  */
-function ftp_fget( $ftp,  $stream, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
+function ftp_fget($ftp, $stream, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
     error_clear_last();
     $result = \ftp_fget($ftp, $stream, $remote_filename, $mode, $offset);
@@ -211,7 +211,7 @@ function ftp_fget( $ftp,  $stream, string $remote_filename, int $mode = FTP_BINA
  *
  * @psalm-pure
  */
-function ftp_fput( $ftp, string $remote_filename,  $stream, int $mode = FTP_BINARY, int $offset = 0): void
+function ftp_fput($ftp, string $remote_filename, $stream, int $mode = FTP_BINARY, int $offset = 0): void
 {
     error_clear_last();
     $result = \ftp_fput($ftp, $remote_filename, $stream, $mode, $offset);
@@ -235,7 +235,7 @@ function ftp_fput( $ftp, string $remote_filename,  $stream, int $mode = FTP_BINA
  *
  * @psalm-pure
  */
-function ftp_get( $ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
+function ftp_get($ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
     error_clear_last();
     $result = \ftp_get($ftp, $local_filename, $remote_filename, $mode, $offset);
@@ -255,7 +255,7 @@ function ftp_get( $ftp, string $local_filename, string $remote_filename, int $mo
  *
  * @psalm-pure
  */
-function ftp_login( $ftp, string $username, string $password): void
+function ftp_login($ftp, string $username, string $password): void
 {
     error_clear_last();
     $result = \ftp_login($ftp, $username, $password);
@@ -275,7 +275,7 @@ function ftp_login( $ftp, string $username, string $password): void
  *
  * @psalm-pure
  */
-function ftp_mkdir( $ftp, string $directory): string
+function ftp_mkdir($ftp, string $directory): string
 {
     error_clear_last();
     $result = \ftp_mkdir($ftp, $directory);
@@ -296,7 +296,7 @@ function ftp_mkdir( $ftp, string $directory): string
  *
  * @psalm-pure
  */
-function ftp_mlsd( $ftp, string $directory): array
+function ftp_mlsd($ftp, string $directory): array
 {
     error_clear_last();
     $result = \ftp_mlsd($ftp, $directory);
@@ -326,7 +326,7 @@ function ftp_mlsd( $ftp, string $directory): array
  *
  * @psalm-pure
  */
-function ftp_nb_put( $ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): int
+function ftp_nb_put($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): int
 {
     error_clear_last();
     $result = \ftp_nb_put($ftp, $remote_filename, $local_filename, $mode, $offset);
@@ -350,7 +350,7 @@ function ftp_nb_put( $ftp, string $remote_filename, string $local_filename, int 
  *
  * @psalm-pure
  */
-function ftp_nlist( $ftp, string $directory): array
+function ftp_nlist($ftp, string $directory): array
 {
     error_clear_last();
     $result = \ftp_nlist($ftp, $directory);
@@ -376,7 +376,7 @@ function ftp_nlist( $ftp, string $directory): array
  *
  * @psalm-pure
  */
-function ftp_pasv( $ftp, bool $enable): void
+function ftp_pasv($ftp, bool $enable): void
 {
     error_clear_last();
     $result = \ftp_pasv($ftp, $enable);
@@ -399,7 +399,7 @@ function ftp_pasv( $ftp, bool $enable): void
  *
  * @psalm-pure
  */
-function ftp_put( $ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): void
+function ftp_put($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
     error_clear_last();
     $result = \ftp_put($ftp, $remote_filename, $local_filename, $mode, $offset);
@@ -418,7 +418,7 @@ function ftp_put( $ftp, string $remote_filename, string $local_filename, int $mo
  *
  * @psalm-pure
  */
-function ftp_pwd( $ftp): string
+function ftp_pwd($ftp): string
 {
     error_clear_last();
     $result = \ftp_pwd($ftp);
@@ -440,7 +440,7 @@ function ftp_pwd( $ftp): string
  *
  * @psalm-pure
  */
-function ftp_rename( $ftp, string $from, string $to): void
+function ftp_rename($ftp, string $from, string $to): void
 {
     error_clear_last();
     $result = \ftp_rename($ftp, $from, $to);
@@ -460,7 +460,7 @@ function ftp_rename( $ftp, string $from, string $to): void
  *
  * @psalm-pure
  */
-function ftp_rmdir( $ftp, string $directory): void
+function ftp_rmdir($ftp, string $directory): void
 {
     error_clear_last();
     $result = \ftp_rmdir($ftp, $directory);
@@ -485,7 +485,7 @@ function ftp_rmdir( $ftp, string $directory): void
  *
  * @psalm-pure
  */
-function ftp_site( $ftp, string $command): void
+function ftp_site($ftp, string $command): void
 {
     error_clear_last();
     $result = \ftp_site($ftp, $command);
@@ -537,7 +537,7 @@ function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90)
  *
  * @psalm-pure
  */
-function ftp_systype( $ftp): string
+function ftp_systype($ftp): string
 {
     error_clear_last();
     $result = \ftp_systype($ftp);
@@ -546,4 +546,3 @@ function ftp_systype( $ftp): string
     }
     return $result;
 }
-

@@ -47,12 +47,12 @@ use Safe\Exceptions\IbmDb2Exception;
  *
  * @psalm-pure
  */
-function db2_autocommit( $connection, int $value = null)
+function db2_autocommit($connection, int $value = null)
 {
     error_clear_last();
     if ($value !== null) {
         $result = \db2_autocommit($connection, $value);
-    }else {
+    } else {
         $result = \db2_autocommit($connection);
     }
     if ($result === false) {
@@ -98,7 +98,7 @@ function db2_autocommit( $connection, int $value = null)
  *
  * @psalm-pure
  */
-function db2_bind_param( $stmt, int $parameter_number, string $variable_name, int $parameter_type = null, int $data_type = 0, int $precision = -1, int $scale = 0): void
+function db2_bind_param($stmt, int $parameter_number, string $variable_name, int $parameter_type = null, int $data_type = 0, int $precision = -1, int $scale = 0): void
 {
     error_clear_last();
     if ($scale !== 0) {
@@ -109,7 +109,7 @@ function db2_bind_param( $stmt, int $parameter_number, string $variable_name, in
         $result = \db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_type, $data_type);
     } elseif ($parameter_type !== null) {
         $result = \db2_bind_param($stmt, $parameter_number, $variable_name, $parameter_type);
-    }else {
+    } else {
         $result = \db2_bind_param($stmt, $parameter_number, $variable_name);
     }
     if ($result === false) {
@@ -228,7 +228,7 @@ function db2_bind_param( $stmt, int $parameter_number, string $variable_name, in
  *
  * @psalm-pure
  */
-function db2_client_info( $connection): object
+function db2_client_info($connection): object
 {
     error_clear_last();
     $result = \db2_client_info($connection);
@@ -253,7 +253,7 @@ function db2_client_info( $connection): object
  *
  * @psalm-pure
  */
-function db2_close( $connection): void
+function db2_close($connection): void
 {
     error_clear_last();
     $result = \db2_close($connection);
@@ -275,7 +275,7 @@ function db2_close( $connection): void
  *
  * @psalm-pure
  */
-function db2_commit( $connection): void
+function db2_commit($connection): void
 {
     error_clear_last();
     $result = \db2_commit($connection);
@@ -310,12 +310,12 @@ function db2_commit( $connection): void
  *
  * @psalm-pure
  */
-function db2_execute( $stmt, array $parameters = null): void
+function db2_execute($stmt, array $parameters = null): void
 {
     error_clear_last();
     if ($parameters !== null) {
         $result = \db2_execute($stmt, $parameters);
-    }else {
+    } else {
         $result = \db2_execute($stmt);
     }
     if ($result === false) {
@@ -335,7 +335,7 @@ function db2_execute( $stmt, array $parameters = null): void
  *
  * @psalm-pure
  */
-function db2_free_result( $stmt): void
+function db2_free_result($stmt): void
 {
     error_clear_last();
     $result = \db2_free_result($stmt);
@@ -356,7 +356,7 @@ function db2_free_result( $stmt): void
  *
  * @psalm-pure
  */
-function db2_free_stmt( $stmt): void
+function db2_free_stmt($stmt): void
 {
     error_clear_last();
     $result = \db2_free_stmt($stmt);
@@ -517,7 +517,7 @@ function db2_free_stmt( $stmt): void
  *
  * @psalm-pure
  */
-function db2_get_option( $resource, string $option): string
+function db2_get_option($resource, string $option): string
 {
     error_clear_last();
     $result = \db2_get_option($resource, $option);
@@ -551,7 +551,7 @@ function db2_get_option( $resource, string $option): string
  *
  * @psalm-pure
  */
-function db2_pclose( $resource): void
+function db2_pclose($resource): void
 {
     error_clear_last();
     $result = \db2_pclose($resource);
@@ -573,7 +573,7 @@ function db2_pclose( $resource): void
  *
  * @psalm-pure
  */
-function db2_rollback( $connection): void
+function db2_rollback($connection): void
 {
     error_clear_last();
     $result = \db2_rollback($connection);
@@ -835,7 +835,7 @@ function db2_rollback( $connection): void
  *
  * @psalm-pure
  */
-function db2_server_info( $connection): object
+function db2_server_info($connection): object
 {
     error_clear_last();
     $result = \db2_server_info($connection);
@@ -1224,7 +1224,7 @@ function db2_server_info( $connection): object
  *
  * @psalm-pure
  */
-function db2_set_option( $resource, array $options, int $type): void
+function db2_set_option($resource, array $options, int $type): void
 {
     error_clear_last();
     $result = \db2_set_option($resource, $options, $type);
@@ -1232,4 +1232,3 @@ function db2_set_option( $resource, array $options, int $type): void
         throw IbmDb2Exception::createFromPhpError();
     }
 }
-

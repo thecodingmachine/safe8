@@ -26,7 +26,7 @@ use Safe\Exceptions\PsException;
  *
  * @psalm-pure
  */
-function ps_add_launchlink( $psdoc, float $llx, float $lly, float $urx, float $ury, string $filename): void
+function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename): void
 {
     error_clear_last();
     $result = \ps_add_launchlink($psdoc, $llx, $lly, $urx, $ury, $filename);
@@ -65,7 +65,7 @@ function ps_add_launchlink( $psdoc, float $llx, float $lly, float $urx, float $u
  *
  * @psalm-pure
  */
-function ps_add_locallink( $psdoc, float $llx, float $lly, float $urx, float $ury, int $page, string $dest): void
+function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury, int $page, string $dest): void
 {
     error_clear_last();
     $result = \ps_add_locallink($psdoc, $llx, $lly, $urx, $ury, $page, $dest);
@@ -105,7 +105,7 @@ function ps_add_locallink( $psdoc, float $llx, float $lly, float $urx, float $ur
  *
  * @psalm-pure
  */
-function ps_add_note( $psdoc, float $llx, float $lly, float $urx, float $ury, string $contents, string $title, string $icon, int $open): void
+function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, string $contents, string $title, string $icon, int $open): void
 {
     error_clear_last();
     $result = \ps_add_note($psdoc, $llx, $lly, $urx, $ury, $contents, $title, $icon, $open);
@@ -146,7 +146,7 @@ function ps_add_note( $psdoc, float $llx, float $lly, float $urx, float $ury, st
  *
  * @psalm-pure
  */
-function ps_add_pdflink( $psdoc, float $llx, float $lly, float $urx, float $ury, string $filename, int $page, string $dest): void
+function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename, int $page, string $dest): void
 {
     error_clear_last();
     $result = \ps_add_pdflink($psdoc, $llx, $lly, $urx, $ury, $filename, $page, $dest);
@@ -180,7 +180,7 @@ function ps_add_pdflink( $psdoc, float $llx, float $lly, float $urx, float $ury,
  *
  * @psalm-pure
  */
-function ps_add_weblink( $psdoc, float $llx, float $lly, float $urx, float $ury, string $url): void
+function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, string $url): void
 {
     error_clear_last();
     $result = \ps_add_weblink($psdoc, $llx, $lly, $urx, $ury, $url);
@@ -210,7 +210,7 @@ function ps_add_weblink( $psdoc, float $llx, float $lly, float $urx, float $ury,
  *
  * @psalm-pure
  */
-function ps_arc( $psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
+function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
     error_clear_last();
     $result = \ps_arc($psdoc, $x, $y, $radius, $alpha, $beta);
@@ -240,7 +240,7 @@ function ps_arc( $psdoc, float $x, float $y, float $radius, float $alpha, float 
  *
  * @psalm-pure
  */
-function ps_arcn( $psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
+function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
     error_clear_last();
     $result = \ps_arcn($psdoc, $x, $y, $radius, $alpha, $beta);
@@ -292,7 +292,7 @@ function ps_arcn( $psdoc, float $x, float $y, float $radius, float $alpha, float
  *
  * @psalm-pure
  */
-function ps_begin_page( $psdoc, float $width, float $height): void
+function ps_begin_page($psdoc, float $width, float $height): void
 {
     error_clear_last();
     $result = \ps_begin_page($psdoc, $width, $height);
@@ -322,7 +322,7 @@ function ps_begin_page( $psdoc, float $width, float $height): void
  *
  * @psalm-pure
  */
-function ps_begin_pattern( $psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype): int
+function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype): int
 {
     error_clear_last();
     $result = \ps_begin_pattern($psdoc, $width, $height, $xstep, $ystep, $painttype);
@@ -350,7 +350,7 @@ function ps_begin_pattern( $psdoc, float $width, float $height, float $xstep, fl
  *
  * @psalm-pure
  */
-function ps_begin_template( $psdoc, float $width, float $height): int
+function ps_begin_template($psdoc, float $width, float $height): int
 {
     error_clear_last();
     $result = \ps_begin_template($psdoc, $width, $height);
@@ -380,7 +380,7 @@ function ps_begin_template( $psdoc, float $width, float $height): int
  *
  * @psalm-pure
  */
-function ps_circle( $psdoc, float $x, float $y, float $radius): void
+function ps_circle($psdoc, float $x, float $y, float $radius): void
 {
     error_clear_last();
     $result = \ps_circle($psdoc, $x, $y, $radius);
@@ -400,7 +400,7 @@ function ps_circle( $psdoc, float $x, float $y, float $radius): void
  *
  * @psalm-pure
  */
-function ps_clip( $psdoc): void
+function ps_clip($psdoc): void
 {
     error_clear_last();
     $result = \ps_clip($psdoc);
@@ -423,7 +423,7 @@ function ps_clip( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_close_image( $psdoc, int $imageid): void
+function ps_close_image($psdoc, int $imageid): void
 {
     error_clear_last();
     $result = \ps_close_image($psdoc, $imageid);
@@ -449,7 +449,7 @@ function ps_close_image( $psdoc, int $imageid): void
  *
  * @psalm-pure
  */
-function ps_close( $psdoc): void
+function ps_close($psdoc): void
 {
     error_clear_last();
     $result = \ps_close($psdoc);
@@ -469,7 +469,7 @@ function ps_close( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_closepath_stroke( $psdoc): void
+function ps_closepath_stroke($psdoc): void
 {
     error_clear_last();
     $result = \ps_closepath_stroke($psdoc);
@@ -489,7 +489,7 @@ function ps_closepath_stroke( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_closepath( $psdoc): void
+function ps_closepath($psdoc): void
 {
     error_clear_last();
     $result = \ps_closepath($psdoc);
@@ -513,7 +513,7 @@ function ps_closepath( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_continue_text( $psdoc, string $text): void
+function ps_continue_text($psdoc, string $text): void
 {
     error_clear_last();
     $result = \ps_continue_text($psdoc, $text);
@@ -539,7 +539,7 @@ function ps_continue_text( $psdoc, string $text): void
  *
  * @psalm-pure
  */
-function ps_curveto( $psdoc, float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): void
+function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): void
 {
     error_clear_last();
     $result = \ps_curveto($psdoc, $x1, $y1, $x2, $y2, $x3, $y3);
@@ -563,7 +563,7 @@ function ps_curveto( $psdoc, float $x1, float $y1, float $x2, float $y2, float $
  *
  * @psalm-pure
  */
-function ps_delete( $psdoc): void
+function ps_delete($psdoc): void
 {
     error_clear_last();
     $result = \ps_delete($psdoc);
@@ -585,7 +585,7 @@ function ps_delete( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_end_page( $psdoc): void
+function ps_end_page($psdoc): void
 {
     error_clear_last();
     $result = \ps_end_page($psdoc);
@@ -606,7 +606,7 @@ function ps_end_page( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_end_pattern( $psdoc): void
+function ps_end_pattern($psdoc): void
 {
     error_clear_last();
     $result = \ps_end_pattern($psdoc);
@@ -626,7 +626,7 @@ function ps_end_pattern( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_end_template( $psdoc): void
+function ps_end_template($psdoc): void
 {
     error_clear_last();
     $result = \ps_end_template($psdoc);
@@ -646,7 +646,7 @@ function ps_end_template( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_fill_stroke( $psdoc): void
+function ps_fill_stroke($psdoc): void
 {
     error_clear_last();
     $result = \ps_fill_stroke($psdoc);
@@ -666,7 +666,7 @@ function ps_fill_stroke( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_fill( $psdoc): void
+function ps_fill($psdoc): void
 {
     error_clear_last();
     $result = \ps_fill($psdoc);
@@ -803,12 +803,12 @@ function ps_fill( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_get_parameter( $psdoc, string $name, float $modifier = null): string
+function ps_get_parameter($psdoc, string $name, float $modifier = null): string
 {
     error_clear_last();
     if ($modifier !== null) {
         $result = \ps_get_parameter($psdoc, $name, $modifier);
-    }else {
+    } else {
         $result = \ps_get_parameter($psdoc, $name);
     }
     if ($result === false) {
@@ -840,7 +840,7 @@ function ps_get_parameter( $psdoc, string $name, float $modifier = null): string
  *
  * @psalm-pure
  */
-function ps_hyphenate( $psdoc, string $text): array
+function ps_hyphenate($psdoc, string $text): array
 {
     error_clear_last();
     $result = \ps_hyphenate($psdoc, $text);
@@ -863,7 +863,7 @@ function ps_hyphenate( $psdoc, string $text): array
  *
  * @psalm-pure
  */
-function ps_include_file( $psdoc, string $file): void
+function ps_include_file($psdoc, string $file): void
 {
     error_clear_last();
     $result = \ps_include_file($psdoc, $file);
@@ -886,7 +886,7 @@ function ps_include_file( $psdoc, string $file): void
  *
  * @psalm-pure
  */
-function ps_lineto( $psdoc, float $x, float $y): void
+function ps_lineto($psdoc, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_lineto($psdoc, $x, $y);
@@ -910,7 +910,7 @@ function ps_lineto( $psdoc, float $x, float $y): void
  *
  * @psalm-pure
  */
-function ps_moveto( $psdoc, float $x, float $y): void
+function ps_moveto($psdoc, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_moveto($psdoc, $x, $y);
@@ -956,12 +956,12 @@ function ps_new()
  *
  * @psalm-pure
  */
-function ps_open_file( $psdoc, string $filename = null): void
+function ps_open_file($psdoc, string $filename = null): void
 {
     error_clear_last();
     if ($filename !== null) {
         $result = \ps_open_file($psdoc, $filename);
-    }else {
+    } else {
         $result = \ps_open_file($psdoc);
     }
     if ($result === false) {
@@ -989,7 +989,7 @@ function ps_open_file( $psdoc, string $filename = null): void
  *
  * @psalm-pure
  */
-function ps_place_image( $psdoc, int $imageid, float $x, float $y, float $scale): void
+function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale): void
 {
     error_clear_last();
     $result = \ps_place_image($psdoc, $imageid, $x, $y, $scale);
@@ -1017,7 +1017,7 @@ function ps_place_image( $psdoc, int $imageid, float $x, float $y, float $scale)
  *
  * @psalm-pure
  */
-function ps_rect( $psdoc, float $x, float $y, float $width, float $height): void
+function ps_rect($psdoc, float $x, float $y, float $width, float $height): void
 {
     error_clear_last();
     $result = \ps_rect($psdoc, $x, $y, $width, $height);
@@ -1040,7 +1040,7 @@ function ps_rect( $psdoc, float $x, float $y, float $width, float $height): void
  *
  * @psalm-pure
  */
-function ps_restore( $psdoc): void
+function ps_restore($psdoc): void
 {
     error_clear_last();
     $result = \ps_restore($psdoc);
@@ -1060,7 +1060,7 @@ function ps_restore( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_rotate( $psdoc, float $rot): void
+function ps_rotate($psdoc, float $rot): void
 {
     error_clear_last();
     $result = \ps_rotate($psdoc, $rot);
@@ -1081,7 +1081,7 @@ function ps_rotate( $psdoc, float $rot): void
  *
  * @psalm-pure
  */
-function ps_save( $psdoc): void
+function ps_save($psdoc): void
 {
     error_clear_last();
     $result = \ps_save($psdoc);
@@ -1102,7 +1102,7 @@ function ps_save( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_scale( $psdoc, float $x, float $y): void
+function ps_scale($psdoc, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_scale($psdoc, $x, $y);
@@ -1129,7 +1129,7 @@ function ps_scale( $psdoc, float $x, float $y): void
  *
  * @psalm-pure
  */
-function ps_set_border_color( $psdoc, float $red, float $green, float $blue): void
+function ps_set_border_color($psdoc, float $red, float $green, float $blue): void
 {
     error_clear_last();
     $result = \ps_set_border_color($psdoc, $red, $green, $blue);
@@ -1156,7 +1156,7 @@ function ps_set_border_color( $psdoc, float $red, float $green, float $blue): vo
  *
  * @psalm-pure
  */
-function ps_set_border_dash( $psdoc, float $black, float $white): void
+function ps_set_border_dash($psdoc, float $black, float $white): void
 {
     error_clear_last();
     $result = \ps_set_border_dash($psdoc, $black, $white);
@@ -1183,7 +1183,7 @@ function ps_set_border_dash( $psdoc, float $black, float $white): void
  *
  * @psalm-pure
  */
-function ps_set_border_style( $psdoc, string $style, float $width): void
+function ps_set_border_style($psdoc, string $style, float $width): void
 {
     error_clear_last();
     $result = \ps_set_border_style($psdoc, $style, $width);
@@ -1231,7 +1231,7 @@ function ps_set_border_style( $psdoc, string $style, float $width): void
  *
  * @psalm-pure
  */
-function ps_set_info( $p, string $key, string $val): void
+function ps_set_info($p, string $key, string $val): void
 {
     error_clear_last();
     $result = \ps_set_info($p, $key, $val);
@@ -1253,7 +1253,7 @@ function ps_set_info( $p, string $key, string $val): void
  *
  * @psalm-pure
  */
-function ps_set_parameter( $psdoc, string $name, string $value): void
+function ps_set_parameter($psdoc, string $name, string $value): void
 {
     error_clear_last();
     $result = \ps_set_parameter($psdoc, $name, $value);
@@ -1281,7 +1281,7 @@ function ps_set_parameter( $psdoc, string $name, string $value): void
  *
  * @psalm-pure
  */
-function ps_set_text_pos( $psdoc, float $x, float $y): void
+function ps_set_text_pos($psdoc, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_set_text_pos($psdoc, $x, $y);
@@ -1355,7 +1355,7 @@ function ps_set_text_pos( $psdoc, float $x, float $y): void
  *
  * @psalm-pure
  */
-function ps_set_value( $psdoc, string $name, float $value): void
+function ps_set_value($psdoc, string $name, float $value): void
 {
     error_clear_last();
     $result = \ps_set_value($psdoc, $name, $value);
@@ -1391,7 +1391,7 @@ function ps_set_value( $psdoc, string $name, float $value): void
  *
  * @psalm-pure
  */
-function ps_setcolor( $psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4): void
+function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4): void
 {
     error_clear_last();
     $result = \ps_setcolor($psdoc, $type, $colorspace, $c1, $c2, $c3, $c4);
@@ -1412,7 +1412,7 @@ function ps_setcolor( $psdoc, string $type, string $colorspace, float $c1, float
  *
  * @psalm-pure
  */
-function ps_setdash( $psdoc, float $on, float $off): void
+function ps_setdash($psdoc, float $on, float $off): void
 {
     error_clear_last();
     $result = \ps_setdash($psdoc, $on, $off);
@@ -1434,7 +1434,7 @@ function ps_setdash( $psdoc, float $on, float $off): void
  *
  * @psalm-pure
  */
-function ps_setflat( $psdoc, float $value): void
+function ps_setflat($psdoc, float $value): void
 {
     error_clear_last();
     $result = \ps_setflat($psdoc, $value);
@@ -1457,7 +1457,7 @@ function ps_setflat( $psdoc, float $value): void
  *
  * @psalm-pure
  */
-function ps_setfont( $psdoc, int $fontid, float $size): void
+function ps_setfont($psdoc, int $fontid, float $size): void
 {
     error_clear_last();
     $result = \ps_setfont($psdoc, $fontid, $size);
@@ -1477,7 +1477,7 @@ function ps_setfont( $psdoc, int $fontid, float $size): void
  *
  * @psalm-pure
  */
-function ps_setgray( $psdoc, float $gray): void
+function ps_setgray($psdoc, float $gray): void
 {
     error_clear_last();
     $result = \ps_setgray($psdoc, $gray);
@@ -1500,7 +1500,7 @@ function ps_setgray( $psdoc, float $gray): void
  *
  * @psalm-pure
  */
-function ps_setlinecap( $psdoc, int $type): void
+function ps_setlinecap($psdoc, int $type): void
 {
     error_clear_last();
     $result = \ps_setlinecap($psdoc, $type);
@@ -1523,7 +1523,7 @@ function ps_setlinecap( $psdoc, int $type): void
  *
  * @psalm-pure
  */
-function ps_setlinejoin( $psdoc, int $type): void
+function ps_setlinejoin($psdoc, int $type): void
 {
     error_clear_last();
     $result = \ps_setlinejoin($psdoc, $type);
@@ -1543,7 +1543,7 @@ function ps_setlinejoin( $psdoc, int $type): void
  *
  * @psalm-pure
  */
-function ps_setlinewidth( $psdoc, float $width): void
+function ps_setlinewidth($psdoc, float $width): void
 {
     error_clear_last();
     $result = \ps_setlinewidth($psdoc, $width);
@@ -1568,7 +1568,7 @@ function ps_setlinewidth( $psdoc, float $width): void
  *
  * @psalm-pure
  */
-function ps_setmiterlimit( $psdoc, float $value): void
+function ps_setmiterlimit($psdoc, float $value): void
 {
     error_clear_last();
     $result = \ps_setmiterlimit($psdoc, $value);
@@ -1590,7 +1590,7 @@ function ps_setmiterlimit( $psdoc, float $value): void
  *
  * @psalm-pure
  */
-function ps_setoverprintmode( $psdoc, int $mode): void
+function ps_setoverprintmode($psdoc, int $mode): void
 {
     error_clear_last();
     $result = \ps_setoverprintmode($psdoc, $mode);
@@ -1613,7 +1613,7 @@ function ps_setoverprintmode( $psdoc, int $mode): void
  *
  * @psalm-pure
  */
-function ps_setpolydash( $psdoc, float $arr): void
+function ps_setpolydash($psdoc, float $arr): void
 {
     error_clear_last();
     $result = \ps_setpolydash($psdoc, $arr);
@@ -1638,7 +1638,7 @@ function ps_setpolydash( $psdoc, float $arr): void
  *
  * @psalm-pure
  */
-function ps_shading_pattern( $psdoc, int $shadingid, string $optlist): int
+function ps_shading_pattern($psdoc, int $shadingid, string $optlist): int
 {
     error_clear_last();
     $result = \ps_shading_pattern($psdoc, $shadingid, $optlist);
@@ -1684,7 +1684,7 @@ function ps_shading_pattern( $psdoc, int $shadingid, string $optlist): int
  *
  * @psalm-pure
  */
-function ps_shading( $psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist): int
+function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist): int
 {
     error_clear_last();
     $result = \ps_shading($psdoc, $type, $x0, $y0, $x1, $y1, $c1, $c2, $c3, $c4, $optlist);
@@ -1709,7 +1709,7 @@ function ps_shading( $psdoc, string $type, float $x0, float $y0, float $x1, floa
  *
  * @psalm-pure
  */
-function ps_shfill( $psdoc, int $shadingid): void
+function ps_shfill($psdoc, int $shadingid): void
 {
     error_clear_last();
     $result = \ps_shfill($psdoc, $shadingid);
@@ -1731,7 +1731,7 @@ function ps_shfill( $psdoc, int $shadingid): void
  *
  * @psalm-pure
  */
-function ps_show_xy( $psdoc, string $text, float $x, float $y): void
+function ps_show_xy($psdoc, string $text, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_show_xy($psdoc, $text, $x, $y);
@@ -1755,7 +1755,7 @@ function ps_show_xy( $psdoc, string $text, float $x, float $y): void
  *
  * @psalm-pure
  */
-function ps_show_xy2( $psdoc, string $text, int $len, float $xcoor, float $ycoor): void
+function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor): void
 {
     error_clear_last();
     $result = \ps_show_xy2($psdoc, $text, $len, $xcoor, $ycoor);
@@ -1783,7 +1783,7 @@ function ps_show_xy2( $psdoc, string $text, int $len, float $xcoor, float $ycoor
  *
  * @psalm-pure
  */
-function ps_show( $psdoc, string $text): void
+function ps_show($psdoc, string $text): void
 {
     error_clear_last();
     $result = \ps_show($psdoc, $text);
@@ -1804,7 +1804,7 @@ function ps_show( $psdoc, string $text): void
  *
  * @psalm-pure
  */
-function ps_show2( $psdoc, string $text, int $len): void
+function ps_show2($psdoc, string $text, int $len): void
 {
     error_clear_last();
     $result = \ps_show2($psdoc, $text, $len);
@@ -1824,7 +1824,7 @@ function ps_show2( $psdoc, string $text, int $len): void
  *
  * @psalm-pure
  */
-function ps_stroke( $psdoc): void
+function ps_stroke($psdoc): void
 {
     error_clear_last();
     $result = \ps_stroke($psdoc);
@@ -1846,7 +1846,7 @@ function ps_stroke( $psdoc): void
  *
  * @psalm-pure
  */
-function ps_symbol( $psdoc, int $ord): void
+function ps_symbol($psdoc, int $ord): void
 {
     error_clear_last();
     $result = \ps_symbol($psdoc, $ord);
@@ -1867,7 +1867,7 @@ function ps_symbol( $psdoc, int $ord): void
  *
  * @psalm-pure
  */
-function ps_translate( $psdoc, float $x, float $y): void
+function ps_translate($psdoc, float $x, float $y): void
 {
     error_clear_last();
     $result = \ps_translate($psdoc, $x, $y);
@@ -1875,4 +1875,3 @@ function ps_translate( $psdoc, float $x, float $y): void
         throw PsException::createFromPhpError();
     }
 }
-

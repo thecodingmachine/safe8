@@ -28,7 +28,7 @@ use Safe\Exceptions\MiscException;
  * @throws MiscException
  *
  */
-function define(string $constant_name,  $value, bool $case_insensitive = false): void
+function define(string $constant_name, $value, bool $case_insensitive = false): void
 {
     error_clear_last();
     $result = \define($constant_name, $value, $case_insensitive);
@@ -274,12 +274,12 @@ function hrtime(bool $as_number = false)
  *
  * @psalm-pure
  */
-function pack(string $format,   ...$values): string
+function pack(string $format, ...$values): string
 {
     error_clear_last();
     if ($values !== []) {
         $result = \pack($format, ...$values);
-    }else {
+    } else {
         $result = \pack($format);
     }
     if ($result === false) {
@@ -303,7 +303,7 @@ function pack(string $format,   ...$values): string
  *
  * @psalm-pure
  */
-function sapi_windows_cp_conv( $in_codepage,  $out_codepage, string $subject): string
+function sapi_windows_cp_conv($in_codepage, $out_codepage, string $subject): string
 {
     error_clear_last();
     $result = \sapi_windows_cp_conv($in_codepage, $out_codepage, $subject);
@@ -371,12 +371,12 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0): void
  *
  * @psalm-pure
  */
-function sapi_windows_vt100_support( $stream, bool $enable = null): void
+function sapi_windows_vt100_support($stream, bool $enable = null): void
 {
     error_clear_last();
     if ($enable !== null) {
         $result = \sapi_windows_vt100_support($stream, $enable);
-    }else {
+    } else {
         $result = \sapi_windows_vt100_support($stream);
     }
     if ($result === false) {
@@ -534,4 +534,3 @@ function unpack(string $format, string $string, int $offset = 0): array
     }
     return $result;
 }
-

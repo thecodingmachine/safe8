@@ -14,7 +14,7 @@ use Safe\Exceptions\Ssh2Exception;
  *
  * @psalm-pure
  */
-function ssh2_auth_agent( $session, string $username): void
+function ssh2_auth_agent($session, string $username): void
 {
     error_clear_last();
     $result = \ssh2_auth_agent($session, $username);
@@ -41,14 +41,14 @@ function ssh2_auth_agent( $session, string $username): void
  *
  * @psalm-pure
  */
-function ssh2_auth_hostbased_file( $session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = null, string $local_username = null): void
+function ssh2_auth_hostbased_file($session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = null, string $local_username = null): void
 {
     error_clear_last();
     if ($local_username !== null) {
         $result = \ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $privkeyfile, $passphrase, $local_username);
     } elseif ($passphrase !== null) {
         $result = \ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $privkeyfile, $passphrase);
-    }else {
+    } else {
         $result = \ssh2_auth_hostbased_file($session, $username, $hostname, $pubkeyfile, $privkeyfile);
     }
     if ($result === false) {
@@ -69,7 +69,7 @@ function ssh2_auth_hostbased_file( $session, string $username, string $hostname,
  *
  * @psalm-pure
  */
-function ssh2_auth_password( $session, string $username, string $password): void
+function ssh2_auth_password($session, string $username, string $password): void
 {
     error_clear_last();
     $result = \ssh2_auth_password($session, $username, $password);
@@ -95,12 +95,12 @@ function ssh2_auth_password( $session, string $username, string $password): void
  *
  * @psalm-pure
  */
-function ssh2_auth_pubkey_file( $session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = null): void
+function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = null): void
 {
     error_clear_last();
     if ($passphrase !== null) {
         $result = \ssh2_auth_pubkey_file($session, $username, $pubkeyfile, $privkeyfile, $passphrase);
-    }else {
+    } else {
         $result = \ssh2_auth_pubkey_file($session, $username, $pubkeyfile, $privkeyfile);
     }
     if ($result === false) {
@@ -316,7 +316,7 @@ function ssh2_connect(string $host, int $port = 22, array $methods = null, array
         $result = \ssh2_connect($host, $port, $methods, $callbacks);
     } elseif ($methods !== null) {
         $result = \ssh2_connect($host, $port, $methods);
-    }else {
+    } else {
         $result = \ssh2_connect($host, $port);
     }
     if ($result === false) {
@@ -335,7 +335,7 @@ function ssh2_connect(string $host, int $port = 22, array $methods = null, array
  *
  * @psalm-pure
  */
-function ssh2_disconnect( $session): void
+function ssh2_disconnect($session): void
 {
     error_clear_last();
     $result = \ssh2_disconnect($session);
@@ -364,7 +364,7 @@ function ssh2_disconnect( $session): void
  *
  * @psalm-pure
  */
-function ssh2_exec( $session, string $command, string $pty = null, array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
+function ssh2_exec($session, string $command, string $pty = null, array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {
     error_clear_last();
     if ($width_height_type !== SSH2_TERM_UNIT_CHARS) {
@@ -377,7 +377,7 @@ function ssh2_exec( $session, string $command, string $pty = null, array $env = 
         $result = \ssh2_exec($session, $command, $pty, $env);
     } elseif ($pty !== null) {
         $result = \ssh2_exec($session, $command, $pty);
-    }else {
+    } else {
         $result = \ssh2_exec($session, $command);
     }
     if ($result === false) {
@@ -396,7 +396,7 @@ function ssh2_exec( $session, string $command, string $pty = null, array $env = 
  *
  * @psalm-pure
  */
-function ssh2_forward_accept( $listener)
+function ssh2_forward_accept($listener)
 {
     error_clear_last();
     $result = \ssh2_forward_accept($listener);
@@ -419,14 +419,14 @@ function ssh2_forward_accept( $listener)
  *
  * @psalm-pure
  */
-function ssh2_forward_listen( $session, int $port, string $host = null, int $max_connections = 16)
+function ssh2_forward_listen($session, int $port, string $host = null, int $max_connections = 16)
 {
     error_clear_last();
     if ($max_connections !== 16) {
         $result = \ssh2_forward_listen($session, $port, $host, $max_connections);
     } elseif ($host !== null) {
         $result = \ssh2_forward_listen($session, $port, $host);
-    }else {
+    } else {
         $result = \ssh2_forward_listen($session, $port);
     }
     if ($result === false) {
@@ -452,12 +452,12 @@ function ssh2_forward_listen( $session, int $port, string $host = null, int $max
  *
  * @psalm-pure
  */
-function ssh2_publickey_add( $pkey, string $algoname, string $blob, bool $overwrite = false, array $attributes = null): void
+function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwrite = false, array $attributes = null): void
 {
     error_clear_last();
     if ($attributes !== null) {
         $result = \ssh2_publickey_add($pkey, $algoname, $blob, $overwrite, $attributes);
-    }else {
+    } else {
         $result = \ssh2_publickey_add($pkey, $algoname, $blob, $overwrite);
     }
     if ($result === false) {
@@ -482,7 +482,7 @@ function ssh2_publickey_add( $pkey, string $algoname, string $blob, bool $overwr
  *
  * @psalm-pure
  */
-function ssh2_publickey_init( $session)
+function ssh2_publickey_init($session)
 {
     error_clear_last();
     $result = \ssh2_publickey_init($session);
@@ -503,7 +503,7 @@ function ssh2_publickey_init( $session)
  *
  * @psalm-pure
  */
-function ssh2_publickey_remove( $pkey, string $algoname, string $blob): void
+function ssh2_publickey_remove($pkey, string $algoname, string $blob): void
 {
     error_clear_last();
     $result = \ssh2_publickey_remove($pkey, $algoname, $blob);
@@ -524,7 +524,7 @@ function ssh2_publickey_remove( $pkey, string $algoname, string $blob): void
  *
  * @psalm-pure
  */
-function ssh2_scp_recv( $session, string $remote_file, string $local_file): void
+function ssh2_scp_recv($session, string $remote_file, string $local_file): void
 {
     error_clear_last();
     $result = \ssh2_scp_recv($session, $remote_file, $local_file);
@@ -547,7 +547,7 @@ function ssh2_scp_recv( $session, string $remote_file, string $local_file): void
  *
  * @psalm-pure
  */
-function ssh2_scp_send( $session, string $local_file, string $remote_file, int $create_mode = 0644): void
+function ssh2_scp_send($session, string $local_file, string $remote_file, int $create_mode = 0644): void
 {
     error_clear_last();
     $result = \ssh2_scp_send($session, $local_file, $remote_file, $create_mode);
@@ -569,7 +569,7 @@ function ssh2_scp_send( $session, string $local_file, string $remote_file, int $
  *
  * @psalm-pure
  */
-function ssh2_send_eof( $channel): void
+function ssh2_send_eof($channel): void
 {
     error_clear_last();
     $result = \ssh2_send_eof($channel);
@@ -590,7 +590,7 @@ function ssh2_send_eof( $channel): void
  *
  * @psalm-pure
  */
-function ssh2_sftp_chmod( $sftp, string $filename, int $mode): void
+function ssh2_sftp_chmod($sftp, string $filename, int $mode): void
 {
     error_clear_last();
     $result = \ssh2_sftp_chmod($sftp, $filename, $mode);
@@ -617,7 +617,7 @@ function ssh2_sftp_chmod( $sftp, string $filename, int $mode): void
  *
  * @psalm-pure
  */
-function ssh2_sftp_mkdir( $sftp, string $dirname, int $mode = 0777, bool $recursive = false): void
+function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursive = false): void
 {
     error_clear_last();
     $result = \ssh2_sftp_mkdir($sftp, $dirname, $mode, $recursive);
@@ -637,7 +637,7 @@ function ssh2_sftp_mkdir( $sftp, string $dirname, int $mode = 0777, bool $recurs
  *
  * @psalm-pure
  */
-function ssh2_sftp_rename( $sftp, string $from, string $to): void
+function ssh2_sftp_rename($sftp, string $from, string $to): void
 {
     error_clear_last();
     $result = \ssh2_sftp_rename($sftp, $from, $to);
@@ -659,7 +659,7 @@ function ssh2_sftp_rename( $sftp, string $from, string $to): void
  *
  * @psalm-pure
  */
-function ssh2_sftp_rmdir( $sftp, string $dirname): void
+function ssh2_sftp_rmdir($sftp, string $dirname): void
 {
     error_clear_last();
     $result = \ssh2_sftp_rmdir($sftp, $dirname);
@@ -680,7 +680,7 @@ function ssh2_sftp_rmdir( $sftp, string $dirname): void
  *
  * @psalm-pure
  */
-function ssh2_sftp_symlink( $sftp, string $target, string $link): void
+function ssh2_sftp_symlink($sftp, string $target, string $link): void
 {
     error_clear_last();
     $result = \ssh2_sftp_symlink($sftp, $target, $link);
@@ -699,7 +699,7 @@ function ssh2_sftp_symlink( $sftp, string $target, string $link): void
  *
  * @psalm-pure
  */
-function ssh2_sftp_unlink( $sftp, string $filename): void
+function ssh2_sftp_unlink($sftp, string $filename): void
 {
     error_clear_last();
     $result = \ssh2_sftp_unlink($sftp, $filename);
@@ -721,7 +721,7 @@ function ssh2_sftp_unlink( $sftp, string $filename): void
  *
  * @psalm-pure
  */
-function ssh2_sftp( $session)
+function ssh2_sftp($session)
 {
     error_clear_last();
     $result = \ssh2_sftp($session);
@@ -751,7 +751,7 @@ function ssh2_sftp( $session)
  *
  * @psalm-pure
  */
-function ssh2_shell( $session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
+function ssh2_shell($session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {
     error_clear_last();
     if ($width_height_type !== SSH2_TERM_UNIT_CHARS) {
@@ -762,7 +762,7 @@ function ssh2_shell( $session, string $term_type = "vanilla", array $env = null,
         $result = \ssh2_shell($session, $term_type, $env, $width);
     } elseif ($env !== null) {
         $result = \ssh2_shell($session, $term_type, $env);
-    }else {
+    } else {
         $result = \ssh2_shell($session, $term_type);
     }
     if ($result === false) {
@@ -770,4 +770,3 @@ function ssh2_shell( $session, string $term_type = "vanilla", array $env = null,
     }
     return $result;
 }
-

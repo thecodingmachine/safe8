@@ -771,4 +771,3 @@ function posix_uname(): array
     }
     return $result;
 }
-

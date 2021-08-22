@@ -235,7 +235,7 @@ function xdiff_string_patch(string $str, string $patch, int $flags = null, ?stri
         $result = \xdiff_string_patch($str, $patch, $flags, $error);
     } elseif ($flags !== null) {
         $result = \xdiff_string_patch($str, $patch, $flags);
-    }else {
+    } else {
         $result = \xdiff_string_patch($str, $patch);
     }
     if ($result === false) {
@@ -243,4 +243,3 @@ function xdiff_string_patch(string $str, string $patch, int $flags = null, ?stri
     }
     return $result;
 }
-

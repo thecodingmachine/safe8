@@ -25,7 +25,7 @@ function mb_chr(int $codepoint, string $encoding = null): string
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_chr($codepoint, $encoding);
-    }else {
+    } else {
         $result = \mb_chr($codepoint);
     }
     if ($result === false) {
@@ -57,12 +57,12 @@ function mb_chr(int $codepoint, string $encoding = null): string
  *
  * @psalm-pure
  */
-function mb_convert_encoding( $string, string $to_encoding,  $from_encoding = null)
+function mb_convert_encoding($string, string $to_encoding, $from_encoding = null)
 {
     error_clear_last();
     if ($from_encoding !== null) {
         $result = \mb_convert_encoding($string, $to_encoding, $from_encoding);
-    }else {
+    } else {
         $result = \mb_convert_encoding($string, $to_encoding);
     }
     if ($result === false) {
@@ -102,12 +102,12 @@ function mb_convert_encoding( $string, string $to_encoding,  $from_encoding = nu
  *
  * @psalm-pure
  */
-function mb_detect_order( $encoding = null)
+function mb_detect_order($encoding = null)
 {
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_detect_order($encoding);
-    }else {
+    } else {
         $result = \mb_detect_order();
     }
     if ($result === false) {
@@ -177,7 +177,7 @@ function mb_ereg_replace_callback(string $pattern, callable $callback, string $s
     error_clear_last();
     if ($options !== null) {
         $result = \mb_ereg_replace_callback($pattern, $callback, $string, $options);
-    }else {
+    } else {
         $result = \mb_ereg_replace_callback($pattern, $callback, $string);
     }
     if ($result === false) {
@@ -208,7 +208,7 @@ function mb_ereg_replace(string $pattern, string $replacement, string $string, s
     error_clear_last();
     if ($options !== null) {
         $result = \mb_ereg_replace($pattern, $replacement, $string, $options);
-    }else {
+    } else {
         $result = \mb_ereg_replace($pattern, $replacement, $string);
     }
     if ($result === false) {
@@ -259,7 +259,7 @@ function mb_ereg_search_init(string $string, string $pattern = null, string $opt
         $result = \mb_ereg_search_init($string, $pattern, $options);
     } elseif ($pattern !== null) {
         $result = \mb_ereg_search_init($string, $pattern);
-    }else {
+    } else {
         $result = \mb_ereg_search_init($string);
     }
     if ($result === false) {
@@ -285,7 +285,7 @@ function mb_ereg_search_regs(string $pattern = null, string $options = null): ar
         $result = \mb_ereg_search_regs($pattern, $options);
     } elseif ($pattern !== null) {
         $result = \mb_ereg_search_regs($pattern);
-    }else {
+    } else {
         $result = \mb_ereg_search_regs();
     }
     if ($result === false) {
@@ -332,7 +332,7 @@ function mb_eregi_replace(string $pattern, string $replacement, string $string, 
     error_clear_last();
     if ($options !== null) {
         $result = \mb_eregi_replace($pattern, $replacement, $string, $options);
-    }else {
+    } else {
         $result = \mb_eregi_replace($pattern, $replacement, $string);
     }
     if ($result === false) {
@@ -405,7 +405,7 @@ function mb_http_output(string $encoding = null)
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_http_output($encoding);
-    }else {
+    } else {
         $result = \mb_http_output();
     }
     if ($result === false) {
@@ -436,7 +436,7 @@ function mb_internal_encoding(string $encoding = null)
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_internal_encoding($encoding);
-    }else {
+    } else {
         $result = \mb_internal_encoding();
     }
     if ($result === false) {
@@ -465,7 +465,7 @@ function mb_ord(string $string, string $encoding = null): int
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_ord($string, $encoding);
-    }else {
+    } else {
         $result = \mb_ord($string);
     }
     if ($result === false) {
@@ -515,7 +515,7 @@ function mb_regex_encoding(string $encoding = null)
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_regex_encoding($encoding);
-    }else {
+    } else {
         $result = \mb_regex_encoding();
     }
     if ($result === false) {
@@ -583,12 +583,12 @@ function mb_regex_encoding(string $encoding = null)
  *
  * @psalm-pure
  */
-function mb_send_mail(string $to, string $subject, string $message,  $additional_headers = [], string $additional_params = null): void
+function mb_send_mail(string $to, string $subject, string $message, $additional_headers = [], string $additional_params = null): void
 {
     error_clear_last();
     if ($additional_params !== null) {
         $result = \mb_send_mail($to, $subject, $message, $additional_headers, $additional_params);
-    }else {
+    } else {
         $result = \mb_send_mail($to, $subject, $message, $additional_headers);
     }
     if ($result === false) {
@@ -636,12 +636,12 @@ function mb_split(string $pattern, string $string, int $limit = -1): array
  *
  * @psalm-pure
  */
-function mb_str_split(string $string, int $length = 1,  $encoding = null): array
+function mb_str_split(string $string, int $length = 1, $encoding = null): array
 {
     error_clear_last();
     if ($encoding !== null) {
         $result = \mb_str_split($string, $length, $encoding);
-    }else {
+    } else {
         $result = \mb_str_split($string, $length);
     }
     if ($result === false) {
@@ -649,4 +649,3 @@ function mb_str_split(string $string, int $length = 1,  $encoding = null): array
     }
     return $result;
 }
-

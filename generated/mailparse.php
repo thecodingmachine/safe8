@@ -27,12 +27,12 @@ use Safe\Exceptions\MailparseException;
  *
  * @psalm-pure
  */
-function mailparse_msg_extract_part_file( $mimemail,  $filename, callable $callbackfunc = null): string
+function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbackfunc = null): string
 {
     error_clear_last();
     if ($callbackfunc !== null) {
         $result = \mailparse_msg_extract_part_file($mimemail, $filename, $callbackfunc);
-    }else {
+    } else {
         $result = \mailparse_msg_extract_part_file($mimemail, $filename);
     }
     if ($result === false) {
@@ -52,7 +52,7 @@ function mailparse_msg_extract_part_file( $mimemail,  $filename, callable $callb
  *
  * @psalm-pure
  */
-function mailparse_msg_free( $mimemail): void
+function mailparse_msg_free($mimemail): void
 {
     error_clear_last();
     $result = \mailparse_msg_free($mimemail);
@@ -100,7 +100,7 @@ function mailparse_msg_parse_file(string $filename)
  *
  * @psalm-pure
  */
-function mailparse_msg_parse( $mimemail, string $data): void
+function mailparse_msg_parse($mimemail, string $data): void
 {
     error_clear_last();
     $result = \mailparse_msg_parse($mimemail, $data);
@@ -122,7 +122,7 @@ function mailparse_msg_parse( $mimemail, string $data): void
  *
  * @psalm-pure
  */
-function mailparse_stream_encode( $sourcefp,  $destfp, string $encoding): void
+function mailparse_stream_encode($sourcefp, $destfp, string $encoding): void
 {
     error_clear_last();
     $result = \mailparse_stream_encode($sourcefp, $destfp, $encoding);
@@ -130,4 +130,3 @@ function mailparse_stream_encode( $sourcefp,  $destfp, string $encoding): void
         throw MailparseException::createFromPhpError();
     }
 }
-

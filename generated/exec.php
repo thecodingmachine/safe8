@@ -123,4 +123,3 @@ function system(string $command, ?int &$result_code = null): string
     }
     return $result;
 }
-

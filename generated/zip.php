@@ -12,7 +12,7 @@ use Safe\Exceptions\ZipException;
  *
  * @psalm-pure
  */
-function zip_entry_close( $zip_entry): void
+function zip_entry_close($zip_entry): void
 {
     error_clear_last();
     $result = \zip_entry_close($zip_entry);
@@ -31,7 +31,7 @@ function zip_entry_close( $zip_entry): void
  *
  * @psalm-pure
  */
-function zip_entry_compressedsize( $zip_entry): int
+function zip_entry_compressedsize($zip_entry): int
 {
     error_clear_last();
     $result = \zip_entry_compressedsize($zip_entry);
@@ -52,7 +52,7 @@ function zip_entry_compressedsize( $zip_entry): int
  *
  * @psalm-pure
  */
-function zip_entry_compressionmethod( $zip_entry): string
+function zip_entry_compressionmethod($zip_entry): string
 {
     error_clear_last();
     $result = \zip_entry_compressionmethod($zip_entry);
@@ -72,7 +72,7 @@ function zip_entry_compressionmethod( $zip_entry): string
  *
  * @psalm-pure
  */
-function zip_entry_filesize( $zip_entry): int
+function zip_entry_filesize($zip_entry): int
 {
     error_clear_last();
     $result = \zip_entry_filesize($zip_entry);
@@ -92,7 +92,7 @@ function zip_entry_filesize( $zip_entry): int
  *
  * @psalm-pure
  */
-function zip_entry_name( $zip_entry): string
+function zip_entry_name($zip_entry): string
 {
     error_clear_last();
     $result = \zip_entry_name($zip_entry);
@@ -118,7 +118,7 @@ function zip_entry_name( $zip_entry): string
  *
  * @psalm-pure
  */
-function zip_entry_open( $zip_dp,  $zip_entry, string $mode = "rb"): void
+function zip_entry_open($zip_dp, $zip_entry, string $mode = "rb"): void
 {
     error_clear_last();
     $result = \zip_entry_open($zip_dp, $zip_entry, $mode);
@@ -140,7 +140,7 @@ function zip_entry_open( $zip_dp,  $zip_entry, string $mode = "rb"): void
  *
  * @psalm-pure
  */
-function zip_entry_read( $zip_entry, int $len = 1024): string
+function zip_entry_read($zip_entry, int $len = 1024): string
 {
     error_clear_last();
     $result = \zip_entry_read($zip_entry, $len);
@@ -149,4 +149,3 @@ function zip_entry_read( $zip_entry, int $len = 1024): string
     }
     return $result;
 }
-

@@ -13,7 +13,7 @@ use Safe\Exceptions\Bzip2Exception;
  *
  * @psalm-pure
  */
-function bzclose( $bz): void
+function bzclose($bz): void
 {
     error_clear_last();
     $result = \bzclose($bz);
@@ -34,7 +34,7 @@ function bzclose( $bz): void
  *
  * @psalm-pure
  */
-function bzflush( $bz): void
+function bzflush($bz): void
 {
     error_clear_last();
     $result = \bzflush($bz);
@@ -60,7 +60,7 @@ function bzflush( $bz): void
  *
  * @psalm-pure
  */
-function bzread( $bz, int $length = 1024): string
+function bzread($bz, int $length = 1024): string
 {
     error_clear_last();
     $result = \bzread($bz, $length);
@@ -86,12 +86,12 @@ function bzread( $bz, int $length = 1024): string
  *
  * @psalm-pure
  */
-function bzwrite( $bz, string $data, int $length = null): int
+function bzwrite($bz, string $data, int $length = null): int
 {
     error_clear_last();
     if ($length !== null) {
         $result = \bzwrite($bz, $data, $length);
-    }else {
+    } else {
         $result = \bzwrite($bz, $data);
     }
     if ($result === false) {
@@ -99,4 +99,3 @@ function bzwrite( $bz, string $data, int $length = null): int
     }
     return $result;
 }
-

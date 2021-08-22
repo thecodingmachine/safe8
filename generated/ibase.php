@@ -13,7 +13,7 @@ use Safe\Exceptions\IbaseException;
  *
  * @psalm-pure
  */
-function fbird_blob_cancel( $blob_handle): void
+function fbird_blob_cancel($blob_handle): void
 {
     error_clear_last();
     $result = \fbird_blob_cancel($blob_handle);
@@ -36,7 +36,7 @@ function fbird_blob_cancel( $blob_handle): void
  *
  * @psalm-pure
  */
-function ibase_add_user( $service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
+function ibase_add_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
 {
     error_clear_last();
     if ($last_name !== null) {
@@ -45,7 +45,7 @@ function ibase_add_user( $service_handle, string $user_name, string $password, s
         $result = \ibase_add_user($service_handle, $user_name, $password, $first_name, $middle_name);
     } elseif ($first_name !== null) {
         $result = \ibase_add_user($service_handle, $user_name, $password, $first_name);
-    }else {
+    } else {
         $result = \ibase_add_user($service_handle, $user_name, $password);
     }
     if ($result === false) {
@@ -82,7 +82,7 @@ function ibase_add_user( $service_handle, string $user_name, string $password, s
  *
  * @psalm-pure
  */
-function ibase_backup( $service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = false)
+function ibase_backup($service_handle, string $source_db, string $dest_file, int $options = 0, bool $verbose = false)
 {
     error_clear_last();
     $result = \ibase_backup($service_handle, $source_db, $dest_file, $options, $verbose);
@@ -102,7 +102,7 @@ function ibase_backup( $service_handle, string $source_db, string $dest_file, in
  *
  * @psalm-pure
  */
-function ibase_blob_cancel( $blob_handle): void
+function ibase_blob_cancel($blob_handle): void
 {
     error_clear_last();
     $result = \ibase_blob_cancel($blob_handle);
@@ -124,12 +124,12 @@ function ibase_blob_cancel( $blob_handle): void
  *
  * @psalm-pure
  */
-function ibase_blob_create( $link_identifier = null)
+function ibase_blob_create($link_identifier = null)
 {
     error_clear_last();
     if ($link_identifier !== null) {
         $result = \ibase_blob_create($link_identifier);
-    }else {
+    } else {
         $result = \ibase_blob_create();
     }
     if ($result === false) {
@@ -150,7 +150,7 @@ function ibase_blob_create( $link_identifier = null)
  *
  * @psalm-pure
  */
-function ibase_blob_get( $blob_handle, int $len): string
+function ibase_blob_get($blob_handle, int $len): string
 {
     error_clear_last();
     $result = \ibase_blob_get($blob_handle, $len);
@@ -174,12 +174,12 @@ function ibase_blob_get( $blob_handle, int $len): string
  *
  * @psalm-pure
  */
-function ibase_close( $connection_id = null): void
+function ibase_close($connection_id = null): void
 {
     error_clear_last();
     if ($connection_id !== null) {
         $result = \ibase_close($connection_id);
-    }else {
+    } else {
         $result = \ibase_close();
     }
     if ($result === false) {
@@ -202,12 +202,12 @@ function ibase_close( $connection_id = null): void
  *
  * @psalm-pure
  */
-function ibase_commit_ret( $link_or_trans_identifier = null): void
+function ibase_commit_ret($link_or_trans_identifier = null): void
 {
     error_clear_last();
     if ($link_or_trans_identifier !== null) {
         $result = \ibase_commit_ret($link_or_trans_identifier);
-    }else {
+    } else {
         $result = \ibase_commit_ret();
     }
     if ($result === false) {
@@ -228,12 +228,12 @@ function ibase_commit_ret( $link_or_trans_identifier = null): void
  *
  * @psalm-pure
  */
-function ibase_commit( $link_or_trans_identifier = null): void
+function ibase_commit($link_or_trans_identifier = null): void
 {
     error_clear_last();
     if ($link_or_trans_identifier !== null) {
         $result = \ibase_commit($link_or_trans_identifier);
-    }else {
+    } else {
         $result = \ibase_commit();
     }
     if ($result === false) {
@@ -295,7 +295,7 @@ function ibase_connect(string $database = null, string $username = null, string 
         $result = \ibase_connect($database, $username);
     } elseif ($database !== null) {
         $result = \ibase_connect($database);
-    }else {
+    } else {
         $result = \ibase_connect();
     }
     if ($result === false) {
@@ -314,7 +314,7 @@ function ibase_connect(string $database = null, string $username = null, string 
  *
  * @psalm-pure
  */
-function ibase_delete_user( $service_handle, string $user_name): void
+function ibase_delete_user($service_handle, string $user_name): void
 {
     error_clear_last();
     $result = \ibase_delete_user($service_handle, $user_name);
@@ -334,12 +334,12 @@ function ibase_delete_user( $service_handle, string $user_name): void
  *
  * @psalm-pure
  */
-function ibase_drop_db( $connection = null): void
+function ibase_drop_db($connection = null): void
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \ibase_drop_db($connection);
-    }else {
+    } else {
         $result = \ibase_drop_db();
     }
     if ($result === false) {
@@ -359,7 +359,7 @@ function ibase_drop_db( $connection = null): void
  *
  * @psalm-pure
  */
-function ibase_free_event_handler( $event): void
+function ibase_free_event_handler($event): void
 {
     error_clear_last();
     $result = \ibase_free_event_handler($event);
@@ -377,7 +377,7 @@ function ibase_free_event_handler( $event): void
  *
  * @psalm-pure
  */
-function ibase_free_query( $query): void
+function ibase_free_query($query): void
 {
     error_clear_last();
     $result = \ibase_free_query($query);
@@ -396,7 +396,7 @@ function ibase_free_query( $query): void
  *
  * @psalm-pure
  */
-function ibase_free_result( $result_identifier): void
+function ibase_free_result($result_identifier): void
 {
     error_clear_last();
     $result = \ibase_free_result($result_identifier);
@@ -417,7 +417,7 @@ function ibase_free_result( $result_identifier): void
  *
  * @psalm-pure
  */
-function ibase_maintain_db( $service_handle, string $db, int $action, int $argument = 0): void
+function ibase_maintain_db($service_handle, string $db, int $action, int $argument = 0): void
 {
     error_clear_last();
     $result = \ibase_maintain_db($service_handle, $db, $action, $argument);
@@ -440,7 +440,7 @@ function ibase_maintain_db( $service_handle, string $db, int $action, int $argum
  *
  * @psalm-pure
  */
-function ibase_modify_user( $service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
+function ibase_modify_user($service_handle, string $user_name, string $password, string $first_name = null, string $middle_name = null, string $last_name = null): void
 {
     error_clear_last();
     if ($last_name !== null) {
@@ -449,7 +449,7 @@ function ibase_modify_user( $service_handle, string $user_name, string $password
         $result = \ibase_modify_user($service_handle, $user_name, $password, $first_name, $middle_name);
     } elseif ($first_name !== null) {
         $result = \ibase_modify_user($service_handle, $user_name, $password, $first_name);
-    }else {
+    } else {
         $result = \ibase_modify_user($service_handle, $user_name, $password);
     }
     if ($result === false) {
@@ -468,7 +468,7 @@ function ibase_modify_user( $service_handle, string $user_name, string $password
  *
  * @psalm-pure
  */
-function ibase_name_result( $result, string $name): void
+function ibase_name_result($result, string $name): void
 {
     error_clear_last();
     $result = \ibase_name_result($result, $name);
@@ -538,7 +538,7 @@ function ibase_pconnect(string $database = null, string $username = null, string
         $result = \ibase_pconnect($database, $username);
     } elseif ($database !== null) {
         $result = \ibase_pconnect($database);
-    }else {
+    } else {
         $result = \ibase_pconnect();
     }
     if ($result === false) {
@@ -579,7 +579,7 @@ function ibase_pconnect(string $database = null, string $username = null, string
  *
  * @psalm-pure
  */
-function ibase_restore( $service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = false)
+function ibase_restore($service_handle, string $source_file, string $dest_db, int $options = 0, bool $verbose = false)
 {
     error_clear_last();
     $result = \ibase_restore($service_handle, $source_file, $dest_db, $options, $verbose);
@@ -604,12 +604,12 @@ function ibase_restore( $service_handle, string $source_file, string $dest_db, i
  *
  * @psalm-pure
  */
-function ibase_rollback_ret( $link_or_trans_identifier = null): void
+function ibase_rollback_ret($link_or_trans_identifier = null): void
 {
     error_clear_last();
     if ($link_or_trans_identifier !== null) {
         $result = \ibase_rollback_ret($link_or_trans_identifier);
-    }else {
+    } else {
         $result = \ibase_rollback_ret();
     }
     if ($result === false) {
@@ -630,12 +630,12 @@ function ibase_rollback_ret( $link_or_trans_identifier = null): void
  *
  * @psalm-pure
  */
-function ibase_rollback( $link_or_trans_identifier = null): void
+function ibase_rollback($link_or_trans_identifier = null): void
 {
     error_clear_last();
     if ($link_or_trans_identifier !== null) {
         $result = \ibase_rollback($link_or_trans_identifier);
-    }else {
+    } else {
         $result = \ibase_rollback();
     }
     if ($result === false) {
@@ -675,7 +675,7 @@ function ibase_service_attach(string $host, string $dba_username, string $dba_pa
  *
  * @psalm-pure
  */
-function ibase_service_detach( $service_handle): void
+function ibase_service_detach($service_handle): void
 {
     error_clear_last();
     $result = \ibase_service_detach($service_handle);
@@ -683,4 +683,3 @@ function ibase_service_detach( $service_handle): void
         throw IbaseException::createFromPhpError();
     }
 }
-

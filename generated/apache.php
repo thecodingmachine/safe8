@@ -205,4 +205,3 @@ function virtual(string $uri): void
         throw ApacheException::createFromPhpError();
     }
 }
-

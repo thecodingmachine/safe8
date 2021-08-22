@@ -88,4 +88,3 @@ function simplexml_load_string(string $data, string $class_name = SimpleXMLEleme
     }
     return $result;
 }
-

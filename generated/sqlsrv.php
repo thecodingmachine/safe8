@@ -19,7 +19,7 @@ use Safe\Exceptions\SqlsrvException;
  *
  * @psalm-pure
  */
-function sqlsrv_begin_transaction( $conn): void
+function sqlsrv_begin_transaction($conn): void
 {
     error_clear_last();
     $result = \sqlsrv_begin_transaction($conn);
@@ -42,7 +42,7 @@ function sqlsrv_begin_transaction( $conn): void
  *
  * @psalm-pure
  */
-function sqlsrv_cancel( $stmt): void
+function sqlsrv_cancel($stmt): void
 {
     error_clear_last();
     $result = \sqlsrv_cancel($stmt);
@@ -90,7 +90,7 @@ function sqlsrv_cancel( $stmt): void
  *
  * @psalm-pure
  */
-function sqlsrv_client_info( $conn): array
+function sqlsrv_client_info($conn): array
 {
     error_clear_last();
     $result = \sqlsrv_client_info($conn);
@@ -109,7 +109,7 @@ function sqlsrv_client_info( $conn): array
  *
  * @psalm-pure
  */
-function sqlsrv_close( $conn): void
+function sqlsrv_close($conn): void
 {
     error_clear_last();
     $result = \sqlsrv_close($conn);
@@ -134,7 +134,7 @@ function sqlsrv_close( $conn): void
  *
  * @psalm-pure
  */
-function sqlsrv_commit( $conn): void
+function sqlsrv_commit($conn): void
 {
     error_clear_last();
     $result = \sqlsrv_commit($conn);
@@ -187,7 +187,7 @@ function sqlsrv_commit( $conn): void
  *
  * @psalm-pure
  */
-function sqlsrv_configure(string $setting,  $value): void
+function sqlsrv_configure(string $setting, $value): void
 {
     error_clear_last();
     $result = \sqlsrv_configure($setting, $value);
@@ -207,7 +207,7 @@ function sqlsrv_configure(string $setting,  $value): void
  *
  * @psalm-pure
  */
-function sqlsrv_execute( $stmt): void
+function sqlsrv_execute($stmt): void
 {
     error_clear_last();
     $result = \sqlsrv_execute($stmt);
@@ -231,7 +231,7 @@ function sqlsrv_execute( $stmt): void
  *
  * @psalm-pure
  */
-function sqlsrv_free_stmt( $stmt): void
+function sqlsrv_free_stmt($stmt): void
 {
     error_clear_last();
     $result = \sqlsrv_free_stmt($stmt);
@@ -260,12 +260,12 @@ function sqlsrv_free_stmt( $stmt): void
  *
  * @psalm-pure
  */
-function sqlsrv_get_field( $stmt, int $fieldIndex, int $getAsType = null)
+function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = null)
 {
     error_clear_last();
     if ($getAsType !== null) {
         $result = \sqlsrv_get_field($stmt, $fieldIndex, $getAsType);
-    }else {
+    } else {
         $result = \sqlsrv_get_field($stmt, $fieldIndex);
     }
     if ($result === false) {
@@ -286,7 +286,7 @@ function sqlsrv_get_field( $stmt, int $fieldIndex, int $getAsType = null)
  *
  * @psalm-pure
  */
-function sqlsrv_next_result( $stmt): ?bool
+function sqlsrv_next_result($stmt): ?bool
 {
     error_clear_last();
     $result = \sqlsrv_next_result($stmt);
@@ -308,7 +308,7 @@ function sqlsrv_next_result( $stmt): ?bool
  *
  * @psalm-pure
  */
-function sqlsrv_num_fields( $stmt): int
+function sqlsrv_num_fields($stmt): int
 {
     error_clear_last();
     $result = \sqlsrv_num_fields($stmt);
@@ -337,7 +337,7 @@ function sqlsrv_num_fields( $stmt): int
  *
  * @psalm-pure
  */
-function sqlsrv_num_rows( $stmt): int
+function sqlsrv_num_rows($stmt): int
 {
     error_clear_last();
     $result = \sqlsrv_num_rows($stmt);
@@ -370,14 +370,14 @@ function sqlsrv_num_rows( $stmt): int
  *
  * @psalm-pure
  */
-function sqlsrv_prepare( $conn, string $sql, array $params = null, array $options = null)
+function sqlsrv_prepare($conn, string $sql, array $params = null, array $options = null)
 {
     error_clear_last();
     if ($options !== null) {
         $result = \sqlsrv_prepare($conn, $sql, $params, $options);
     } elseif ($params !== null) {
         $result = \sqlsrv_prepare($conn, $sql, $params);
-    }else {
+    } else {
         $result = \sqlsrv_prepare($conn, $sql);
     }
     if ($result === false) {
@@ -408,14 +408,14 @@ function sqlsrv_prepare( $conn, string $sql, array $params = null, array $option
  *
  * @psalm-pure
  */
-function sqlsrv_query( $conn, string $sql, array $params = null, array $options = null)
+function sqlsrv_query($conn, string $sql, array $params = null, array $options = null)
 {
     error_clear_last();
     if ($options !== null) {
         $result = \sqlsrv_query($conn, $sql, $params, $options);
     } elseif ($params !== null) {
         $result = \sqlsrv_query($conn, $sql, $params);
-    }else {
+    } else {
         $result = \sqlsrv_query($conn, $sql);
     }
     if ($result === false) {
@@ -434,7 +434,7 @@ function sqlsrv_query( $conn, string $sql, array $params = null, array $options 
  *
  * @psalm-pure
  */
-function sqlsrv_rollback( $conn): void
+function sqlsrv_rollback($conn): void
 {
     error_clear_last();
     $result = \sqlsrv_rollback($conn);
@@ -442,4 +442,3 @@ function sqlsrv_rollback( $conn): void
         throw SqlsrvException::createFromPhpError();
     }
 }
-

@@ -14,7 +14,7 @@ use Safe\Exceptions\GmpException;
  *
  * @psalm-pure
  */
-function gmp_binomial( $n, int $k): \GMP
+function gmp_binomial($n, int $k): \GMP
 {
     error_clear_last();
     $result = \gmp_binomial($n, $k);
@@ -36,7 +36,7 @@ function gmp_binomial( $n, int $k): \GMP
  *
  * @psalm-pure
  */
-function gmp_export( $num, int $word_size = 1, int $flags = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string
+function gmp_export($num, int $word_size = 1, int $flags = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string
 {
     error_clear_last();
     $result = \gmp_export($num, $word_size, $flags);
@@ -81,7 +81,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  *
  * @psalm-pure
  */
-function gmp_random_seed( $seed): void
+function gmp_random_seed($seed): void
 {
     error_clear_last();
     $result = \gmp_random_seed($seed);
@@ -89,4 +89,3 @@ function gmp_random_seed( $seed): void
         throw GmpException::createFromPhpError();
     }
 }
-

@@ -44,7 +44,7 @@ function unixtojd(int $timestamp = null): int
     error_clear_last();
     if ($timestamp !== null) {
         $result = \unixtojd($timestamp);
-    }else {
+    } else {
         $result = \unixtojd();
     }
     if ($result === false) {
@@ -52,4 +52,3 @@ function unixtojd(int $timestamp = null): int
     }
     return $result;
 }
-

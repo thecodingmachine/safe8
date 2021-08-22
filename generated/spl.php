@@ -16,7 +16,7 @@ use Safe\Exceptions\SplException;
  * @throws SplException
  *
  */
-function spl_autoload_unregister( $callback): void
+function spl_autoload_unregister($callback): void
 {
     error_clear_last();
     $result = \spl_autoload_unregister($callback);
@@ -24,4 +24,3 @@ function spl_autoload_unregister( $callback): void
         throw SplException::createFromPhpError();
     }
 }
-

@@ -36,7 +36,7 @@ function inotify_init()
  *
  * @psalm-pure
  */
-function inotify_rm_watch( $inotify_instance, int $watch_descriptor): void
+function inotify_rm_watch($inotify_instance, int $watch_descriptor): void
 {
     error_clear_last();
     $result = \inotify_rm_watch($inotify_instance, $watch_descriptor);
@@ -44,4 +44,3 @@ function inotify_rm_watch( $inotify_instance, int $watch_descriptor): void
         throw InotifyException::createFromPhpError();
     }
 }
-

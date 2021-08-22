@@ -583,4 +583,3 @@ function set_time_limit(int $seconds): void
         throw InfoException::createFromPhpError();
     }
 }
-

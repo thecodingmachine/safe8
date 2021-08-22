@@ -26,7 +26,7 @@ function pcntl_getpriority(int $process_id = null, int $mode = PRIO_PROCESS): in
         $result = \pcntl_getpriority($process_id, $mode);
     } elseif ($process_id !== null) {
         $result = \pcntl_getpriority($process_id);
-    }else {
+    } else {
         $result = \pcntl_getpriority();
     }
     if ($result === false) {
@@ -60,7 +60,7 @@ function pcntl_setpriority(int $priority, int $process_id = null, int $mode = PR
         $result = \pcntl_setpriority($priority, $process_id, $mode);
     } elseif ($process_id !== null) {
         $result = \pcntl_setpriority($priority, $process_id);
-    }else {
+    } else {
         $result = \pcntl_setpriority($priority);
     }
     if ($result === false) {
@@ -202,4 +202,3 @@ function pcntl_sigwaitinfo(array $signals, ?array &$info = []): int
     }
     return $result;
 }
-

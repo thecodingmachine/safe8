@@ -99,7 +99,7 @@ function readline_read_history(string $filename = null): void
     error_clear_last();
     if ($filename !== null) {
         $result = \readline_read_history($filename);
-    }else {
+    } else {
         $result = \readline_read_history();
     }
     if ($result === false) {
@@ -121,11 +121,10 @@ function readline_write_history(string $filename = null): void
     error_clear_last();
     if ($filename !== null) {
         $result = \readline_write_history($filename);
-    }else {
+    } else {
         $result = \readline_write_history();
     }
     if ($result === false) {
         throw ReadlineException::createFromPhpError();
     }
 }
-
