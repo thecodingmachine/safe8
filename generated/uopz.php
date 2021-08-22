@@ -11,6 +11,7 @@ use Safe\Exceptions\UopzException;
  * @param string $parent The name of the class to inherit
  * @throws UopzException
  *
+ * @psalm-pure
  */
 function uopz_extend(string $class, string $parent): void
 {
@@ -29,6 +30,7 @@ function uopz_extend(string $class, string $parent): void
  * @param string $interface
  * @throws UopzException
  *
+ * @psalm-pure
  */
 function uopz_implement(string $class, string $interface): void
 {
@@ -38,3 +40,4 @@ function uopz_implement(string $class, string $interface): void
         throw UopzException::createFromPhpError();
     }
 }
+

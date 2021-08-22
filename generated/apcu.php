@@ -13,6 +13,7 @@ use Safe\Exceptions\ApcuException;
  * @return array Array of cached data (and meta-data)
  * @throws ApcuException
  *
+ * @psalm-pure
  */
 function apcu_cache_info(bool $limited = false): array
 {
@@ -100,6 +101,7 @@ function apcu_inc(string $key, int $step = 1, ?bool &$success = null, int $ttl =
  * @return array Array of Shared Memory Allocation data; FALSE on failure.
  * @throws ApcuException
  *
+ * @psalm-pure
  */
 function apcu_sma_info(bool $limited = false): array
 {
@@ -110,3 +112,4 @@ function apcu_sma_info(bool $limited = false): array
     }
     return $result;
 }
+

@@ -11,6 +11,7 @@ use Safe\Exceptions\StringsException;
  * @return string Returns the decoded data as a string.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function convert_uudecode(string $string): string
 {
@@ -63,6 +64,7 @@ function convert_uudecode(string $string): string
  *
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function count_chars(string $string, int $mode = 0)
 {
@@ -82,6 +84,7 @@ function count_chars(string $string, int $mode = 0)
  * @return string Returns the binary representation of the given data.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function hex2bin(string $string): string
 {
@@ -107,6 +110,7 @@ function hex2bin(string $string): string
  * @return string Returns a string on success, FALSE otherwise.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function md5_file(string $filename, bool $binary = false): string
 {
@@ -141,6 +145,7 @@ function md5_file(string $filename, bool $binary = false): string
  * @return string Returns the metaphone key as a string.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function metaphone(string $string, int $max_phonemes = 0): string
 {
@@ -162,6 +167,7 @@ function metaphone(string $string, int $max_phonemes = 0): string
  * @return string Returns a string on success, FALSE otherwise.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function sha1_file(string $filename, bool $binary = false): string
 {
@@ -256,7 +262,8 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  *
  *
- * For g and G
+ * For g, G,
+ * h and H
  * specifiers: this is the maximum number of significant
  * digits to be printed.
  *
@@ -316,9 +323,6 @@ function sha1_file(string $filename, bool $binary = false): string
  * e
  *
  * The argument is treated as scientific notation (e.g. 1.2e+2).
- * The precision specifier stands for the number of digits after the
- * decimal point since PHP 5.2.1. In earlier versions, it was taken as
- * number of significant digits (one less).
  *
  *
  *
@@ -340,7 +344,6 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  * The argument is treated as a float and presented
  * as a floating-point number (non-locale aware).
- * Available as of PHP 5.0.3.
  *
  *
  *
@@ -448,7 +451,7 @@ function sha1_file(string $filename, bool $binary = false): string
  * s
  *
  *
- * integer
+ * int
  *
  * d,
  * u,
@@ -460,14 +463,16 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  *
  *
- * double
+ * float
  *
- * g,
- * G,
  * e,
  * E,
  * f,
- * F
+ * F,
+ * g,
+ * G,
+ * h,
+ * H
  *
  *
  *
@@ -478,13 +483,14 @@ function sha1_file(string $filename, bool $binary = false): string
  * format.
  * @throws StringsException
  *
+ * @psalm-pure
  */
-function sprintf(string $format, ...$values): string
+function sprintf(string $format,   ...$values): string
 {
     error_clear_last();
     if ($values !== []) {
         $result = \sprintf($format, ...$values);
-    } else {
+    }else {
         $result = \sprintf($format);
     }
     if ($result === false) {
@@ -543,13 +549,14 @@ function sprintf(string $format, ...$values): string
  * an empty string.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function substr(string $string, int $offset, int $length = null): string
 {
     error_clear_last();
     if ($length !== null) {
         $result = \substr($string, $offset, $length);
-    } else {
+    }else {
         $result = \substr($string, $offset);
     }
     if ($result === false) {
@@ -641,7 +648,8 @@ function substr(string $string, int $offset, int $length = null): string
  *
  *
  *
- * For g and G
+ * For g, G,
+ * h and H
  * specifiers: this is the maximum number of significant
  * digits to be printed.
  *
@@ -701,9 +709,6 @@ function substr(string $string, int $offset, int $length = null): string
  * e
  *
  * The argument is treated as scientific notation (e.g. 1.2e+2).
- * The precision specifier stands for the number of digits after the
- * decimal point since PHP 5.2.1. In earlier versions, it was taken as
- * number of significant digits (one less).
  *
  *
  *
@@ -725,7 +730,6 @@ function substr(string $string, int $offset, int $length = null): string
  *
  * The argument is treated as a float and presented
  * as a floating-point number (non-locale aware).
- * Available as of PHP 5.0.3.
  *
  *
  *
@@ -833,7 +837,7 @@ function substr(string $string, int $offset, int $length = null): string
  * s
  *
  *
- * integer
+ * int
  *
  * d,
  * u,
@@ -845,14 +849,16 @@ function substr(string $string, int $offset, int $length = null): string
  *
  *
  *
- * double
+ * float
  *
- * g,
- * G,
  * e,
  * E,
  * f,
- * F
+ * F,
+ * g,
+ * G,
+ * h,
+ * H
  *
  *
  *
@@ -863,6 +869,7 @@ function substr(string $string, int $offset, int $length = null): string
  * format.
  * @throws StringsException
  *
+ * @psalm-pure
  */
 function vsprintf(string $format, array $values): string
 {
@@ -873,3 +880,4 @@ function vsprintf(string $format, array $values): string
     }
     return $result;
 }
+

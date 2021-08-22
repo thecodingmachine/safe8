@@ -22,13 +22,14 @@ use Safe\Exceptions\YamlException;
  * in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
     error_clear_last();
     if ($callbacks !== null) {
         $result = \yaml_parse_file($filename, $pos, $ndocs, $callbacks);
-    } else {
+    }else {
         $result = \yaml_parse_file($filename, $pos, $ndocs);
     }
     if ($result === false) {
@@ -59,13 +60,14 @@ function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, ar
  * for each document found in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
     error_clear_last();
     if ($callbacks !== null) {
         $result = \yaml_parse_url($url, $pos, $ndocs, $callbacks);
-    } else {
+    }else {
         $result = \yaml_parse_url($url, $pos, $ndocs);
     }
     if ($result === false) {
@@ -93,13 +95,14 @@ function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $c
  * in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse(string $input, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
     error_clear_last();
     if ($callbacks !== null) {
         $result = \yaml_parse($input, $pos, $ndocs, $callbacks);
-    } else {
+    }else {
         $result = \yaml_parse($input, $pos, $ndocs);
     }
     if ($result === false) {
@@ -107,3 +110,4 @@ function yaml_parse(string $input, int $pos = 0, ?int &$ndocs = null, array $cal
     }
     return $result;
 }
+

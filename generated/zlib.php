@@ -21,8 +21,9 @@ use Safe\Exceptions\ZlibException;
  * @return string Returns a chunk of compressed data.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
+function deflate_add( $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
 {
     error_clear_last();
     $result = \deflate_add($context, $data, $flush_mode);
@@ -122,6 +123,7 @@ function deflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH):
  * success.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function deflate_init(int $encoding, array $options = [])
 {
@@ -142,7 +144,7 @@ function deflate_init(int $encoding, array $options = [])
  * @throws ZlibException
  *
  */
-function gzclose($stream): void
+function gzclose( $stream): void
 {
     error_clear_last();
     $result = \gzclose($stream);
@@ -169,6 +171,7 @@ function gzclose($stream): void
  * @return string The compressed string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzcompress(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_DEFLATE): string
 {
@@ -190,6 +193,7 @@ function gzcompress(string $data, int $level = -1, int $encoding = ZLIB_ENCODING
  * @return string The decoded string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzdecode(string $data, int $max_length = 0): string
 {
@@ -218,6 +222,7 @@ function gzdecode(string $data, int $max_length = 0): string
  * @return string The deflated string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzdeflate(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_RAW): string
 {
@@ -246,16 +251,13 @@ function gzdeflate(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_
  * @param int $encoding The encoding mode. Can be FORCE_GZIP (the default)
  * or FORCE_DEFLATE.
  *
- * Prior to PHP 5.4.0, using FORCE_DEFLATE results in
- * a standard zlib deflated string (inclusive zlib headers) after a gzip
- * file header but without the trailing crc32 checksum.
- *
- * In PHP 5.4.0 and later, FORCE_DEFLATE generates
+ * FORCE_DEFLATE generates
  * RFC 1950 compliant output, consisting of a zlib header, the deflated
  * data, and an Adler checksum.
  * @return string The encoded string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzencode(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_GZIP): string
 {
@@ -278,6 +280,7 @@ function gzencode(string $data, int $level = -1, int $encoding = ZLIB_ENCODING_G
  * @return array An array containing the file, one line per cell, empty lines included, and with newlines still attached.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzfile(string $filename, int $use_include_path = 0): array
 {
@@ -301,13 +304,14 @@ function gzfile(string $filename, int $use_include_path = 0): array
  * @return string The uncompressed string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function gzgets($stream, int $length = null): string
+function gzgets( $stream, int $length = null): string
 {
     error_clear_last();
     if ($length !== null) {
         $result = \gzgets($stream, $length);
-    } else {
+    }else {
         $result = \gzgets($stream);
     }
     if ($result === false) {
@@ -330,13 +334,14 @@ function gzgets($stream, int $length = null): string
  * @return string The uncompressed and stripped string.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function gzgetss($zp, int $length, string $allowable_tags = null): string
+function gzgetss( $zp, int $length, string $allowable_tags = null): string
 {
     error_clear_last();
     if ($allowable_tags !== null) {
         $result = \gzgetss($zp, $length, $allowable_tags);
-    } else {
+    }else {
         $result = \gzgetss($zp, $length);
     }
     if ($result === false) {
@@ -358,6 +363,7 @@ function gzgetss($zp, int $length, string $allowable_tags = null): string
  * or more than the optional parameter max_length.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzinflate(string $data, int $max_length = 0): string
 {
@@ -380,8 +386,9 @@ function gzinflate(string $data, int $max_length = 0): string
  * and passed through to the input.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function gzpassthru($stream): int
+function gzpassthru( $stream): int
 {
     error_clear_last();
     $result = \gzpassthru($stream);
@@ -404,8 +411,9 @@ function gzpassthru($stream): int
  * @return string The data that have been read.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function gzread($stream, int $length): string
+function gzread( $stream, int $length): string
 {
     error_clear_last();
     $result = \gzread($stream, $length);
@@ -425,7 +433,7 @@ function gzread($stream, int $length): string
  * @throws ZlibException
  *
  */
-function gzrewind($stream): void
+function gzrewind( $stream): void
 {
     error_clear_last();
     $result = \gzrewind($stream);
@@ -447,6 +455,7 @@ function gzrewind($stream): void
  * or more than the optional parameter max_length.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function gzuncompress(string $data, int $max_length = 0): string
 {
@@ -470,22 +479,17 @@ function gzuncompress(string $data, int $max_length = 0): string
  * stop after length (uncompressed) bytes have been
  * written or the end of data is reached,
  * whichever comes first.
- *
- * Note that if the length argument is given,
- * then the magic_quotes_runtime
- * configuration option will be ignored and no slashes will be
- * stripped from data.
  * @return int Returns the number of (uncompressed) bytes written to the given gz-file
  * stream.
  * @throws ZlibException
  *
  */
-function gzwrite($stream, string $data, int $length = null): int
+function gzwrite( $stream, string $data, int $length = null): int
 {
     error_clear_last();
     if ($length !== null) {
         $result = \gzwrite($stream, $data, $length);
-    } else {
+    }else {
         $result = \gzwrite($stream, $data);
     }
     if ($result === false) {
@@ -502,8 +506,9 @@ function gzwrite($stream, string $data, int $length = null): int
  * @return int Returns number of bytes read so far.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function inflate_get_read_len($context): int
+function inflate_get_read_len( $context): int
 {
     error_clear_last();
     $result = \inflate_get_read_len($context);
@@ -521,8 +526,9 @@ function inflate_get_read_len($context): int
  * @return int Returns decompression status.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function inflate_get_status($context): int
+function inflate_get_status( $context): int
 {
     error_clear_last();
     $result = \inflate_get_status($context);
@@ -553,8 +559,9 @@ function inflate_get_status($context): int
  * @return string Returns a chunk of uncompressed data.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
-function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
+function inflate_add( $context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH): string
 {
     error_clear_last();
     $result = \inflate_add($context, $data, $flush_mode);
@@ -635,6 +642,7 @@ function inflate_add($context, string $data, int $flush_mode = ZLIB_SYNC_FLUSH):
  * success.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function inflate_init(int $encoding, array $options = [])
 {
@@ -661,6 +669,7 @@ function inflate_init(int $encoding, array $options = [])
  * @return int Returns the number of (uncompressed) bytes read from the file on success
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function readgzfile(string $filename, int $use_include_path = 0): int
 {
@@ -681,6 +690,7 @@ function readgzfile(string $filename, int $use_include_path = 0): int
  * @return string Returns the uncompressed data.
  * @throws ZlibException
  *
+ * @psalm-pure
  */
 function zlib_decode(string $data, int $max_length = 0): string
 {
@@ -691,3 +701,4 @@ function zlib_decode(string $data, int $max_length = 0): string
     }
     return $result;
 }
+

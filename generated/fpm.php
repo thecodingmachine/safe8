@@ -11,6 +11,7 @@ use Safe\Exceptions\FpmException;
  *
  * @throws FpmException
  *
+ * @psalm-pure
  */
 function fastcgi_finish_request(): void
 {
@@ -20,3 +21,4 @@ function fastcgi_finish_request(): void
         throw FpmException::createFromPhpError();
     }
 }
+

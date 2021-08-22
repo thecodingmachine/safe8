@@ -35,8 +35,9 @@ use Safe\Exceptions\FilterException;
  * element will be added for unset variables.
  * @throws FilterException
  *
+ * @psalm-pure
  */
-function filter_input_array(int $type, $options = FILTER_DEFAULT, bool $add_empty = true): ?array
+function filter_input_array(int $type,  $options = FILTER_DEFAULT, bool $add_empty = true): ?array
 {
     error_clear_last();
     $result = \filter_input_array($type, $options, $add_empty);
@@ -69,8 +70,9 @@ function filter_input_array(int $type, $options = FILTER_DEFAULT, bool $add_empt
  * the variable is not set.
  * @throws FilterException
  *
+ * @psalm-pure
  */
-function filter_var_array(array $array, $options = FILTER_DEFAULT, bool $add_empty = true): ?array
+function filter_var_array(array $array,  $options = FILTER_DEFAULT, bool $add_empty = true): ?array
 {
     error_clear_last();
     $result = \filter_var_array($array, $options, $add_empty);
@@ -79,3 +81,4 @@ function filter_var_array(array $array, $options = FILTER_DEFAULT, bool $add_emp
     }
     return $result;
 }
+

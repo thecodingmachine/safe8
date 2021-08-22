@@ -13,8 +13,9 @@ use Safe\Exceptions\GnupgException;
  * @param string $passphrase The pass phrase.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphrase): void
+function gnupg_adddecryptkey( $identifier, string $fingerprint, string $passphrase): void
 {
     error_clear_last();
     $result = \gnupg_adddecryptkey($identifier, $fingerprint, $passphrase);
@@ -32,8 +33,9 @@ function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphras
  * @param string $fingerprint The fingerprint key.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_addencryptkey($identifier, string $fingerprint): void
+function gnupg_addencryptkey( $identifier, string $fingerprint): void
 {
     error_clear_last();
     $result = \gnupg_addencryptkey($identifier, $fingerprint);
@@ -52,13 +54,14 @@ function gnupg_addencryptkey($identifier, string $fingerprint): void
  * @param string $passphrase The pass phrase.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase = null): void
+function gnupg_addsignkey( $identifier, string $fingerprint, string $passphrase = null): void
 {
     error_clear_last();
     if ($passphrase !== null) {
         $result = \gnupg_addsignkey($identifier, $fingerprint, $passphrase);
-    } else {
+    }else {
         $result = \gnupg_addsignkey($identifier, $fingerprint);
     }
     if ($result === false) {
@@ -74,8 +77,9 @@ function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase =
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_cleardecryptkeys($identifier): void
+function gnupg_cleardecryptkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_cleardecryptkeys($identifier);
@@ -92,8 +96,9 @@ function gnupg_cleardecryptkeys($identifier): void
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_clearencryptkeys($identifier): void
+function gnupg_clearencryptkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_clearencryptkeys($identifier);
@@ -110,8 +115,9 @@ function gnupg_clearencryptkeys($identifier): void
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_clearsignkeys($identifier): void
+function gnupg_clearsignkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_clearsignkeys($identifier);
@@ -131,8 +137,9 @@ function gnupg_clearsignkeys($identifier): void
  * Pass 0 to disable armored output.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_setarmor($identifier, int $armor): void
+function gnupg_setarmor( $identifier, int $armor): void
 {
     error_clear_last();
     $result = \gnupg_setarmor($identifier, $armor);
@@ -157,8 +164,9 @@ function gnupg_setarmor($identifier, int $armor): void
  * By default GNUPG_SIG_MODE_CLEAR is used.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
-function gnupg_setsignmode($identifier, int $signmode): void
+function gnupg_setsignmode( $identifier, int $signmode): void
 {
     error_clear_last();
     $result = \gnupg_setsignmode($identifier, $signmode);
@@ -166,3 +174,4 @@ function gnupg_setsignmode($identifier, int $signmode): void
         throw GnupgException::createFromPhpError();
     }
 }
+

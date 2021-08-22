@@ -25,8 +25,9 @@ use Safe\Exceptions\MysqlException;
  * generated.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_close($link_identifier = null): void
+function mysql_close( $link_identifier = NULL): void
 {
     error_clear_last();
     $result = \mysql_close($link_identifier);
@@ -72,6 +73,7 @@ function mysql_close($link_identifier = null): void
  * @return resource Returns a MySQL link identifier on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
 function mysql_connect(string $server = null, string $username = null, string $password = null, bool $new_link = false, int $client_flags = 0)
 {
@@ -86,7 +88,7 @@ function mysql_connect(string $server = null, string $username = null, string $p
         $result = \mysql_connect($server, $username);
     } elseif ($server !== null) {
         $result = \mysql_connect($server);
-    } else {
+    }else {
         $result = \mysql_connect();
     }
     if ($result === false) {
@@ -110,8 +112,9 @@ function mysql_connect(string $server = null, string $username = null, string $p
  * E_WARNING level error is generated.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_create_db(string $database_name, $link_identifier = null): void
+function mysql_create_db(string $database_name,  $link_identifier = NULL): void
 {
     error_clear_last();
     $result = \mysql_create_db($database_name, $link_identifier);
@@ -141,8 +144,9 @@ function mysql_create_db(string $database_name, $link_identifier = null): void
  * @param int $row_number The desired row number of the new result pointer.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_data_seek($result, int $row_number): void
+function mysql_data_seek( $result, int $row_number): void
 {
     error_clear_last();
     $result = \mysql_data_seek($result, $row_number);
@@ -164,8 +168,9 @@ function mysql_data_seek($result, int $row_number): void
  * of the error.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_db_name($result, int $row, $field = null): string
+function mysql_db_name( $result, int $row,  $field = NULL): string
 {
     error_clear_last();
     $result = \mysql_db_name($result, $row, $field);
@@ -195,8 +200,9 @@ function mysql_db_name($result, int $row, $field = null): string
  * queries to indicate success/failure.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_db_query(string $database, string $query, $link_identifier = null)
+function mysql_db_query(string $database, string $query,  $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_db_query($database, $query, $link_identifier);
@@ -223,8 +229,9 @@ function mysql_db_query(string $database, string $query, $link_identifier = null
  * E_WARNING level error is generated.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_drop_db(string $database_name, $link_identifier = null): void
+function mysql_drop_db(string $database_name,  $link_identifier = NULL): void
 {
     error_clear_last();
     $result = \mysql_drop_db($database_name, $link_identifier);
@@ -252,8 +259,9 @@ function mysql_drop_db(string $database_name, $link_identifier = null): void
  * @return array An array of lengths on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_fetch_lengths($result): array
+function mysql_fetch_lengths( $result): array
 {
     error_clear_last();
     $result = \mysql_fetch_lengths($result);
@@ -288,8 +296,9 @@ function mysql_fetch_lengths($result): array
  * "auto_increment" and "timestamp".
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_field_flags($result, int $field_offset): string
+function mysql_field_flags( $result, int $field_offset): string
 {
     error_clear_last();
     $result = \mysql_field_flags($result, $field_offset);
@@ -314,8 +323,9 @@ function mysql_field_flags($result, int $field_offset): string
  * @return int The length of the specified field index on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_field_len($result, int $field_offset): int
+function mysql_field_len( $result, int $field_offset): int
 {
     error_clear_last();
     $result = \mysql_field_len($result, $field_offset);
@@ -340,8 +350,9 @@ function mysql_field_len($result, int $field_offset): int
  * @return string The name of the specified field index on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_field_name($result, int $field_offset): string
+function mysql_field_name( $result, int $field_offset): string
 {
     error_clear_last();
     $result = \mysql_field_name($result, $field_offset);
@@ -367,8 +378,9 @@ function mysql_field_name($result, int $field_offset): string
  * E_WARNING is also issued.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_field_seek($result, int $field_offset): void
+function mysql_field_seek( $result, int $field_offset): void
 {
     error_clear_last();
     $result = \mysql_field_seek($result, $field_offset);
@@ -392,8 +404,9 @@ function mysql_field_seek($result, int $field_offset): void
  * mysql_query.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_free_result($result): void
+function mysql_free_result( $result): void
 {
     error_clear_last();
     $result = \mysql_free_result($result);
@@ -417,8 +430,9 @@ function mysql_free_result($result): void
  * connection.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_get_host_info($link_identifier = null): string
+function mysql_get_host_info( $link_identifier = NULL): string
 {
     error_clear_last();
     $result = \mysql_get_host_info($link_identifier);
@@ -441,8 +455,9 @@ function mysql_get_host_info($link_identifier = null): string
  * @return int Returns the MySQL protocol on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_get_proto_info($link_identifier = null): int
+function mysql_get_proto_info( $link_identifier = NULL): int
 {
     error_clear_last();
     $result = \mysql_get_proto_info($link_identifier);
@@ -465,8 +480,9 @@ function mysql_get_proto_info($link_identifier = null): int
  * @return string Returns the MySQL server version on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_get_server_info($link_identifier = null): string
+function mysql_get_server_info( $link_identifier = NULL): string
 {
     error_clear_last();
     $result = \mysql_get_server_info($link_identifier);
@@ -491,8 +507,9 @@ function mysql_get_server_info($link_identifier = null): string
  * will return FALSE.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_info($link_identifier = null): string
+function mysql_info( $link_identifier = NULL): string
 {
     error_clear_last();
     $result = \mysql_info($link_identifier);
@@ -518,8 +535,9 @@ function mysql_info($link_identifier = null): string
  * mysql_fetch_array.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_list_dbs($link_identifier = null)
+function mysql_list_dbs( $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_list_dbs($link_identifier);
@@ -553,8 +571,9 @@ function mysql_list_dbs($link_identifier = null)
  * mysql_field_type.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_list_fields(string $database_name, string $table_name, $link_identifier = null)
+function mysql_list_fields(string $database_name, string $table_name,  $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_list_fields($database_name, $table_name, $link_identifier);
@@ -577,8 +596,9 @@ function mysql_list_fields(string $database_name, string $table_name, $link_iden
  * @return resource A result pointer resource on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_list_processes($link_identifier = null)
+function mysql_list_processes( $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_list_processes($link_identifier);
@@ -610,8 +630,9 @@ function mysql_list_processes($link_identifier = null)
  * such as mysql_fetch_array.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_list_tables(string $database, $link_identifier = null)
+function mysql_list_tables(string $database,  $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_list_tables($database, $link_identifier);
@@ -632,8 +653,9 @@ function mysql_list_tables(string $database, $link_identifier = null)
  * success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_num_fields($result): int
+function mysql_num_fields( $result): int
 {
     error_clear_last();
     $result = \mysql_num_fields($result);
@@ -656,8 +678,9 @@ function mysql_num_fields($result): int
  * @return int The number of rows in a result set on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_num_rows($result): int
+function mysql_num_rows( $result): int
 {
     error_clear_last();
     $result = \mysql_num_rows($result);
@@ -706,8 +729,9 @@ function mysql_num_rows($result): int
  * the query.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_query(string $query, $link_identifier = null)
+function mysql_query(string $query,  $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_query($query, $link_identifier);
@@ -743,8 +767,9 @@ function mysql_query(string $query, $link_identifier = null)
  * @return string Returns the escaped string.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_real_escape_string(string $unescaped_string, $link_identifier = null): string
+function mysql_real_escape_string(string $unescaped_string,  $link_identifier = NULL): string
 {
     error_clear_last();
     $result = \mysql_real_escape_string($unescaped_string, $link_identifier);
@@ -780,8 +805,9 @@ function mysql_real_escape_string(string $unescaped_string, $link_identifier = n
  * @return string The contents of one cell from a MySQL result set on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_result($result, int $row, $field = 0): string
+function mysql_result( $result, int $row,  $field = 0): string
 {
     error_clear_last();
     $result = \mysql_result($result, $row, $field);
@@ -806,8 +832,9 @@ function mysql_result($result, int $row, $field = 0): string
  * E_WARNING level error is generated.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_select_db(string $database_name, $link_identifier = null): void
+function mysql_select_db(string $database_name,  $link_identifier = NULL): void
 {
     error_clear_last();
     $result = \mysql_select_db($database_name, $link_identifier);
@@ -829,8 +856,9 @@ function mysql_select_db(string $database_name, $link_identifier = null): void
  * E_WARNING level error is generated.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_set_charset(string $charset, $link_identifier = null): void
+function mysql_set_charset(string $charset,  $link_identifier = NULL): void
 {
     error_clear_last();
     $result = \mysql_set_charset($charset, $link_identifier);
@@ -857,8 +885,9 @@ function mysql_set_charset(string $charset, $link_identifier = null): void
  * such as mysql_fetch_array.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_tablename($result, int $i): string
+function mysql_tablename( $result, int $i): string
 {
     error_clear_last();
     $result = \mysql_tablename($result, $i);
@@ -883,8 +912,9 @@ function mysql_tablename($result, int $i): string
  * @return int The thread ID on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_thread_id($link_identifier = null): int
+function mysql_thread_id( $link_identifier = NULL): int
 {
     error_clear_last();
     $result = \mysql_thread_id($link_identifier);
@@ -926,8 +956,9 @@ function mysql_thread_id($link_identifier = null): int
  * mysql_unbuffered_query returns TRUE on success.
  * @throws MysqlException
  *
+ * @psalm-pure
  */
-function mysql_unbuffered_query(string $query, $link_identifier = null)
+function mysql_unbuffered_query(string $query,  $link_identifier = NULL)
 {
     error_clear_last();
     $result = \mysql_unbuffered_query($query, $link_identifier);
@@ -936,3 +967,4 @@ function mysql_unbuffered_query(string $query, $link_identifier = null)
     }
     return $result;
 }
+

@@ -13,8 +13,9 @@ use Safe\Exceptions\PgsqlException;
  * @param resource $connection PostgreSQL database connection resource.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_cancel_query($connection): void
+function pg_cancel_query( $connection): void
 {
     error_clear_last();
     $result = \pg_cancel_query($connection);
@@ -38,13 +39,14 @@ function pg_cancel_query($connection): void
  * @return string The client encoding.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_client_encoding($connection = null): string
+function pg_client_encoding( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_client_encoding($connection);
-    } else {
+    }else {
         $result = \pg_client_encoding();
     }
     if ($result === false) {
@@ -68,13 +70,14 @@ function pg_client_encoding($connection = null): string
  * pg_connect or pg_pconnect.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_close($connection = null): void
+function pg_close( $connection = null): void
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_close($connection);
-    } else {
+    }else {
         $result = \pg_close();
     }
     if ($result === false) {
@@ -129,13 +132,14 @@ function pg_close($connection = null): void
  * @return resource PostgreSQL connection resource on success, FALSE on failure.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
 function pg_connect(string $connection_string, int $connect_type = null)
 {
     error_clear_last();
     if ($connect_type !== null) {
         $result = \pg_connect($connection_string, $connect_type);
-    } else {
+    }else {
         $result = \pg_connect($connection_string);
     }
     if ($result === false) {
@@ -152,8 +156,9 @@ function pg_connect(string $connection_string, int $connect_type = null)
  * @param resource $connection PostgreSQL database connection resource.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_connection_reset($connection): void
+function pg_connection_reset( $connection): void
 {
     error_clear_last();
     $result = \pg_connection_reset($connection);
@@ -183,8 +188,9 @@ function pg_connection_reset($connection): void
  * @return array An array of converted values.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_convert($connection, string $table_name, array $assoc_array, int $options = 0): array
+function pg_convert( $connection, string $table_name, array $assoc_array, int $options = 0): array
 {
     error_clear_last();
     $result = \pg_convert($connection, $table_name, $assoc_array, $options);
@@ -212,15 +218,16 @@ function pg_convert($connection, string $table_name, array $assoc_array, int $op
  * rows.  Default is \N ("\\N").
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_copy_from($connection, string $table_name, array $rows, string $delimiter = null, string $null_as = null): void
+function pg_copy_from( $connection, string $table_name, array $rows, string $delimiter = null, string $null_as = null): void
 {
     error_clear_last();
     if ($null_as !== null) {
         $result = \pg_copy_from($connection, $table_name, $rows, $delimiter, $null_as);
     } elseif ($delimiter !== null) {
         $result = \pg_copy_from($connection, $table_name, $rows, $delimiter);
-    } else {
+    }else {
         $result = \pg_copy_from($connection, $table_name, $rows);
     }
     if ($result === false) {
@@ -244,15 +251,16 @@ function pg_copy_from($connection, string $table_name, array $rows, string $deli
  * It returns FALSE on failure.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_copy_to($connection, string $table_name, string $delimiter = null, string $null_as = null): array
+function pg_copy_to( $connection, string $table_name, string $delimiter = null, string $null_as = null): array
 {
     error_clear_last();
     if ($null_as !== null) {
         $result = \pg_copy_to($connection, $table_name, $delimiter, $null_as);
     } elseif ($delimiter !== null) {
         $result = \pg_copy_to($connection, $table_name, $delimiter);
-    } else {
+    }else {
         $result = \pg_copy_to($connection, $table_name);
     }
     if ($result === false) {
@@ -275,13 +283,14 @@ function pg_copy_to($connection, string $table_name, string $delimiter = null, s
  * connection is to.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_dbname($connection = null): string
+function pg_dbname( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_dbname($connection);
-    } else {
+    }else {
         $result = \pg_dbname();
     }
     if ($result === false) {
@@ -328,8 +337,9 @@ function pg_dbname($connection = null): string
  * via options.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_delete($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC)
+function pg_delete( $connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC)
 {
     error_clear_last();
     $result = \pg_delete($connection, $table_name, $assoc_array, $options);
@@ -354,13 +364,14 @@ function pg_delete($connection, string $table_name, array $assoc_array, int $opt
  * pg_connect or pg_pconnect.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_end_copy($connection = null): void
+function pg_end_copy( $connection = null): void
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_end_copy($connection);
-    } else {
+    }else {
         $result = \pg_end_copy();
     }
     if ($result === false) {
@@ -402,8 +413,9 @@ function pg_end_copy($connection = null): void
  * @return resource A query result resource on success.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_execute($connection = null, string $stmtname = null, array $params = null)
+function pg_execute( $connection = null, string $stmtname = null, array $params = null)
 {
     error_clear_last();
     if ($params !== null) {
@@ -412,7 +424,7 @@ function pg_execute($connection = null, string $stmtname = null, array $params =
         $result = \pg_execute($connection, $stmtname);
     } elseif ($connection !== null) {
         $result = \pg_execute($connection);
-    } else {
+    }else {
         $result = \pg_execute();
     }
     if ($result === false) {
@@ -435,8 +447,9 @@ function pg_execute($connection = null, string $stmtname = null, array $params =
  * @return string The field name.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_field_name($result, int $field_number): string
+function pg_field_name( $result, int $field_number): string
 {
     error_clear_last();
     $result = \pg_field_name($result, $field_number);
@@ -461,8 +474,9 @@ function pg_field_name($result, int $field_number): string
  * @return mixed On success either the fields table name or oid. Or, FALSE on failure.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_field_table($result, int $field_number, bool $oid_only = false)
+function pg_field_table( $result, int $field_number, bool $oid_only = false)
 {
     error_clear_last();
     $result = \pg_field_table($result, $field_number, $oid_only);
@@ -485,8 +499,9 @@ function pg_field_table($result, int $field_number, bool $oid_only = false)
  * @return string A string containing the base name of the field's type.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_field_type($result, int $field_number): string
+function pg_field_type( $result, int $field_number): string
 {
     error_clear_last();
     $result = \pg_field_type($result, $field_number);
@@ -507,8 +522,9 @@ function pg_field_type($result, int $field_number): string
  * more remains.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_flush($connection)
+function pg_flush( $connection)
 {
     error_clear_last();
     $result = \pg_flush($connection);
@@ -532,8 +548,9 @@ function pg_flush($connection)
  * (among others).
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_free_result($result): void
+function pg_free_result( $result): void
 {
     error_clear_last();
     $result = \pg_free_result($result);
@@ -556,13 +573,14 @@ function pg_free_result($result): void
  * connection is to.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_host($connection = null): string
+function pg_host( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_host($connection);
-    } else {
+    }else {
         $result = \pg_host();
     }
     if ($result === false) {
@@ -610,8 +628,9 @@ function pg_host($connection = null): string
  * via options.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_insert($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC)
+function pg_insert( $connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC)
 {
     error_clear_last();
     $result = \pg_insert($connection, $table_name, $assoc_array, $options);
@@ -642,13 +661,14 @@ function pg_insert($connection, string $table_name, array $assoc_array, int $opt
  * given connection.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_last_error($connection = null): string
+function pg_last_error( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_last_error($connection);
-    } else {
+    }else {
         $result = \pg_last_error();
     }
     if ($result === false) {
@@ -687,8 +707,9 @@ function pg_last_error($connection = null): string
  * a bool with PGSQL_NOTICE_CLEAR.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_last_notice($connection, int $option = PGSQL_NOTICE_LAST): string
+function pg_last_notice( $connection, int $option = PGSQL_NOTICE_LAST): string
 {
     error_clear_last();
     $result = \pg_last_notice($connection, $option);
@@ -727,8 +748,9 @@ function pg_last_notice($connection, int $option = PGSQL_NOTICE_LAST): string
  * no available OID.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_last_oid($result): string
+function pg_last_oid( $result): string
 {
     error_clear_last();
     $result = \pg_last_oid($result);
@@ -750,8 +772,9 @@ function pg_last_oid($result): string
  * @param resource $large_object PostgreSQL large object (LOB) resource, returned by pg_lo_open.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_close($large_object): void
+function pg_lo_close( $large_object): void
 {
     error_clear_last();
     $result = \pg_lo_close($large_object);
@@ -778,8 +801,9 @@ function pg_lo_close($large_object): void
  * large object on the client filesystem.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_export($connection = null, int $oid = null, string $pathname = null): void
+function pg_lo_export( $connection = null, int $oid = null, string $pathname = null): void
 {
     error_clear_last();
     if ($pathname !== null) {
@@ -788,7 +812,7 @@ function pg_lo_export($connection = null, int $oid = null, string $pathname = nu
         $result = \pg_lo_export($connection, $oid);
     } elseif ($connection !== null) {
         $result = \pg_lo_export($connection);
-    } else {
+    }else {
         $result = \pg_lo_export();
     }
     if ($result === false) {
@@ -814,13 +838,14 @@ function pg_lo_export($connection = null, int $oid = null, string $pathname = nu
  * @param  $object_id If an object_id is given the function
  * will try to create a large object with this id, else a free
  * object id is assigned by the server. The parameter
- * was added in PHP 5.3 and relies on functionality that first
+ * relies on functionality that first
  * appeared in PostgreSQL 8.1.
  * @return int The OID of the newly created large object.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_import($connection = null, string $pathname = null, $object_id = null): int
+function pg_lo_import( $connection = null, string $pathname = null,  $object_id = null): int
 {
     error_clear_last();
     if ($object_id !== null) {
@@ -829,7 +854,7 @@ function pg_lo_import($connection = null, string $pathname = null, $object_id = 
         $result = \pg_lo_import($connection, $pathname);
     } elseif ($connection !== null) {
         $result = \pg_lo_import($connection);
-    } else {
+    }else {
         $result = \pg_lo_import();
     }
     if ($result === false) {
@@ -856,8 +881,9 @@ function pg_lo_import($connection = null, string $pathname = null, $object_id = 
  * @return resource A large object resource.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_open($connection, int $oid, string $mode)
+function pg_lo_open( $connection, int $oid, string $mode)
 {
     error_clear_last();
     $result = \pg_lo_open($connection, $oid, $mode);
@@ -881,8 +907,9 @@ function pg_lo_open($connection, int $oid, string $mode)
  * @return int Number of bytes read.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_read_all($large_object): int
+function pg_lo_read_all( $large_object): int
 {
     error_clear_last();
     $result = \pg_lo_read_all($large_object);
@@ -907,8 +934,9 @@ function pg_lo_read_all($large_object): int
  * large object.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_read($large_object, int $len = 8192): string
+function pg_lo_read( $large_object, int $len = 8192): string
 {
     error_clear_last();
     $result = \pg_lo_read($large_object, $len);
@@ -933,8 +961,9 @@ function pg_lo_read($large_object, int $len = 8192): string
  * or PGSQL_SEEK_END (seek from object end) .
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_seek($large_object, int $offset, int $whence = PGSQL_SEEK_CUR): void
+function pg_lo_seek( $large_object, int $offset, int $whence = PGSQL_SEEK_CUR): void
 {
     error_clear_last();
     $result = \pg_lo_seek($large_object, $offset, $whence);
@@ -955,8 +984,9 @@ function pg_lo_seek($large_object, int $offset, int $whence = PGSQL_SEEK_CUR): v
  * @param int $size The number of bytes to truncate.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_truncate($large_object, int $size): void
+function pg_lo_truncate( $large_object, int $size): void
 {
     error_clear_last();
     $result = \pg_lo_truncate($large_object, $size);
@@ -980,8 +1010,9 @@ function pg_lo_truncate($large_object, int $size): void
  * @param int $oid The OID of the large object in the database.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_unlink($connection, int $oid): void
+function pg_lo_unlink( $connection, int $oid): void
 {
     error_clear_last();
     $result = \pg_lo_unlink($connection, $oid);
@@ -1008,13 +1039,14 @@ function pg_lo_unlink($connection, int $oid): void
  * @return int The number of bytes written to the large object.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_lo_write($large_object, string $data, int $len = null): int
+function pg_lo_write( $large_object, string $data, int $len = null): int
 {
     error_clear_last();
     if ($len !== null) {
         $result = \pg_lo_write($large_object, $data, $len);
-    } else {
+    }else {
         $result = \pg_lo_write($large_object, $data);
     }
     if ($result === false) {
@@ -1034,8 +1066,9 @@ function pg_lo_write($large_object, string $data, int $len = null): int
  * @return array An array of the table definition.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_meta_data($connection, string $table_name, bool $extended = false): array
+function pg_meta_data( $connection, string $table_name, bool $extended = false): array
 {
     error_clear_last();
     $result = \pg_meta_data($connection, $table_name, $extended);
@@ -1059,13 +1092,14 @@ function pg_meta_data($connection, string $table_name, bool $extended = false): 
  * options.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_options($connection = null): string
+function pg_options( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_options($connection);
-    } else {
+    }else {
         $result = \pg_options();
     }
     if ($result === false) {
@@ -1112,15 +1146,16 @@ function pg_options($connection = null): string
  * param_name.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_parameter_status($connection = null, string $param_name = null): string
+function pg_parameter_status( $connection = null, string $param_name = null): string
 {
     error_clear_last();
     if ($param_name !== null) {
         $result = \pg_parameter_status($connection, $param_name);
     } elseif ($connection !== null) {
         $result = \pg_parameter_status($connection);
-    } else {
+    }else {
         $result = \pg_parameter_status();
     }
     if ($result === false) {
@@ -1173,13 +1208,14 @@ function pg_parameter_status($connection = null, string $param_name = null): str
  * @return resource PostgreSQL connection resource on success, FALSE on failure.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
 function pg_pconnect(string $connection_string, string $connect_type = null)
 {
     error_clear_last();
     if ($connect_type !== null) {
         $result = \pg_pconnect($connection_string, $connect_type);
-    } else {
+    }else {
         $result = \pg_pconnect($connection_string);
     }
     if ($result === false) {
@@ -1199,13 +1235,14 @@ function pg_pconnect(string $connection_string, string $connect_type = null)
  * pg_connect or pg_pconnect.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_ping($connection = null): void
+function pg_ping( $connection = null): void
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_ping($connection);
-    } else {
+    }else {
         $result = \pg_ping();
     }
     if ($result === false) {
@@ -1227,13 +1264,14 @@ function pg_ping($connection = null): void
  * server the connection is to.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_port($connection = null): int
+function pg_port( $connection = null): int
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_port($connection);
-    } else {
+    }else {
         $result = \pg_port();
     }
     if ($result === false) {
@@ -1277,8 +1315,9 @@ function pg_port($connection = null): int
  * @return resource A query result resource on success.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_prepare($connection = null, string $stmtname = null, string $query = null)
+function pg_prepare( $connection = null, string $stmtname = null, string $query = null)
 {
     error_clear_last();
     if ($query !== null) {
@@ -1287,7 +1326,7 @@ function pg_prepare($connection = null, string $stmtname = null, string $query =
         $result = \pg_prepare($connection, $stmtname);
     } elseif ($connection !== null) {
         $result = \pg_prepare($connection);
-    } else {
+    }else {
         $result = \pg_prepare();
     }
     if ($result === false) {
@@ -1318,15 +1357,16 @@ function pg_prepare($connection = null, string $stmtname = null, string $query =
  * terminator is added automatically.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_put_line($connection = null, string $data = null): void
+function pg_put_line( $connection = null, string $data = null): void
 {
     error_clear_last();
     if ($data !== null) {
         $result = \pg_put_line($connection, $data);
     } elseif ($connection !== null) {
         $result = \pg_put_line($connection);
-    } else {
+    }else {
         $result = \pg_put_line();
     }
     if ($result === false) {
@@ -1384,8 +1424,9 @@ function pg_put_line($connection = null, string $data = null): void
  * @return resource A query result resource on success.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_query_params($connection = null, string $query = null, array $params = null)
+function pg_query_params( $connection = null, string $query = null, array $params = null)
 {
     error_clear_last();
     if ($params !== null) {
@@ -1394,7 +1435,7 @@ function pg_query_params($connection = null, string $query = null, array $params
         $result = \pg_query_params($connection, $query);
     } elseif ($connection !== null) {
         $result = \pg_query_params($connection);
-    } else {
+    }else {
         $result = \pg_query_params();
     }
     if ($result === false) {
@@ -1442,15 +1483,16 @@ function pg_query_params($connection = null, string $query = null, array $params
  * @return resource A query result resource on success.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_query($connection = null, string $query = null)
+function pg_query( $connection = null, string $query = null)
 {
     error_clear_last();
     if ($query !== null) {
         $result = \pg_query($connection, $query);
     } elseif ($connection !== null) {
         $result = \pg_query($connection);
-    } else {
+    }else {
         $result = \pg_query();
     }
     if ($result === false) {
@@ -1488,8 +1530,9 @@ function pg_query($connection = null, string $query = null)
  * @return string|null A string containing the contents of the error field, NULL if the field does not exist.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_result_error_field($result, int $fieldcode): ?string
+function pg_result_error_field( $result, int $fieldcode): ?string
 {
     error_clear_last();
     $result = \pg_result_error_field($result, $fieldcode);
@@ -1511,8 +1554,9 @@ function pg_result_error_field($result, int $fieldcode): ?string
  * Rows are numbered starting from zero.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_result_seek($result, int $offset): void
+function pg_result_seek( $result, int $offset): void
 {
     error_clear_last();
     $result = \pg_result_seek($result, $offset);
@@ -1560,8 +1604,9 @@ function pg_result_seek($result, int $offset): void
  * via options.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_select($connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC, int $result_type = PGSQL_ASSOC)
+function pg_select( $connection, string $table_name, array $assoc_array, int $options = PGSQL_DML_EXEC, int $result_type = PGSQL_ASSOC)
 {
     error_clear_last();
     $result = \pg_select($connection, $table_name, $assoc_array, $options, $result_type);
@@ -1596,8 +1641,9 @@ function pg_select($connection, string $table_name, array $assoc_array, int $opt
  * must match the number of placeholders.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_send_execute($connection, string $stmtname, array $params): void
+function pg_send_execute( $connection, string $stmtname, array $params): void
 {
     error_clear_last();
     $result = \pg_send_execute($connection, $stmtname, $params);
@@ -1630,8 +1676,9 @@ function pg_send_execute($connection, string $stmtname, array $params): void
  * are used, they are referred to as $1, $2, etc.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_send_prepare($connection, string $stmtname, string $query): void
+function pg_send_prepare( $connection, string $stmtname, string $query): void
 {
     error_clear_last();
     $result = \pg_send_prepare($connection, $stmtname, $query);
@@ -1661,8 +1708,9 @@ function pg_send_prepare($connection, string $stmtname, string $query): void
  * must match the number of placeholders.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_send_query_params($connection, string $query, array $params): void
+function pg_send_query_params( $connection, string $query, array $params): void
 {
     error_clear_last();
     $result = \pg_send_query_params($connection, $query, $params);
@@ -1695,8 +1743,9 @@ function pg_send_query_params($connection, string $query, array $params): void
  * Data inside the query should be properly escaped.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_send_query($connection, string $query): void
+function pg_send_query( $connection, string $query): void
 {
     error_clear_last();
     $result = \pg_send_query($connection, $query);
@@ -1714,8 +1763,9 @@ function pg_send_query($connection, string $query): void
  * @return resource A socket resource on success.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_socket($connection)
+function pg_socket( $connection)
 {
     error_clear_last();
     $result = \pg_socket($connection);
@@ -1748,13 +1798,14 @@ function pg_socket($connection)
  * pg_connect or pg_pconnect.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_trace(string $pathname, string $mode = "w", $connection = null): void
+function pg_trace(string $pathname, string $mode = "w",  $connection = null): void
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_trace($pathname, $mode, $connection);
-    } else {
+    }else {
         $result = \pg_trace($pathname, $mode);
     }
     if ($result === false) {
@@ -1776,13 +1827,14 @@ function pg_trace(string $pathname, string $mode = "w", $connection = null): voi
  * the connection.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_tty($connection = null): string
+function pg_tty( $connection = null): string
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_tty($connection);
-    } else {
+    }else {
         $result = \pg_tty();
     }
     if ($result === false) {
@@ -1835,8 +1887,9 @@ function pg_tty($connection = null): string
  * via options.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_update($connection, string $table_name, array $data, array $condition, int $options = PGSQL_DML_EXEC)
+function pg_update( $connection, string $table_name, array $data, array $condition, int $options = PGSQL_DML_EXEC)
 {
     error_clear_last();
     $result = \pg_update($connection, $table_name, $data, $condition, $options);
@@ -1862,13 +1915,14 @@ function pg_update($connection, string $table_name, array $data, array $conditio
  * and server keys and values (if available) or invalid connection.
  * @throws PgsqlException
  *
+ * @psalm-pure
  */
-function pg_version($connection = null): array
+function pg_version( $connection = null): array
 {
     error_clear_last();
     if ($connection !== null) {
         $result = \pg_version($connection);
-    } else {
+    }else {
         $result = \pg_version();
     }
     if ($result === false) {
@@ -1876,3 +1930,4 @@ function pg_version($connection = null): array
     }
     return $result;
 }
+

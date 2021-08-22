@@ -76,6 +76,7 @@ function cli_set_process_title(string $title): void
  * /usr/local/php/lib/php/extensions/no-debug-zts-20010901.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function dl(string $extension_filename): void
 {
@@ -93,6 +94,7 @@ function dl(string $extension_filename): void
  * @return string Returns the path, as a string.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function get_include_path(): string
 {
@@ -116,6 +118,7 @@ function get_include_path(): string
  * feeding to date.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getlastmod(): int
 {
@@ -134,6 +137,7 @@ function getlastmod(): int
  * @return int Returns the group ID of the current script.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getmygid(): int
 {
@@ -152,6 +156,7 @@ function getmygid(): int
  * @return int Returns the current script's inode as an integer.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getmyinode(): int
 {
@@ -170,6 +175,7 @@ function getmyinode(): int
  * @return int Returns the current PHP process ID.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getmypid(): int
 {
@@ -188,6 +194,7 @@ function getmypid(): int
  * @return int Returns the user ID of the current script.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getmyuid(): int
 {
@@ -209,6 +216,7 @@ function getmyuid(): int
  * @return array|array|array This function will return an array of option / argument pairs.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getopt(string $short_options, array $long_options = [], ?int &$rest_index = null): array
 {
@@ -232,6 +240,7 @@ function getopt(string $short_options, array $long_options = [], ?int &$rest_ind
  * Returns FALSE on failure.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function getrusage(int $mode = 0): array
 {
@@ -253,6 +262,7 @@ function getrusage(int $mode = 0): array
  * configuration option doesn't exist.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function ini_get(string $option): string
 {
@@ -304,6 +314,7 @@ function ini_set(string $option, string $value): string
  * phpdbg.
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function php_sapi_name(): string
 {
@@ -384,6 +395,7 @@ function php_sapi_name(): string
  *
  * @throws InfoException
  *
+ * @psalm-pure
  */
 function phpcredits(int $flags = CREDITS_ALL): void
 {
@@ -571,3 +583,4 @@ function set_time_limit(int $seconds): void
         throw InfoException::createFromPhpError();
     }
 }
+

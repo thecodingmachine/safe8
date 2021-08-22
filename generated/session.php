@@ -10,6 +10,7 @@ use Safe\Exceptions\SessionException;
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_abort(): void
 {
@@ -45,6 +46,7 @@ function session_abort(): void
  * On failure, FALSE is returned.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_create_id(string $prefix = ""): string
 {
@@ -94,6 +96,7 @@ function session_decode(string $data): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_destroy(): void
 {
@@ -115,6 +118,7 @@ function session_destroy(): void
  * @return string Returns the contents of the current session encoded.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_encode(): string
 {
@@ -154,7 +158,7 @@ function session_id(string $id = null): string
     error_clear_last();
     if ($id !== null) {
         $result = \session_id($id);
-    } else {
+    }else {
         $result = \session_id();
     }
     if ($result === false) {
@@ -177,13 +181,14 @@ function session_id(string $id = null): string
  * @return string Returns the name of the current session module.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_module_name(string $module = null): string
 {
     error_clear_last();
     if ($module !== null) {
         $result = \session_module_name($module);
-    } else {
+    }else {
         $result = \session_module_name();
     }
     if ($result === false) {
@@ -240,7 +245,7 @@ function session_name(string $name = null): string
     error_clear_last();
     if ($name !== null) {
         $result = \session_name($name);
-    } else {
+    }else {
         $result = \session_name();
     }
     if ($result === false) {
@@ -282,6 +287,7 @@ function session_regenerate_id(bool $delete_old_session = false): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_reset(): void
 {
@@ -315,13 +321,14 @@ function session_reset(): void
  * @return string Returns the path of the current directory used for data storage.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_save_path(string $path = null): string
 {
     error_clear_last();
     if ($path !== null) {
         $result = \session_save_path($path);
-    } else {
+    }else {
         $result = \session_save_path();
     }
     if ($result === false) {
@@ -337,6 +344,7 @@ function session_save_path(string $path = null): string
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_unset(): void
 {
@@ -361,6 +369,7 @@ function session_unset(): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_write_close(): void
 {
@@ -370,3 +379,4 @@ function session_write_close(): void
         throw SessionException::createFromPhpError();
     }
 }
+

@@ -11,8 +11,9 @@ use Safe\Exceptions\XmlrpcException;
  * @param string $type 'base64' or 'datetime'
  * @throws XmlrpcException
  *
+ * @psalm-pure
  */
-function xmlrpc_set_type(&$value, string $type): void
+function xmlrpc_set_type( &$value, string $type): void
 {
     error_clear_last();
     $result = \xmlrpc_set_type($value, $type);
@@ -20,3 +21,4 @@ function xmlrpc_set_type(&$value, string $type): void
         throw XmlrpcException::createFromPhpError();
     }
 }
+

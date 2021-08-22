@@ -11,6 +11,7 @@ use Safe\Exceptions\PspellException;
  * @param string $word The added word.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_add_to_personal(int $dictionary, string $word): void
 {
@@ -29,6 +30,7 @@ function pspell_add_to_personal(int $dictionary, string $word): void
  * @param string $word The added word.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_add_to_session(int $dictionary, string $word): void
 {
@@ -46,6 +48,7 @@ function pspell_add_to_session(int $dictionary, string $word): void
  * @param int $dictionary
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_clear_session(int $dictionary): void
 {
@@ -89,6 +92,7 @@ function pspell_clear_session(int $dictionary): void
  * @return int Returns a pspell config identifier.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_create(string $language, string $spelling = "", string $jargon = "", string $encoding = ""): int
 {
@@ -110,6 +114,7 @@ function pspell_config_create(string $language, string $spelling = "", string $j
  * @param string $directory
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_data_dir(int $config, string $directory): void
 {
@@ -130,6 +135,7 @@ function pspell_config_data_dir(int $config, string $directory): void
  * @param string $directory
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_dict_dir(int $config, string $directory): void
 {
@@ -148,6 +154,7 @@ function pspell_config_dict_dir(int $config, string $directory): void
  * @param int $min_length Words less than min_length characters will be skipped.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_ignore(int $config, int $min_length): void
 {
@@ -186,6 +193,7 @@ function pspell_config_ignore(int $config, int $min_length): void
  *
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_mode(int $config, int $mode): void
 {
@@ -211,6 +219,7 @@ function pspell_config_mode(int $config, int $mode): void
  * The file should be writable by whoever PHP runs as (e.g. nobody).
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_personal(int $config, string $filename): void
 {
@@ -238,6 +247,7 @@ function pspell_config_personal(int $config, string $filename): void
  * @param string $filename The file should be writable by whoever PHP runs as (e.g. nobody).
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_repl(int $config, string $filename): void
 {
@@ -264,6 +274,7 @@ function pspell_config_repl(int $config, string $filename): void
  * FALSE otherwise.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_runtogether(int $config, bool $allow): void
 {
@@ -291,6 +302,7 @@ function pspell_config_runtogether(int $config, bool $allow): void
  * @param bool $save TRUE if replacement pairs should be saved, FALSE otherwise.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_config_save_repl(int $config, bool $save): void
 {
@@ -310,6 +322,7 @@ function pspell_config_save_repl(int $config, bool $save): void
  * @return int Returns a dictionary link identifier on success.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_new_config(int $config): int
 {
@@ -383,6 +396,7 @@ function pspell_new_config(int $config): int
  * @return int Returns the dictionary link identifier on success.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_new(string $language, string $spelling = "", string $jargon = "", string $encoding = "", int $mode = 0): int
 {
@@ -402,6 +416,7 @@ function pspell_new(string $language, string $spelling = "", string $jargon = ""
  * pspell_new_personal.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_save_wordlist(int $dictionary): void
 {
@@ -422,6 +437,7 @@ function pspell_save_wordlist(int $dictionary): void
  * @param string $correct The fixed spelling for the misspelled word.
  * @throws PspellException
  *
+ * @psalm-pure
  */
 function pspell_store_replacement(int $dictionary, string $misspelled, string $correct): void
 {
@@ -431,3 +447,4 @@ function pspell_store_replacement(int $dictionary, string $misspelled, string $c
         throw PspellException::createFromPhpError();
     }
 }
+

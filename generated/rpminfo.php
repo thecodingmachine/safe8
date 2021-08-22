@@ -10,6 +10,7 @@ use Safe\Exceptions\RpminfoException;
  * @param int $tag One of RPMTAG_* constant, see the rpminfo constants page.
  * @throws RpminfoException
  *
+ * @psalm-pure
  */
 function rpmaddtag(int $tag): void
 {
@@ -19,3 +20,4 @@ function rpmaddtag(int $tag): void
         throw RpminfoException::createFromPhpError();
     }
 }
+

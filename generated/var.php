@@ -49,8 +49,9 @@ use Safe\Exceptions\VarException;
  *
  * @throws VarException
  *
+ * @psalm-pure
  */
-function settype(&$var, string $type): void
+function settype( &$var, string $type): void
 {
     error_clear_last();
     $result = \settype($var, $type);
@@ -58,3 +59,4 @@ function settype(&$var, string $type): void
         throw VarException::createFromPhpError();
     }
 }
+

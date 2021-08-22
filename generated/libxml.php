@@ -11,6 +11,7 @@ use Safe\Exceptions\LibxmlException;
  * buffer, FALSE otherwise.
  * @throws LibxmlException
  *
+ * @psalm-pure
  */
 function libxml_get_last_error(): \LibXMLError
 {
@@ -21,3 +22,4 @@ function libxml_get_last_error(): \LibXMLError
     }
     return $result;
 }
+

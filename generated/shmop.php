@@ -11,8 +11,9 @@ use Safe\Exceptions\ShmopException;
  * shmop_open
  * @throws ShmopException
  *
+ * @psalm-pure
  */
-function shmop_delete($shmop): void
+function shmop_delete( $shmop): void
 {
     error_clear_last();
     $result = \shmop_delete($shmop);
@@ -33,8 +34,9 @@ function shmop_delete($shmop): void
  * @return string Returns the data.
  * @throws ShmopException
  *
+ * @psalm-pure
  */
-function shmop_read($shmop, int $offset, int $size): string
+function shmop_read( $shmop, int $offset, int $size): string
 {
     error_clear_last();
     $result = \shmop_read($shmop, $offset, $size);
@@ -43,3 +45,4 @@ function shmop_read($shmop, int $offset, int $size): string
     }
     return $result;
 }
+

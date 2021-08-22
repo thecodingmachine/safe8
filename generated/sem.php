@@ -20,6 +20,7 @@ use Safe\Exceptions\SemException;
  * @return resource Returns SysvMessageQueue instance that can be used to access the System V message queue.
  * @throws SemException
  *
+ * @psalm-pure
  */
 function msg_get_queue(int $key, int $permissions = 0666)
 {
@@ -38,6 +39,7 @@ function msg_get_queue(int $key, int $permissions = 0666)
  * @param int $key Queue key.
  * @throws SemException
  *
+ * @psalm-pure
  */
 function msg_queue_exists(int $key): void
 {
@@ -119,8 +121,9 @@ function msg_queue_exists(int $key): void
  * will be set to the value of the system errno variable.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function msg_receive($queue, int $desired_message_type, ?int &$received_message_type, int $max_message_size, &$message, bool $unserialize = true, int $flags = 0, ?int &$error_code = null): void
+function msg_receive( $queue, int $desired_message_type, ?int &$received_message_type, int $max_message_size,  &$message, bool $unserialize = true, int $flags = 0, ?int &$error_code = null): void
 {
     error_clear_last();
     $result = \msg_receive($queue, $desired_message_type, $received_message_type, $max_message_size, $message, $unserialize, $flags, $error_code);
@@ -139,8 +142,9 @@ function msg_receive($queue, int $desired_message_type, ?int &$received_message_
  * @param resource $queue The message queue.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function msg_remove_queue($queue): void
+function msg_remove_queue( $queue): void
 {
     error_clear_last();
     $result = \msg_remove_queue($queue);
@@ -182,8 +186,9 @@ function msg_remove_queue($queue): void
  * @param int|null $error_code If the function fails, the optional errorcode will be set to the value of the system errno variable.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function msg_send($queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, ?int &$error_code = null): void
+function msg_send( $queue, int $message_type,  $message, bool $serialize = true, bool $blocking = true, ?int &$error_code = null): void
 {
     error_clear_last();
     $result = \msg_send($queue, $message_type, $message, $serialize, $blocking, $error_code);
@@ -209,8 +214,9 @@ function msg_send($queue, int $message_type, $message, bool $serialize = true, b
  * that you require in the data array.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function msg_set_queue($queue, array $data): void
+function msg_set_queue( $queue, array $data): void
 {
     error_clear_last();
     $result = \msg_set_queue($queue, $data);
@@ -302,8 +308,9 @@ function msg_set_queue($queue, array $data): void
  * Returns FALSE on failure.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function msg_stat_queue($queue): array
+function msg_stat_queue( $queue): array
 {
     error_clear_last();
     $result = \msg_stat_queue($queue);
@@ -332,8 +339,9 @@ function msg_stat_queue($queue): array
  * acquired.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function sem_acquire($semaphore, bool $non_blocking = false): void
+function sem_acquire( $semaphore, bool $non_blocking = false): void
 {
     error_clear_last();
     $result = \sem_acquire($semaphore, $non_blocking);
@@ -365,6 +373,7 @@ function sem_acquire($semaphore, bool $non_blocking = false): void
  * @return resource Returns a positive semaphore identifier on success.
  * @throws SemException
  *
+ * @psalm-pure
  */
 function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $auto_release = true)
 {
@@ -389,8 +398,9 @@ function sem_get(int $key, int $max_acquire = 1, int $permissions = 0666, bool $
  * sem_get.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function sem_release($semaphore): void
+function sem_release( $semaphore): void
 {
     error_clear_last();
     $result = \sem_release($semaphore);
@@ -409,8 +419,9 @@ function sem_release($semaphore): void
  * by sem_get.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function sem_remove($semaphore): void
+function sem_remove( $semaphore): void
 {
     error_clear_last();
     $result = \sem_remove($semaphore);
@@ -441,6 +452,7 @@ function sem_remove($semaphore): void
  * @return resource Returns a SysvSharedMemory instance on success.
  * @throws SemException
  *
+ * @psalm-pure
  */
 function shm_attach(int $key, int $size = null, int $permissions = 0666)
 {
@@ -449,7 +461,7 @@ function shm_attach(int $key, int $size = null, int $permissions = 0666)
         $result = \shm_attach($key, $size, $permissions);
     } elseif ($size !== null) {
         $result = \shm_attach($key, $size);
-    } else {
+    }else {
         $result = \shm_attach($key);
     }
     if ($result === false) {
@@ -468,8 +480,9 @@ function shm_attach(int $key, int $size = null, int $permissions = 0666)
  * @param resource $shm A shared memory segment obtained from shm_attach.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function shm_detach($shm): void
+function shm_detach( $shm): void
 {
     error_clear_last();
     $result = \shm_detach($shm);
@@ -497,8 +510,9 @@ function shm_detach($shm): void
  * that cannot be serialized.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function shm_put_var($shm, int $key, $value): void
+function shm_put_var( $shm, int $key,  $value): void
 {
     error_clear_last();
     $result = \shm_put_var($shm, $key, $value);
@@ -516,8 +530,9 @@ function shm_put_var($shm, int $key, $value): void
  * @param int $key The variable key.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function shm_remove_var($shm, int $key): void
+function shm_remove_var( $shm, int $key): void
 {
     error_clear_last();
     $result = \shm_remove_var($shm, $key);
@@ -534,8 +549,9 @@ function shm_remove_var($shm, int $key): void
  * @param resource $shm A shared memory segment obtained from shm_attach.
  * @throws SemException
  *
+ * @psalm-pure
  */
-function shm_remove($shm): void
+function shm_remove( $shm): void
 {
     error_clear_last();
     $result = \shm_remove($shm);
@@ -543,3 +559,4 @@ function shm_remove($shm): void
         throw SemException::createFromPhpError();
     }
 }
+

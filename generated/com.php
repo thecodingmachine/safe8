@@ -13,6 +13,7 @@ use Safe\Exceptions\ComException;
  * @return string Returns the GUID as a string.
  * @throws ComException
  *
+ * @psalm-pure
  */
 function com_create_guid(): string
 {
@@ -46,13 +47,14 @@ function com_create_guid(): string
  * that you want to use.
  * @throws ComException
  *
+ * @psalm-pure
  */
-function com_event_sink(object $variant, object $sink_object, $sink_interface = null): void
+function com_event_sink(object $variant, object $sink_object,  $sink_interface = null): void
 {
     error_clear_last();
     if ($sink_interface !== null) {
         $result = \com_event_sink($variant, $sink_object, $sink_interface);
-    } else {
+    }else {
         $result = \com_event_sink($variant, $sink_object);
     }
     if ($result === false) {
@@ -112,6 +114,7 @@ function com_event_sink(object $variant, object $sink_object, $sink_interface = 
  * function.
  * @throws ComException
  *
+ * @psalm-pure
  */
 function com_load_typelib(string $typelib, bool $case_insensitive = true): void
 {
@@ -137,6 +140,7 @@ function com_load_typelib(string $typelib, bool $case_insensitive = true): void
  * instead.
  * @throws ComException
  *
+ * @psalm-pure
  */
 function com_print_typeinfo(object $variant, string $dispatch_interface = null, bool $display_sink = false): void
 {
@@ -145,7 +149,7 @@ function com_print_typeinfo(object $variant, string $dispatch_interface = null, 
         $result = \com_print_typeinfo($variant, $dispatch_interface, $display_sink);
     } elseif ($dispatch_interface !== null) {
         $result = \com_print_typeinfo($variant, $dispatch_interface);
-    } else {
+    }else {
         $result = \com_print_typeinfo($variant);
     }
     if ($result === false) {
@@ -163,6 +167,7 @@ function com_print_typeinfo(object $variant, string $dispatch_interface = null, 
  * @return int Returns a unix timestamp.
  * @throws ComException
  *
+ * @psalm-pure
  */
 function variant_date_to_timestamp(object $variant): int
 {
@@ -184,8 +189,9 @@ function variant_date_to_timestamp(object $variant): int
  * @return mixed Returns the rounded value.
  * @throws ComException
  *
+ * @psalm-pure
  */
-function variant_round($value, int $decimals)
+function variant_round( $value, int $decimals)
 {
     error_clear_last();
     $result = \variant_round($value, $decimals);
@@ -194,3 +200,4 @@ function variant_round($value, int $decimals)
     }
     return $result;
 }
+

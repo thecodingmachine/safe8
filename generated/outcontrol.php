@@ -16,6 +16,7 @@ use Safe\Exceptions\OutcontrolException;
  *
  * @throws OutcontrolException
  *
+ * @psalm-pure
  */
 function ob_clean(): void
 {
@@ -67,6 +68,7 @@ function ob_end_clean(): void
  *
  * @throws OutcontrolException
  *
+ * @psalm-pure
  */
 function ob_end_flush(): void
 {
@@ -90,6 +92,7 @@ function ob_end_flush(): void
  *
  * @throws OutcontrolException
  *
+ * @psalm-pure
  */
 function ob_flush(): void
 {
@@ -117,6 +120,7 @@ function ob_flush(): void
  * @param string $value The variable value.
  * @throws OutcontrolException
  *
+ * @psalm-pure
  */
 function output_add_rewrite_var(string $name, string $value): void
 {
@@ -135,6 +139,7 @@ function output_add_rewrite_var(string $name, string $value): void
  *
  * @throws OutcontrolException
  *
+ * @psalm-pure
  */
 function output_reset_rewrite_vars(): void
 {
@@ -144,3 +149,4 @@ function output_reset_rewrite_vars(): void
         throw OutcontrolException::createFromPhpError();
     }
 }
+

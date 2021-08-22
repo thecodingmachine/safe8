@@ -33,8 +33,9 @@ use Safe\Exceptions\SocketsException;
  * error.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_accept($socket)
+function socket_accept( $socket)
 {
     error_clear_last();
     $result = \socket_accept($socket);
@@ -53,8 +54,9 @@ function socket_accept($socket)
  * @return resource|null Returns a Socket instance on success.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_addrinfo_bind($address)
+function socket_addrinfo_bind( $address)
 {
     error_clear_last();
     $result = \socket_addrinfo_bind($address);
@@ -73,8 +75,9 @@ function socket_addrinfo_bind($address)
  * @return resource|null Returns a Socket instance on success.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_addrinfo_connect($address)
+function socket_addrinfo_connect( $address)
 {
     error_clear_last();
     $result = \socket_addrinfo_connect($address);
@@ -98,15 +101,16 @@ function socket_addrinfo_connect($address)
  * On failure, FALSE is returned.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_addrinfo_lookup(string $host, $service = null, array $hints = []): iterable
+function socket_addrinfo_lookup(string $host,  $service = null, array $hints = []): iterable
 {
     error_clear_last();
     if ($hints !== []) {
         $result = \socket_addrinfo_lookup($host, $service, $hints);
     } elseif ($service !== null) {
         $result = \socket_addrinfo_lookup($host, $service);
-    } else {
+    }else {
         $result = \socket_addrinfo_lookup($host);
     }
     if ($result === false) {
@@ -135,8 +139,9 @@ function socket_addrinfo_lookup(string $host, $service = null, array $hints = []
  * the port on which to listen for connections.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_bind($socket, string $address, int $port = 0): void
+function socket_bind( $socket, string $address, int $port = 0): void
 {
     error_clear_last();
     $result = \socket_bind($socket, $address, $port);
@@ -166,13 +171,14 @@ function socket_bind($socket, string $address, int $port = 0): void
  * the port on the remote host to which a connection should be made.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_connect($socket, string $address, int $port = null): void
+function socket_connect( $socket, string $address, int $port = null): void
 {
     error_clear_last();
     if ($port !== null) {
         $result = \socket_connect($socket, $address, $port);
-    } else {
+    }else {
         $result = \socket_connect($socket, $address);
     }
     if ($result === false) {
@@ -202,6 +208,7 @@ function socket_connect($socket, string $address, int $port = null): void
  * error.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
 function socket_create_listen(int $port, int $backlog = 128)
 {
@@ -238,6 +245,7 @@ function socket_create_listen(int $port, int $backlog = 128)
  * @param resource[]|null $pair Reference to an array in which the two Socket instances will be inserted.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
 function socket_create_pair(int $domain, int $type, int $protocol, ?iterable &$pair): void
 {
@@ -271,6 +279,7 @@ function socket_create_pair(int $domain, int $type, int $protocol, ?iterable &$p
  * error.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
 function socket_create(int $domain, int $type, int $protocol)
 {
@@ -290,8 +299,9 @@ function socket_create(int $domain, int $type, int $protocol)
  * @return resource Return resource.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_export_stream($socket)
+function socket_export_stream( $socket)
 {
     error_clear_last();
     $result = \socket_export_stream($socket);
@@ -337,8 +347,9 @@ function socket_export_stream($socket)
  * @return mixed Returns the value of the given options.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_get_option($socket, int $level, int $option)
+function socket_get_option( $socket, int $level, int $option)
 {
     error_clear_last();
     $result = \socket_get_option($socket, $level, $option);
@@ -371,8 +382,9 @@ function socket_get_option($socket, int $level, int $option)
  * address.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_getpeername($socket, ?string &$address, ?int &$port = null): void
+function socket_getpeername( $socket, ?string &$address, ?int &$port = null): void
 {
     error_clear_last();
     $result = \socket_getpeername($socket, $address, $port);
@@ -401,8 +413,9 @@ function socket_getpeername($socket, ?string &$address, ?int &$port = null): voi
  * @param int|null $port If provided, this will hold the associated port.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_getsockname($socket, ?string &$address, ?int &$port = null): void
+function socket_getsockname( $socket, ?string &$address, ?int &$port = null): void
 {
     error_clear_last();
     $result = \socket_getsockname($socket, $address, $port);
@@ -419,8 +432,9 @@ function socket_getsockname($socket, ?string &$address, ?int &$port = null): voi
  * @return resource Returns FALSE on failure.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_import_stream($stream)
+function socket_import_stream( $stream)
 {
     error_clear_last();
     $result = \socket_import_stream($stream);
@@ -458,8 +472,9 @@ function socket_import_stream($stream)
  * find out the actual backlog value on this platform.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_listen($socket, int $backlog = 0): void
+function socket_listen( $socket, int $backlog = 0): void
 {
     error_clear_last();
     $result = \socket_listen($socket, $backlog);
@@ -504,8 +519,9 @@ function socket_listen($socket, int $backlog = 0): void
  * the error.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_read($socket, int $length, int $mode = PHP_BINARY_READ): string
+function socket_read( $socket, int $length, int $mode = PHP_BINARY_READ): string
 {
     error_clear_last();
     $result = \socket_read($socket, $length, $mode);
@@ -565,8 +581,9 @@ function socket_read($socket, int $length, int $mode = PHP_BINARY_READ): string
  * @return int socket_send returns the number of bytes sent.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_send($socket, string $data, int $length, int $flags): int
+function socket_send( $socket, string $data, int $length, int $flags): int
 {
     error_clear_last();
     $result = \socket_send($socket, $data, $length, $flags);
@@ -586,8 +603,9 @@ function socket_send($socket, string $data, int $length, int $flags): int
  * @return int Returns the number of bytes sent.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_sendmsg($socket, array $message, int $flags = 0): int
+function socket_sendmsg( $socket, array $message, int $flags = 0): int
 {
     error_clear_last();
     $result = \socket_sendmsg($socket, $message, $flags);
@@ -651,13 +669,14 @@ function socket_sendmsg($socket, array $message, int $flags = 0): int
  * remote host.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_sendto($socket, string $data, int $length, int $flags, string $address, int $port = null): int
+function socket_sendto( $socket, string $data, int $length, int $flags, string $address, int $port = null): int
 {
     error_clear_last();
     if ($port !== null) {
         $result = \socket_sendto($socket, $data, $length, $flags, $address, $port);
-    } else {
+    }else {
         $result = \socket_sendto($socket, $data, $length, $flags, $address);
     }
     if ($result === false) {
@@ -680,8 +699,9 @@ function socket_sendto($socket, string $data, int $length, int $flags, string $a
  * or socket_accept.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_set_block($socket): void
+function socket_set_block( $socket): void
 {
     error_clear_last();
     $result = \socket_set_block($socket);
@@ -705,8 +725,9 @@ function socket_set_block($socket): void
  * or socket_accept.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_set_nonblock($socket): void
+function socket_set_nonblock( $socket): void
 {
     error_clear_last();
     $result = \socket_set_nonblock($socket);
@@ -738,7 +759,7 @@ function socket_set_nonblock($socket): void
  * @throws SocketsException
  *
  */
-function socket_set_option($socket, int $level, int $option, $value): void
+function socket_set_option( $socket, int $level, int $option,  $value): void
 {
     error_clear_last();
     $result = \socket_set_option($socket, $level, $option, $value);
@@ -782,8 +803,9 @@ function socket_set_option($socket, int $level, int $option, $value): void
  *
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_shutdown($socket, int $mode = 2): void
+function socket_shutdown( $socket, int $mode = 2): void
 {
     error_clear_last();
     $result = \socket_shutdown($socket, $mode);
@@ -803,8 +825,9 @@ function socket_shutdown($socket, int $mode = 2): void
  * @return string Returns an identifier to be used for the import
  * @throws SocketsException
  *
+ * @psalm-pure
  */
-function socket_wsaprotocol_info_export($socket, int $process_id): string
+function socket_wsaprotocol_info_export( $socket, int $process_id): string
 {
     error_clear_last();
     $result = \socket_wsaprotocol_info_export($socket, $process_id);
@@ -823,6 +846,7 @@ function socket_wsaprotocol_info_export($socket, int $process_id): string
  * @return resource Returns a Socket instance on success
  * @throws SocketsException
  *
+ * @psalm-pure
  */
 function socket_wsaprotocol_info_import(string $info_id)
 {
@@ -842,6 +866,7 @@ function socket_wsaprotocol_info_import(string $info_id)
  * socket_wsaprotocol_info_export.
  * @throws SocketsException
  *
+ * @psalm-pure
  */
 function socket_wsaprotocol_info_release(string $info_id): void
 {
@@ -851,3 +876,4 @@ function socket_wsaprotocol_info_release(string $info_id): void
         throw SocketsException::createFromPhpError();
     }
 }
+
