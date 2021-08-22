@@ -41,6 +41,7 @@ use Safe\Exceptions\JsonException;
  * @return string Returns a JSON encoded string on success.
  * @throws JsonException
  *
+ * @psalm-pure
  */
 function json_encode($value, int $flags = 0, int $depth = 512): string
 {

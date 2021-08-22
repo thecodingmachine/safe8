@@ -12,6 +12,7 @@ use Safe\Exceptions\LzfException;
  * @return string Returns the compressed data.
  * @throws LzfException
  *
+ * @psalm-pure
  */
 function lzf_compress(string $data): string
 {
@@ -32,6 +33,7 @@ function lzf_compress(string $data): string
  * @return string Returns the decompressed data.
  * @throws LzfException
  *
+ * @psalm-pure
  */
 function lzf_decompress(string $data): string
 {

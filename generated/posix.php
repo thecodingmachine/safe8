@@ -19,6 +19,7 @@ use Safe\Exceptions\PosixException;
  * existence of the file.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_access(string $filename, int $flags = 0): void
 {
@@ -82,6 +83,7 @@ function posix_access(string $filename, int $flags = 0): void
  * The function returns FALSE on failure.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getgrgid(int $group_id): array
 {
@@ -146,6 +148,7 @@ function posix_getgrgid(int $group_id): array
  *
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getgrnam(string $name): array
 {
@@ -165,6 +168,7 @@ function posix_getgrnam(string $name): array
  * set of the current process.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getgroups(): array
 {
@@ -183,6 +187,7 @@ function posix_getgroups(): array
  * @return string Returns the login name of the user, as a string.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getlogin(): string
 {
@@ -203,6 +208,7 @@ function posix_getlogin(): string
  * @return int Returns the identifier, as an int.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getpgid(int $process_id): int
 {
@@ -295,6 +301,7 @@ function posix_getpgid(int $process_id): int
  * The function returns FALSE on failure.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getpwuid(int $user_id): array
 {
@@ -405,6 +412,7 @@ function posix_getpwuid(int $user_id): array
  * The function returns FALSE on failure.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getrlimit(): array
 {
@@ -428,6 +436,7 @@ function posix_getrlimit(): array
  * @return int Returns the identifier, as an int.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_getsid(int $process_id): int
 {
@@ -447,6 +456,7 @@ function posix_getsid(int $process_id): int
  * @param int $group_id Typically the group number from the password file.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_initgroups(string $username, int $group_id): void
 {
@@ -490,6 +500,7 @@ function posix_kill(int $process_id, int $signal): void
  * (mode &amp; ~umask).
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_mkfifo(string $filename, int $permissions): void
 {
@@ -515,6 +526,7 @@ function posix_mkfifo(string $filename, int $permissions): void
  * @param int $minor The minor device kernel identifier.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_mknod(string $filename, int $flags, int $major = 0, int $minor = 0): void
 {
@@ -534,6 +546,7 @@ function posix_mknod(string $filename, int $flags, int $major = 0, int $minor = 
  * @param int $group_id The group id.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_setegid(int $group_id): void
 {
@@ -553,6 +566,7 @@ function posix_setegid(int $group_id): void
  * @param int $user_id The user id.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_seteuid(int $user_id): void
 {
@@ -575,6 +589,7 @@ function posix_seteuid(int $user_id): void
  * @param int $group_id The group id.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_setgid(int $group_id): void
 {
@@ -594,6 +609,7 @@ function posix_setgid(int $group_id): void
  * @param int $process_group_id The process group id.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_setpgid(int $process_id, int $process_group_id): void
 {
@@ -625,6 +641,7 @@ function posix_setpgid(int $process_id, int $process_group_id): void
  * POSIX_RLIMIT_INFINITY.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): void
 {
@@ -644,6 +661,7 @@ function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): void
  * @param int $user_id The user id.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_setuid(int $user_id): void
 {
@@ -691,6 +709,7 @@ function posix_setuid(int $user_id): void
  * The function returns FALSE on failure.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_times(): array
 {
@@ -741,6 +760,7 @@ function posix_times(): array
  * The function returns FALSE on failure.
  * @throws PosixException
  *
+ * @psalm-pure
  */
 function posix_uname(): array
 {

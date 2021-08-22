@@ -11,6 +11,7 @@ use Safe\Exceptions\InotifyException;
  * @return resource A stream resource.
  * @throws InotifyException
  *
+ * @psalm-pure
  */
 function inotify_init()
 {
@@ -33,6 +34,7 @@ function inotify_init()
  * @param int $watch_descriptor Watch to remove from the instance
  * @throws InotifyException
  *
+ * @psalm-pure
  */
 function inotify_rm_watch($inotify_instance, int $watch_descriptor): void
 {

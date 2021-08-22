@@ -30,6 +30,7 @@ use Safe\Exceptions\HashException;
  * (also known as output keying material - OKM);.
  * @throws HashException
  *
+ * @psalm-pure
  */
 function hash_hkdf(string $algo, string $key, int $length = 0, string $info = "", string $salt = ""): string
 {
@@ -50,6 +51,7 @@ function hash_hkdf(string $algo, string $key, int $length = 0, string $info = ""
  * @param \HashContext|null $stream_context Stream context as returned by stream_context_create.
  * @throws HashException
  *
+ * @psalm-pure
  */
 function hash_update_file(\HashContext $context, string $filename, ?\HashContext $stream_context = null): void
 {

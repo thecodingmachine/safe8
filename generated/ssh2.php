@@ -12,6 +12,7 @@ use Safe\Exceptions\Ssh2Exception;
  * @param string $username Remote user name.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_auth_agent($session, string $username): void
 {
@@ -38,6 +39,7 @@ function ssh2_auth_agent($session, string $username): void
  * for username will be used for it.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_auth_hostbased_file($session, string $username, string $hostname, string $pubkeyfile, string $privkeyfile, string $passphrase = null, string $local_username = null): void
 {
@@ -65,6 +67,7 @@ function ssh2_auth_hostbased_file($session, string $username, string $hostname, 
  * @param string $password Password for username
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_auth_password($session, string $username, string $password): void
 {
@@ -90,6 +93,7 @@ function ssh2_auth_password($session, string $username, string $password): void
  * be), the passphrase must be provided.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, string $privkeyfile, string $passphrase = null): void
 {
@@ -303,6 +307,7 @@ function ssh2_auth_pubkey_file($session, string $username, string $pubkeyfile, s
  * @return resource Returns a resource on success.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_connect(string $host, int $port = 22, array $methods = null, array $callbacks = null)
 {
@@ -328,6 +333,7 @@ function ssh2_connect(string $host, int $port = 22, array $methods = null, array
  * ssh2_connect.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_disconnect($session): void
 {
@@ -356,6 +362,7 @@ function ssh2_disconnect($session): void
  * @return resource Returns a stream on success.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_exec($session, string $command, string $pty = null, array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {
@@ -387,6 +394,7 @@ function ssh2_exec($session, string $command, string $pty = null, array $env = n
  * @return  Returns a stream resource.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_forward_accept($listener)
 {
@@ -409,6 +417,7 @@ function ssh2_forward_accept($listener)
  * @return  Returns an SSH2 Listener.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_forward_listen($session, int $port, string $host = null, int $max_connections = 16)
 {
@@ -441,6 +450,7 @@ function ssh2_forward_listen($session, int $port, string $host = null, int $max_
  * it will abort the add process.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwrite = false, array $attributes = null): void
 {
@@ -470,6 +480,7 @@ function ssh2_publickey_add($pkey, string $algoname, string $blob, bool $overwri
  * with all other ssh2_publickey_*() methods.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_publickey_init($session)
 {
@@ -490,6 +501,7 @@ function ssh2_publickey_init($session)
  * @param string $blob Publickey blob as raw binary data
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_publickey_remove($pkey, string $algoname, string $blob): void
 {
@@ -510,6 +522,7 @@ function ssh2_publickey_remove($pkey, string $algoname, string $blob): void
  * @param string $local_file Path to the local file.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_scp_recv($session, string $remote_file, string $local_file): void
 {
@@ -532,6 +545,7 @@ function ssh2_scp_recv($session, string $remote_file, string $local_file): void
  * create_mode.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_scp_send($session, string $local_file, string $remote_file, int $create_mode = 0644): void
 {
@@ -553,6 +567,7 @@ function ssh2_scp_send($session, string $local_file, string $remote_file, int $c
  * or ssh2_connect.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_send_eof($channel): void
 {
@@ -573,6 +588,7 @@ function ssh2_send_eof($channel): void
  * @param int $mode Permissions on the file. See the chmod for more details on this parameter.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_chmod($sftp, string $filename, int $mode): void
 {
@@ -599,6 +615,7 @@ function ssh2_sftp_chmod($sftp, string $filename, int $mode): void
  * required for dirname will be automatically created as well.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursive = false): void
 {
@@ -618,6 +635,7 @@ function ssh2_sftp_mkdir($sftp, string $dirname, int $mode = 0777, bool $recursi
  * @param string $to The new file name that replaces from.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_rename($sftp, string $from, string $to): void
 {
@@ -639,6 +657,7 @@ function ssh2_sftp_rename($sftp, string $from, string $to): void
  * @param string $dirname
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_rmdir($sftp, string $dirname): void
 {
@@ -659,6 +678,7 @@ function ssh2_sftp_rmdir($sftp, string $dirname): void
  * @param string $link
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_symlink($sftp, string $target, string $link): void
 {
@@ -677,6 +697,7 @@ function ssh2_sftp_symlink($sftp, string $target, string $link): void
  * @param string $filename
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp_unlink($sftp, string $filename): void
 {
@@ -698,6 +719,7 @@ function ssh2_sftp_unlink($sftp, string $filename): void
  * ssh2.sftp:// fopen wrapper.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_sftp($session)
 {
@@ -727,6 +749,7 @@ function ssh2_sftp($session)
  * @return resource Returns a stream resource on success.
  * @throws Ssh2Exception
  *
+ * @psalm-pure
  */
 function ssh2_shell($session, string $term_type = "vanilla", array $env = null, int $width = 80, int $height = 25, int $width_height_type = SSH2_TERM_UNIT_CHARS)
 {

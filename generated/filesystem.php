@@ -132,6 +132,7 @@ function copy(string $source, string $dest, $context = null): void
  * @return float Returns the number of available bytes as a float.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function disk_free_space(string $directory): float
 {
@@ -152,6 +153,7 @@ function disk_free_space(string $directory): float
  * @return float Returns the total number of bytes as a float.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function disk_total_space(string $directory): float
 {
@@ -207,7 +209,7 @@ function fflush($stream): void
  * This function is similar to file, except that
  * file_get_contents returns the file in a
  * string, starting at the specified offset
- * up to maxlen bytes. On failure,
+ * up to length bytes. On failure,
  * file_get_contents will return FALSE.
  *
  * file_get_contents is the preferred way to read the
@@ -230,18 +232,18 @@ function fflush($stream): void
  * Seeking (offset) is not supported with remote files.
  * Attempting to seek on non-local files may work with small offsets, but this
  * is unpredictable because it works on the buffered stream.
- * @param int $maxlen Maximum length of data read. The default is to read until end
+ * @param int $length Maximum length of data read. The default is to read until end
  * of file is reached. Note that this parameter is applied to the
  * stream processed by the filters.
  * @return string The function returns the read data.
  * @throws FilesystemException
  *
  */
-function file_get_contents(string $filename, bool $use_include_path = false, $context = null, int $offset = 0, int $maxlen = null): string
+function file_get_contents(string $filename, bool $use_include_path = false, $context = null, int $offset = 0, int $length = null): string
 {
     error_clear_last();
-    if ($maxlen !== null) {
-        $result = \file_get_contents($filename, $use_include_path, $context, $offset, $maxlen);
+    if ($length !== null) {
+        $result = \file_get_contents($filename, $use_include_path, $context, $offset, $length);
     } elseif ($offset !== 0) {
         $result = \file_get_contents($filename, $use_include_path, $context, $offset);
     } elseif ($context !== null) {
@@ -389,6 +391,7 @@ function file_put_contents(string $filename, $data, int $flags = 0, $context = n
  * file returns FALSE.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function file(string $filename, int $flags = 0, $context = null): array
 {
@@ -413,6 +416,7 @@ function file(string $filename, int $flags = 0, $context = null): array
  * The time is returned as a Unix timestamp.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function fileatime(string $filename): int
 {
@@ -433,6 +437,7 @@ function fileatime(string $filename): int
  * The time is returned as a Unix timestamp.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function filectime(string $filename): int
 {
@@ -452,6 +457,7 @@ function filectime(string $filename): int
  * @return int Returns the inode number of the file.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function fileinode(string $filename): int
 {
@@ -474,6 +480,7 @@ function fileinode(string $filename): int
  * suitable for the date function.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function filemtime(string $filename): int
 {
@@ -495,6 +502,7 @@ function filemtime(string $filename): int
  * posix_getpwuid to resolve it to a username.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function fileowner(string $filename): int
 {
@@ -528,6 +536,7 @@ function fileowner(string $filename): int
  * Returns FALSE on failure.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function fileperms(string $filename): int
 {
@@ -548,6 +557,7 @@ function fileperms(string $filename): int
  * of level E_WARNING) in case of an error.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function filesize(string $filename): int
 {
@@ -565,9 +575,8 @@ function filesize(string $filename): int
  * model which can be used on virtually every platform (including most Unix
  * derivatives and even Windows).
  *
- * On versions of PHP before 5.3.2, the lock is released also by
- * fclose (which is also called automatically when script
- * finished).
+ * The lock is released also by fclose,
+ * or when stream is garbage collected.
  *
  * PHP supports a portable way of locking complete files in an advisory way
  * (which means all accessing programs have to use the same way of locking
@@ -694,9 +703,8 @@ function flock($stream, int $operation, ?int &$would_block = null): void
  *
  * 'w+'
  *
- * Open for reading and writing; place the file pointer at
- * the beginning of the file and truncate the file to zero
- * length.  If the file does not exist, attempt to create it.
+ * Open for reading and writing; otherwise it has the
+ * same behavior as 'w'.
  *
  *
  *
@@ -837,21 +845,21 @@ function fopen(string $filename, string $mode, bool $use_include_path = false, $
  * fsockopen (and not yet closed by
  * fclose).
  * @param array $fields An array of strings.
- * @param string $delimiter The optional delimiter parameter sets the field
- * delimiter (one character only).
+ * @param string $separator The optional separator parameter sets the field
+ * delimiter (one single-byte character only).
  * @param string $enclosure The optional enclosure parameter sets the field
- * enclosure (one character only).
+ * enclosure (one single-byte character only).
  * @param string $escape_char The optional escape_char parameter sets the
- * escape character (at most one character).
+ * escape character (at most one single-byte character).
  * An empty string ("") disables the proprietary escape mechanism.
  * @return int Returns the length of the written string.
  * @throws FilesystemException
  *
  */
-function fputcsv($handle, array $fields, string $delimiter = ",", string $enclosure = '"', string $escape_char = "\\"): int
+function fputcsv($handle, array $fields, string $separator = ",", string $enclosure = '"', string $escape_char = "\\"): int
 {
     error_clear_last();
-    $result = \fputcsv($handle, $fields, $delimiter, $enclosure, $escape_char);
+    $result = \fputcsv($handle, $fields, $separator, $enclosure, $escape_char);
     if ($result === false) {
         throw FilesystemException::createFromPhpError();
     }
@@ -922,6 +930,7 @@ function fread($stream, int $length): string
  * Returns FALSE on failure.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function fstat($stream): array
 {
@@ -971,11 +980,6 @@ function ftruncate($stream, int $size): void
  * stop after length bytes have been written or
  * the end of string is reached, whichever comes
  * first.
- *
- * Note that if the length argument is given,
- * then the magic_quotes_runtime
- * configuration option will be ignored and no slashes will be
- * stripped from string.
  * @return int
  * @throws FilesystemException
  *
@@ -1108,6 +1112,7 @@ function glob(string $pattern, int $flags = 0): array
  * @param string|int $group The group specified by name or number.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function lchgrp(string $filename, $group): void
 {
@@ -1129,6 +1134,7 @@ function lchgrp(string $filename, $group): void
  * @param string|int $user User name or number.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function lchown(string $filename, $user): void
 {
@@ -1147,6 +1153,7 @@ function lchown(string $filename, $user): void
  * @param string $link The link name.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function link(string $target, string $link): void
 {
@@ -1173,6 +1180,7 @@ function link(string $target, string $link): void
  * On failure, FALSE is returned.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function lstat(string $filename): array
 {
@@ -1186,32 +1194,32 @@ function lstat(string $filename): array
 
 
 /**
- * Attempts to create the directory specified by pathname.
+ * Attempts to create the directory specified by directory.
  *
- * @param string $pathname The directory path.
- * @param int $mode The mode is 0777 by default, which means the widest possible
- * access. For more information on modes, read the details
+ * @param string $directory The directory path.
+ * @param int $permissions The permissions are 0777 by default, which means the widest possible
+ * access. For more information on permissions, read the details
  * on the chmod page.
  *
- * mode is ignored on Windows.
+ * permissions is ignored on Windows.
  *
- * Note that you probably want to specify the mode as an octal number,
- * which means it should have a leading zero. The mode is also modified
+ * Note that you probably want to specify the permissions as an octal number,
+ * which means it should have a leading zero. The permissions is also modified
  * by the current umask, which you can change using
  * umask.
  * @param bool $recursive Allows the creation of nested directories specified in the
- * pathname.
+ * directory.
  * @param resource $context
  * @throws FilesystemException
  *
  */
-function mkdir(string $pathname, int $mode = 0777, bool $recursive = false, $context = null): void
+function mkdir(string $directory, int $permissions = 0777, bool $recursive = false, $context = null): void
 {
     error_clear_last();
     if ($context !== null) {
-        $result = \mkdir($pathname, $mode, $recursive, $context);
+        $result = \mkdir($directory, $permissions, $recursive, $context);
     } else {
-        $result = \mkdir($pathname, $mode, $recursive);
+        $result = \mkdir($directory, $permissions, $recursive);
     }
     if ($result === false) {
         throw FilesystemException::createFromPhpError();
@@ -1247,6 +1255,7 @@ function mkdir(string $pathname, int $mode = 0777, bool $recursive = false, $con
  * @return array The settings are returned as an associative array on success.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function parse_ini_file(string $filename, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array
 {
@@ -1284,6 +1293,7 @@ function parse_ini_file(string $filename, bool $process_sections = false, int $s
  * @return array The settings are returned as an associative array on success.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function parse_ini_string(string $ini_string, bool $process_sections = false, int $scanner_mode = INI_SCANNER_NORMAL): array
 {
@@ -1329,6 +1339,7 @@ function readfile(string $filename, bool $use_include_path = false, $context = n
  * @return string Returns the contents of the symbolic link path.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function readlink(string $path): string
 {
@@ -1435,22 +1446,22 @@ function rewind($stream): void
 
 
 /**
- * Attempts to remove the directory named by dirname.
+ * Attempts to remove the directory named by directory.
  * The directory must be empty, and the relevant permissions must permit this.
  * A E_WARNING level error will be generated on failure.
  *
- * @param string $dirname Path to the directory.
+ * @param string $directory Path to the directory.
  * @param resource $context
  * @throws FilesystemException
  *
  */
-function rmdir(string $dirname, $context = null): void
+function rmdir(string $directory, $context = null): void
 {
     error_clear_last();
     if ($context !== null) {
-        $result = \rmdir($dirname, $context);
+        $result = \rmdir($directory, $context);
     } else {
-        $result = \rmdir($dirname);
+        $result = \rmdir($directory);
     }
     if ($result === false) {
         throw FilesystemException::createFromPhpError();
@@ -1489,6 +1500,7 @@ function symlink(string $target, string $link): void
  * @return string Returns the new temporary filename (with path).
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function tempnam(string $directory, string $prefix): string
 {
@@ -1514,6 +1526,7 @@ function tempnam(string $directory, string $prefix): string
  * fopen, for the new file.
  * @throws FilesystemException
  *
+ * @psalm-pure
  */
 function tmpfile()
 {

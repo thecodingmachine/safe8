@@ -12,6 +12,7 @@ use Safe\Exceptions\GmpException;
  * @return \GMP Returns the binomial coefficient C(n, k).
  * @throws GmpException
  *
+ * @psalm-pure
  */
 function gmp_binomial($n, int $k): \GMP
 {
@@ -33,6 +34,7 @@ function gmp_binomial($n, int $k): \GMP
  * @return string Returns a string.
  * @throws GmpException
  *
+ * @psalm-pure
  */
 function gmp_export($num, int $word_size = 1, int $flags = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): string
 {
@@ -54,6 +56,7 @@ function gmp_export($num, int $word_size = 1, int $flags = GMP_MSW_FIRST | GMP_N
  * @return \GMP Returns a GMP number.
  * @throws GmpException
  *
+ * @psalm-pure
  */
 function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST | GMP_NATIVE_ENDIAN): \GMP
 {
@@ -76,6 +79,7 @@ function gmp_import(string $data, int $word_size = 1, int $flags = GMP_MSW_FIRST
  * A GMP object, an integer or a numeric string.
  * @throws GmpException
  *
+ * @psalm-pure
  */
 function gmp_random_seed($seed): void
 {

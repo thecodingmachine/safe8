@@ -18,6 +18,7 @@ use Safe\Exceptions\EioException;
  * @return resource eio_busy returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -70,6 +71,7 @@ function eio_busy(int $delay, int $pri = EIO_PRI_DEFAULT, callable $callback = n
  * @return resource eio_chmod returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_chmod(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -122,6 +124,7 @@ function eio_chmod(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable
  * @return resource eio_chown returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_chown(string $path, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -171,6 +174,7 @@ function eio_chown(string $path, int $uid, int $gid = -1, int $pri = EIO_PRI_DEF
  * @return resource eio_close returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_close($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -230,6 +234,7 @@ function eio_close($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $
  * @return resource eio_custom returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_custom(callable $execute, int $pri, callable $callback, $data = null)
 {
@@ -279,6 +284,7 @@ function eio_custom(callable $execute, int $pri, callable $callback, $data = nul
  * @return resource eio_dup2 returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_dup2($fd, $fd2, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -296,6 +302,7 @@ function eio_dup2($fd, $fd2, int $pri = EIO_PRI_DEFAULT, callable $callback = nu
  *
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_event_loop(): void
 {
@@ -351,6 +358,7 @@ function eio_event_loop(): void
  * @return resource eio_fallocate returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fallocate($fd, int $mode, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -401,11 +409,64 @@ function eio_fallocate($fd, int $mode, int $offset, int $length, int $pri = EIO_
  * @return resource eio_fchmod returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fchmod($fd, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
     error_clear_last();
     $result = \eio_fchmod($fd, $mode, $pri, $callback, $data);
+    if ($result === false) {
+        throw EioException::createFromPhpError();
+    }
+    return $result;
+}
+
+
+/**
+ * eio_fchown changes ownership of the file specified by
+ * fd file descriptor.
+ *
+ * @param mixed $fd Stream, Socket resource, or numeric file descriptor.
+ * @param int $uid User ID. Is ignored when equal to -1.
+ * @param int $gid Group ID. Is ignored when equal to -1.
+ * @param int $pri The request priority: EIO_PRI_DEFAULT, EIO_PRI_MIN, EIO_PRI_MAX, or NULL.
+ * If NULL passed, pri internally is set to
+ * EIO_PRI_DEFAULT.
+ * @param callable $callback
+ * callback function is called when the request is done.
+ * It should match the following prototype:
+ *
+ *
+ * data
+ * is custom data passed to the request.
+ *
+ *
+ * result
+ * request-specific result value; basically, the value returned by corresponding
+ * system call.
+ *
+ *
+ * req
+ * is optional request resource which can be used with functions like eio_get_last_error
+ *
+ *
+ *
+ * is custom data passed to the request.
+ *
+ * request-specific result value; basically, the value returned by corresponding
+ * system call.
+ *
+ * is optional request resource which can be used with functions like eio_get_last_error
+ * @param mixed $data is custom data passed to the request.
+ * @return resource eio_chmod returns request resource on success.
+ * @throws EioException
+ *
+ * @psalm-pure
+ */
+function eio_fchown($fd, int $uid, int $gid = -1, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
+{
+    error_clear_last();
+    $result = \eio_fchown($fd, $uid, $gid, $pri, $callback, $data);
     if ($result === false) {
         throw EioException::createFromPhpError();
     }
@@ -449,6 +510,7 @@ function eio_fchmod($fd, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callba
  * @return resource eio_fdatasync returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fdatasync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -498,6 +560,7 @@ function eio_fdatasync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = nul
  * @return resource eio_busy returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fstat($fd, int $pri, callable $callback, $data = null)
 {
@@ -551,6 +614,7 @@ function eio_fstat($fd, int $pri, callable $callback, $data = null)
  * @return resource eio_fstatvfs returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fstatvfs($fd, int $pri, callable $callback, $data = null)
 {
@@ -603,6 +667,7 @@ function eio_fstatvfs($fd, int $pri, callable $callback, $data = null)
  * @return resource eio_fsync returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_fsync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -654,6 +719,7 @@ function eio_fsync($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $
  * @return resource eio_ftruncate returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_ftruncate($fd, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -705,6 +771,7 @@ function eio_ftruncate($fd, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callabl
  * @return resource eio_futime returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_futime($fd, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -749,6 +816,7 @@ function eio_futime($fd, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT,
  * @return resource eio_grp returns request group resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_grp(callable $callback, string $data = null)
 {
@@ -798,6 +866,7 @@ function eio_grp(callable $callback, string $data = null)
  * @return resource eio_lstat returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_lstat(string $path, int $pri, callable $callback, $data = null)
 {
@@ -848,6 +917,7 @@ function eio_lstat(string $path, int $pri, callable $callback, $data = null)
  * @return resource eio_mkdir returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_mkdir(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -913,6 +983,7 @@ function eio_mkdir(string $path, int $mode, int $pri = EIO_PRI_DEFAULT, callable
  * @return resource eio_mknod returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_mknod(string $path, int $mode, int $dev, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -961,6 +1032,7 @@ function eio_mknod(string $path, int $mode, int $dev, int $pri = EIO_PRI_DEFAULT
  * @return resource eio_nop returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_nop(int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1012,6 +1084,7 @@ function eio_nop(int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = 
  * @return resource eio_readahead returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_readahead($fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1061,7 +1134,8 @@ function eio_readahead($fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT
  *
  * is optional request resource which can be used with functions like eio_get_last_error
  * @param string $data is custom data passed to the request.
- * @return resource eio_readdir returns request resource on success. Sets result argument of
+ * @return resource eio_readdir returns request resource on success.
+ * Sets result argument of
  * callback function according to
  * flags:
  *
@@ -1315,6 +1389,7 @@ function eio_readahead($fd, int $offset, int $length, int $pri = EIO_PRI_DEFAULT
  *
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_readdir(string $path, int $flags, int $pri, callable $callback, string $data = null)
 {
@@ -1363,6 +1438,7 @@ function eio_readdir(string $path, int $flags, int $pri, callable $callback, str
  * @return resource eio_readlink returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_readlink(string $path, int $pri, callable $callback, string $data = null)
 {
@@ -1412,6 +1488,7 @@ function eio_readlink(string $path, int $pri, callable $callback, string $data =
  * @return resource eio_rename returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_rename(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1460,6 +1537,7 @@ function eio_rename(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, 
  * @return resource eio_rmdir returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_rmdir(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1516,6 +1594,7 @@ function eio_rmdir(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback 
  * @return resource eio_seek returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_seek($fd, int $offset, int $whence, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1568,6 +1647,7 @@ function eio_seek($fd, int $offset, int $whence, int $pri = EIO_PRI_DEFAULT, cal
  * @return resource eio_sendfile returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_sendfile($out_fd, $in_fd, int $offset, int $length, int $pri = null, callable $callback = null, string $data = null)
 {
@@ -1626,6 +1706,7 @@ function eio_sendfile($out_fd, $in_fd, int $offset, int $length, int $pri = null
  * callback to an array.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_stat(string $path, int $pri, callable $callback, $data = null)
 {
@@ -1672,10 +1753,12 @@ function eio_stat(string $path, int $pri, callable $callback, $data = null)
  *
  * is optional request resource which can be used with functions like eio_get_last_error
  * @param mixed $data is custom data passed to the request.
- * @return resource eio_statvfs returns request resource on success. On success assigns result argument of
+ * @return resource eio_statvfs returns request resource on success.
+ * On success assigns result argument of
  * callback to an array.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_statvfs(string $path, int $pri, callable $callback, $data = null)
 {
@@ -1730,6 +1813,7 @@ function eio_statvfs(string $path, int $pri, callable $callback, $data = null)
  * @return resource eio_symlink returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_symlink(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1789,6 +1873,7 @@ function eio_symlink(string $path, string $new_path, int $pri = EIO_PRI_DEFAULT,
  * @return resource eio_sync_file_range returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_sync_file_range($fd, int $offset, int $nbytes, int $flags, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1810,6 +1895,7 @@ function eio_sync_file_range($fd, int $offset, int $nbytes, int $flags, int $pri
  * @return resource eio_sync returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_sync(int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1858,6 +1944,7 @@ function eio_sync(int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data =
  * @return resource eio_syncfs returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_syncfs($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1908,6 +1995,7 @@ function eio_syncfs($fd, int $pri = EIO_PRI_DEFAULT, callable $callback = null, 
  * @return resource eio_busy returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_truncate(string $path, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -1956,6 +2044,7 @@ function eio_truncate(string $path, int $offset = 0, int $pri = EIO_PRI_DEFAULT,
  * @return resource eio_unlink returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_unlink(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -2006,6 +2095,7 @@ function eio_unlink(string $path, int $pri = EIO_PRI_DEFAULT, callable $callback
  * @return resource eio_utime returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_utime(string $path, float $atime, float $mtime, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {
@@ -2059,6 +2149,7 @@ function eio_utime(string $path, float $atime, float $mtime, int $pri = EIO_PRI_
  * @return resource eio_write returns request resource on success.
  * @throws EioException
  *
+ * @psalm-pure
  */
 function eio_write($fd, string $str, int $length = 0, int $offset = 0, int $pri = EIO_PRI_DEFAULT, callable $callback = null, $data = null)
 {

@@ -15,6 +15,7 @@ use Safe\Exceptions\SsdeepException;
  * @return int Returns an integer from 0 to 100 on success, FALSE otherwise.
  * @throws SsdeepException
  *
+ * @psalm-pure
  */
 function ssdeep_fuzzy_compare(string $signature1, string $signature2): int
 {
@@ -37,6 +38,7 @@ function ssdeep_fuzzy_compare(string $signature1, string $signature2): int
  * @return string Returns a string on success, FALSE otherwise.
  * @throws SsdeepException
  *
+ * @psalm-pure
  */
 function ssdeep_fuzzy_hash_filename(string $file_name): string
 {
@@ -58,6 +60,7 @@ function ssdeep_fuzzy_hash_filename(string $file_name): string
  * @return string Returns a string on success, FALSE otherwise.
  * @throws SsdeepException
  *
+ * @psalm-pure
  */
 function ssdeep_fuzzy_hash(string $to_hash): string
 {

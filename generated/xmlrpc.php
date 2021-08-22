@@ -11,6 +11,7 @@ use Safe\Exceptions\XmlrpcException;
  * @param string $type 'base64' or 'datetime'
  * @throws XmlrpcException
  *
+ * @psalm-pure
  */
 function xmlrpc_set_type(&$value, string $type): void
 {

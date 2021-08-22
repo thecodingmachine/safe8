@@ -49,6 +49,7 @@ use Safe\Exceptions\VarException;
  *
  * @throws VarException
  *
+ * @psalm-pure
  */
 function settype(&$var, string $type): void
 {

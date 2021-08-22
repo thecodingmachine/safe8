@@ -46,6 +46,7 @@ use Safe\Exceptions\YazException;
  * (integer is character position)
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_ccl_parse($id, string $query, ?array &$result): void
 {
@@ -63,6 +64,7 @@ function yaz_ccl_parse($id, string $query, ?array &$result): void
  * @param resource $id The connection resource returned by yaz_connect.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_close($id): void
 {
@@ -264,6 +266,7 @@ function yaz_close($id): void
  * @return mixed A connection resource on success, FALSE on error.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_connect(string $zurl, $options = null)
 {
@@ -291,6 +294,7 @@ function yaz_connect(string $zurl, $options = null)
  * separated by a plus sign +.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_database($id, string $databases): void
 {
@@ -314,6 +318,7 @@ function yaz_database($id, string $databases): void
  * B (for brief records).
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_element($id, string $elementset): void
 {
@@ -334,6 +339,7 @@ function yaz_element($id, string $elementset): void
  * @param resource $id The connection resource returned by yaz_connect.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_present($id): void
 {
@@ -374,6 +380,7 @@ function yaz_present($id): void
  * yaz_ccl_parse.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_search($id, string $type, string $query): void
 {
@@ -426,6 +433,7 @@ function yaz_search($id, string $type, string $query): void
  * In event mode, returns resource.
  * @throws YazException
  *
+ * @psalm-pure
  */
 function yaz_wait(array &$options = null)
 {

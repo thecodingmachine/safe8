@@ -14,6 +14,7 @@ use Safe\Exceptions\CalendarException;
  * @return int The unix timestamp for the start (midnight, not noon) of the given Julian day
  * @throws CalendarException
  *
+ * @psalm-pure
  */
 function jdtounix(int $julian_day): int
 {
@@ -36,6 +37,7 @@ function jdtounix(int $julian_day): int
  * @return int A julian day number as integer.
  * @throws CalendarException
  *
+ * @psalm-pure
  */
 function unixtojd(int $timestamp = null): int
 {

@@ -18,6 +18,7 @@ use Safe\Exceptions\MbstringException;
  * encoding.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_chr(int $codepoint, string $encoding = null): string
 {
@@ -54,6 +55,7 @@ function mb_chr(int $codepoint, string $encoding = null): string
  * @return string|array The encoded string or array on success.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_convert_encoding($string, string $to_encoding, $from_encoding = null)
 {
@@ -98,6 +100,7 @@ function mb_convert_encoding($string, string $to_encoding, $from_encoding = null
  * When getting the encoding detection order, an ordered array of the encodings is returned.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_detect_order($encoding = null)
 {
@@ -121,6 +124,7 @@ function mb_detect_order($encoding = null)
  * @return array Returns a numerically indexed array of encoding aliases on success
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_encoding_aliases(string $encoding): array
 {
@@ -166,6 +170,7 @@ function mb_encoding_aliases(string $encoding): array
  * is returned.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_replace_callback(string $pattern, callable $callback, string $string, string $options = null): string
 {
@@ -196,6 +201,7 @@ function mb_ereg_replace_callback(string $pattern, callable $callback, string $s
  * is returned.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_replace(string $pattern, string $replacement, string $string, string $options = null): string
 {
@@ -218,6 +224,7 @@ function mb_ereg_replace(string $pattern, string $replacement, string $string, s
  * @return array
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_search_getregs(): array
 {
@@ -243,6 +250,7 @@ function mb_ereg_search_getregs(): array
  * @param string $options The search option. See mb_regex_set_options for explanation.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_search_init(string $string, string $pattern = null, string $options = null): void
 {
@@ -268,6 +276,7 @@ function mb_ereg_search_init(string $string, string $pattern = null, string $opt
  * @return array
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_search_regs(string $pattern = null, string $options = null): array
 {
@@ -292,6 +301,7 @@ function mb_ereg_search_regs(string $pattern = null, string $options = null): ar
  * @param int $offset The position to set. If it is negative, it counts from the end of the string.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ereg_search_setpos(int $offset): void
 {
@@ -315,6 +325,7 @@ function mb_ereg_search_setpos(int $offset): void
  * is returned.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_eregi_replace(string $pattern, string $replacement, string $string, string $options = null): string
 {
@@ -357,6 +368,7 @@ function mb_eregi_replace(string $pattern, string $replacement, string $string, 
  * is not specified, otherwise a specific type.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_get_info(string $type = "all")
 {
@@ -386,6 +398,7 @@ function mb_get_info(string $type = "all")
  * Returns TRUE on success.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_http_output(string $encoding = null)
 {
@@ -445,6 +458,7 @@ function mb_internal_encoding(string $encoding = null)
  * @return int The Unicode code point for the first character of string.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_ord(string $string, string $encoding = null): int
 {
@@ -473,6 +487,7 @@ function mb_ord(string $string, string $encoding = null): int
  * @param array|null $result An array containing decoded and character encoded converted values.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_parse_str(string $string, ?array &$result): void
 {
@@ -493,6 +508,7 @@ function mb_parse_str(string $string, ?array &$result): void
  * @return string|bool
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_regex_encoding(string $encoding = null)
 {
@@ -565,6 +581,7 @@ function mb_regex_encoding(string $encoding = null)
  * For sendmail users, this file is /etc/mail/trusted-users.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_send_mail(string $to, string $subject, string $message, $additional_headers = [], string $additional_params = null): void
 {
@@ -589,6 +606,7 @@ function mb_send_mail(string $to, string $subject, string $message, $additional_
  * @return array The result as an array.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_split(string $pattern, string $string, int $limit = -1): array
 {
@@ -616,6 +634,7 @@ function mb_split(string $pattern, string $string, int $limit = -1): array
  * @return array mb_str_split returns an array of strings.
  * @throws MbstringException
  *
+ * @psalm-pure
  */
 function mb_str_split(string $string, int $length = 1, $encoding = null): array
 {

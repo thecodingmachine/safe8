@@ -25,6 +25,7 @@ use Safe\Exceptions\MailparseException;
  * extracted section as a string.
  * @throws MailparseException
  *
+ * @psalm-pure
  */
 function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbackfunc = null): string
 {
@@ -49,6 +50,7 @@ function mailparse_msg_extract_part_file($mimemail, $filename, callable $callbac
  * mailparse_msg_parse_file.
  * @throws MailparseException
  *
+ * @psalm-pure
  */
 function mailparse_msg_free($mimemail): void
 {
@@ -72,6 +74,7 @@ function mailparse_msg_free($mimemail): void
  * @return resource Returns a MIME resource representing the structure.
  * @throws MailparseException
  *
+ * @psalm-pure
  */
 function mailparse_msg_parse_file(string $filename)
 {
@@ -95,6 +98,7 @@ function mailparse_msg_parse_file(string $filename)
  * (CRLF); otherwise the last line of the message will not be parsed.
  * @throws MailparseException
  *
+ * @psalm-pure
  */
 function mailparse_msg_parse($mimemail, string $data): void
 {
@@ -116,6 +120,7 @@ function mailparse_msg_parse($mimemail, string $data): void
  * mbstring module.
  * @throws MailparseException
  *
+ * @psalm-pure
  */
 function mailparse_stream_encode($sourcefp, $destfp, string $encoding): void
 {

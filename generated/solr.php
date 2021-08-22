@@ -10,6 +10,7 @@ use Safe\Exceptions\SolrException;
  * @return string It returns a string on success.
  * @throws SolrException
  *
+ * @psalm-pure
  */
 function solr_get_version(): string
 {

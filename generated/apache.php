@@ -10,6 +10,7 @@ use Safe\Exceptions\ApacheException;
  * @return string Returns the Apache version on success.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_get_version(): string
 {
@@ -31,6 +32,7 @@ function apache_get_version(): string
  * @return string The value of the Apache environment variable on success
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_getenv(string $variable, bool $walk_to_top = false): string
 {
@@ -79,6 +81,7 @@ function apache_getenv(string $variable, bool $walk_to_top = false): string
  * Returns FALSE on failure.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_lookup_uri(string $filename): object
 {
@@ -98,6 +101,7 @@ function apache_lookup_uri(string $filename): object
  * @return array An associative array of all the HTTP headers in the current request.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_request_headers(): array
 {
@@ -117,6 +121,7 @@ function apache_request_headers(): array
  * @return array An array of all Apache response headers on success.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_response_headers(): array
 {
@@ -139,6 +144,7 @@ function apache_response_headers(): array
  * @param bool $walk_to_top Whether to set the top-level variable available to all Apache layers.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function apache_setenv(string $variable, string $value, bool $walk_to_top = false): void
 {
@@ -160,6 +166,7 @@ function apache_setenv(string $variable, string $value, bool $walk_to_top = fals
  * @return array An associative array of all the HTTP headers in the current request.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function getallheaders(): array
 {
@@ -188,6 +195,7 @@ function getallheaders(): array
  * @param string $uri The file that the virtual command will be performed on.
  * @throws ApacheException
  *
+ * @psalm-pure
  */
 function virtual(string $uri): void
 {

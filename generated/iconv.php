@@ -22,6 +22,7 @@ use Safe\Exceptions\IconvException;
  * stores all these variables.
  * @throws IconvException
  *
+ * @psalm-pure
  */
 function iconv_get_encoding(string $type = "all")
 {
@@ -47,6 +48,7 @@ function iconv_get_encoding(string $type = "all")
  * @param string $encoding The character set.
  * @throws IconvException
  *
+ * @psalm-pure
  */
 function iconv_set_encoding(string $type, string $encoding): void
 {
@@ -84,6 +86,7 @@ function iconv_set_encoding(string $type, string $encoding): void
  * @return string Returns the converted string.
  * @throws IconvException
  *
+ * @psalm-pure
  */
 function iconv(string $from_encoding, string $to_encoding, string $string): string
 {

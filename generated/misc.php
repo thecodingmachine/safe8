@@ -7,7 +7,7 @@ use Safe\Exceptions\MiscException;
 /**
  * Defines a named constant at runtime.
  *
- * @param string $name The name of the constant.
+ * @param string $constant_name The name of the constant.
  *
  * It is possible to define constants with reserved or
  * even invalid names, whose value can (only) be retrieved with
@@ -28,10 +28,10 @@ use Safe\Exceptions\MiscException;
  * @throws MiscException
  *
  */
-function define(string $name, $value, bool $case_insensitive = false): void
+function define(string $constant_name, $value, bool $case_insensitive = false): void
 {
     error_clear_last();
-    $result = \define($name, $value, $case_insensitive);
+    $result = \define($constant_name, $value, $case_insensitive);
     if ($result === false) {
         throw MiscException::createFromPhpError();
     }
@@ -57,6 +57,7 @@ function define(string $name, $value, bool $case_insensitive = false): void
  * TRUE on success, FALSE on failure.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function highlight_file(string $filename, bool $return = false)
 {
@@ -80,6 +81,7 @@ function highlight_file(string $filename, bool $return = false)
  * TRUE on success, FALSE on failure.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function highlight_string(string $str, bool $return = false)
 {
@@ -104,6 +106,7 @@ function highlight_string(string $str, bool $return = false)
  * Returns FALSE on failure.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function hrtime(bool $as_number = false)
 {
@@ -256,7 +259,7 @@ function hrtime(bool $as_number = false)
  *
  *
  * Z
- * NUL-padded string (new in PHP 5.5)
+ * NUL-padded string
  *
  *
  * @
@@ -269,6 +272,7 @@ function hrtime(bool $as_number = false)
  * @return string Returns a binary string containing data.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function pack(string $format, ...$values): string
 {
@@ -297,6 +301,7 @@ function pack(string $format, ...$values): string
  * out_codepage.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function sapi_windows_cp_conv($in_codepage, $out_codepage, string $subject): string
 {
@@ -315,6 +320,7 @@ function sapi_windows_cp_conv($in_codepage, $out_codepage, string $subject): str
  * @param int $cp A codepage identifier.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function sapi_windows_cp_set(int $cp): void
 {
@@ -336,6 +342,7 @@ function sapi_windows_cp_set(int $cp): void
  * is given, the event is sent to all processes of the process group.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function sapi_windows_generate_ctrl_event(int $event, int $pid = 0): void
 {
@@ -362,6 +369,7 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0): void
  * @param bool $enable If specified, the VT100 feature will be enabled (if TRUE) or disabled (if FALSE).
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function sapi_windows_vt100_support($stream, bool $enable = null): void
 {
@@ -412,6 +420,7 @@ function sleep(int $seconds): int
  * minutes).
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function sys_getloadavg(): array
 {
@@ -450,6 +459,7 @@ function sys_getloadavg(): array
  *
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function time_nanosleep(int $seconds, int $nanoseconds)
 {
@@ -469,6 +479,7 @@ function time_nanosleep(int $seconds, int $nanoseconds)
  * @param float $timestamp The timestamp when the script should wake.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function time_sleep_until(float $timestamp): void
 {
@@ -512,6 +523,7 @@ function time_sleep_until(float $timestamp): void
  * string.
  * @throws MiscException
  *
+ * @psalm-pure
  */
 function unpack(string $format, string $string, int $offset = 0): array
 {

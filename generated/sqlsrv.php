@@ -17,6 +17,7 @@ use Safe\Exceptions\SqlsrvException;
  * @param resource $conn The connection resource returned by a call to sqlsrv_connect.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_begin_transaction($conn): void
 {
@@ -39,6 +40,7 @@ function sqlsrv_begin_transaction($conn): void
  * @param resource $stmt The statement resource to be cancelled.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_cancel($stmt): void
 {
@@ -86,6 +88,7 @@ function sqlsrv_cancel($stmt): void
  *
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_client_info($conn): array
 {
@@ -104,6 +107,7 @@ function sqlsrv_client_info($conn): array
  * @param resource $conn The connection to be closed.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_close($conn): void
 {
@@ -128,6 +132,7 @@ function sqlsrv_close($conn): void
  * @param resource $conn The connection on which the transaction is to be committed.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_commit($conn): void
 {
@@ -180,6 +185,7 @@ function sqlsrv_commit($conn): void
  *
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_configure(string $setting, $value): void
 {
@@ -199,6 +205,7 @@ function sqlsrv_configure(string $setting, $value): void
  * @param resource $stmt A statement resource returned by sqlsrv_prepare.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_execute($stmt): void
 {
@@ -222,6 +229,7 @@ function sqlsrv_execute($stmt): void
  * called multiple times in a script.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_free_stmt($stmt): void
 {
@@ -250,6 +258,7 @@ function sqlsrv_free_stmt($stmt): void
  * @return mixed Returns data from the specified field on success.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = null)
 {
@@ -275,6 +284,7 @@ function sqlsrv_get_field($stmt, int $fieldIndex, int $getAsType = null)
  * occurred, and NULL if there are no more results to retrieve.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_next_result($stmt): ?bool
 {
@@ -296,6 +306,7 @@ function sqlsrv_next_result($stmt): ?bool
  * @return int Returns the number of fields on success.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_num_fields($stmt): int
 {
@@ -324,6 +335,7 @@ function sqlsrv_num_fields($stmt): int
  * If a forward cursor (the default) or dynamic cursor is used, FALSE is returned.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_num_rows($stmt): int
 {
@@ -356,6 +368,7 @@ function sqlsrv_num_rows($stmt): int
  * @return resource Returns a statement resource on success.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_prepare($conn, string $sql, array $params = null, array $options = null)
 {
@@ -393,6 +406,7 @@ function sqlsrv_prepare($conn, string $sql, array $params = null, array $options
  * @return resource Returns a statement resource on success.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_query($conn, string $sql, array $params = null, array $options = null)
 {
@@ -418,6 +432,7 @@ function sqlsrv_query($conn, string $sql, array $params = null, array $options =
  * @param resource $conn The connection resource returned by a call to sqlsrv_connect.
  * @throws SqlsrvException
  *
+ * @psalm-pure
  */
 function sqlsrv_rollback($conn): void
 {

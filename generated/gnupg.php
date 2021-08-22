@@ -13,6 +13,7 @@ use Safe\Exceptions\GnupgException;
  * @param string $passphrase The pass phrase.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphrase): void
 {
@@ -32,6 +33,7 @@ function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphras
  * @param string $fingerprint The fingerprint key.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_addencryptkey($identifier, string $fingerprint): void
 {
@@ -52,6 +54,7 @@ function gnupg_addencryptkey($identifier, string $fingerprint): void
  * @param string $passphrase The pass phrase.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase = null): void
 {
@@ -74,6 +77,7 @@ function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase =
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_cleardecryptkeys($identifier): void
 {
@@ -92,6 +96,7 @@ function gnupg_cleardecryptkeys($identifier): void
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_clearencryptkeys($identifier): void
 {
@@ -110,6 +115,7 @@ function gnupg_clearencryptkeys($identifier): void
  * gnupg_init or gnupg.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_clearsignkeys($identifier): void
 {
@@ -131,6 +137,7 @@ function gnupg_clearsignkeys($identifier): void
  * Pass 0 to disable armored output.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_setarmor($identifier, int $armor): void
 {
@@ -157,6 +164,7 @@ function gnupg_setarmor($identifier, int $armor): void
  * By default GNUPG_SIG_MODE_CLEAR is used.
  * @throws GnupgException
  *
+ * @psalm-pure
  */
 function gnupg_setsignmode($identifier, int $signmode): void
 {

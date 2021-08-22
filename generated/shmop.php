@@ -11,6 +11,7 @@ use Safe\Exceptions\ShmopException;
  * shmop_open
  * @throws ShmopException
  *
+ * @psalm-pure
  */
 function shmop_delete($shmop): void
 {
@@ -33,6 +34,7 @@ function shmop_delete($shmop): void
  * @return string Returns the data.
  * @throws ShmopException
  *
+ * @psalm-pure
  */
 function shmop_read($shmop, int $offset, int $size): string
 {

@@ -12,6 +12,7 @@ use Safe\Exceptions\DatetimeException;
  * @return array Returns associative array with detailed info about given date/time.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date_parse_from_format(string $format, string $datetime): array
 {
@@ -33,6 +34,7 @@ function date_parse_from_format(string $format, string $datetime): array
  * on success.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date_parse(string $datetime): array
 {
@@ -139,6 +141,7 @@ function date_parse(string $datetime): array
  * above the respective zenith for the whole day.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date_sun_info(int $timestamp, float $latitude, float $longitude): array
 {
@@ -232,6 +235,7 @@ function date_sun_info(int $timestamp, float $latitude, float $longitude): array
  * the year.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude = null, float $longitude = null, float $zenith = null, float $utcOffset = null)
 {
@@ -335,6 +339,7 @@ function date_sunrise(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, f
  * the year.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, float $latitude = null, float $longitude = null, float $zenith = null, float $utcOffset = null)
 {
@@ -373,6 +378,7 @@ function date_sunset(int $timestamp, int $returnFormat = SUNFUNCS_RET_STRING, fl
  * E_WARNING level error is emitted.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function date(string $format, int $timestamp = null): string
 {
@@ -420,6 +426,7 @@ function date(string $format, int $timestamp = null): string
  * @return int Returns a int Unix timestamp on success.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function gmmktime(int $hour, int $minute = null, int $second = null, int $month = null, int $day = null, int $year = null): int
 {
@@ -464,6 +471,7 @@ function gmmktime(int $hour, int $minute = null, int $second = null, int $month 
  * On failure, FALSE is returned.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function gmstrftime(string $format, int $timestamp = null): string
 {
@@ -586,6 +594,7 @@ function gmstrftime(string $format, int $timestamp = null): string
  * fewer digits than you would expect. See the example below.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function idate(string $format, int $timestamp = null): int
 {
@@ -634,13 +643,13 @@ function idate(string $format, int $timestamp = null): int
  * with values between 0-69 mapping to 2000-2069 and 70-100 to
  * 1970-2000. On systems where time_t is a 32bit signed integer, as
  * most common today, the valid range for year
- * is somewhere between 1901 and 2038. However, before PHP 5.1.0 this
- * range was limited from 1970 to 2038 on some systems (e.g. Windows).
+ * is somewhere between 1901 and 2038.
  * @return int mktime returns the Unix timestamp of the arguments
  * given.
  * If the arguments are invalid, the function returns FALSE.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function mktime(int $hour, int $minute = null, int $second = null, int $month = null, int $day = null, int $year = null): int
 {
@@ -736,6 +745,7 @@ function mktime(int $hour, int $minute = null, int $second = null, int $month = 
  *
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function strptime(string $timestamp, string $format): array
 {
@@ -761,6 +771,7 @@ function strptime(string $timestamp, string $format): array
  * @return int Returns a timestamp on success, FALSE otherwise.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function strtotime(string $datetime, int $baseTimestamp = null): int
 {
@@ -797,6 +808,7 @@ function strtotime(string $datetime, int $baseTimestamp = null): int
  * @return string Returns time zone name on success.
  * @throws DatetimeException
  *
+ * @psalm-pure
  */
 function timezone_name_from_abbr(string $abbr, int $utcOffset = -1, int $isDST = -1): string
 {

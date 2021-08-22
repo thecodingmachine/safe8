@@ -24,7 +24,7 @@ function finfo_close($finfo): void
 /**
  * Procedural style
  *
- * Object oriented style (constructor):
+ * Object-oriented style (constructor):
  *
  * This function opens a magic database and returns its resource.
  *
@@ -43,10 +43,14 @@ function finfo_close($finfo): void
  * @throws FileinfoException
  *
  */
-function finfo_open(int $flags = FILEINFO_NONE, string $magic_database = "")
+function finfo_open(int $flags = FILEINFO_NONE, string $magic_database = null)
 {
     error_clear_last();
-    $result = \finfo_open($flags, $magic_database);
+    if ($magic_database !== null) {
+        $result = \finfo_open($flags, $magic_database);
+    } else {
+        $result = \finfo_open($flags);
+    }
     if ($result === false) {
         throw FileinfoException::createFromPhpError();
     }
@@ -63,6 +67,7 @@ function finfo_open(int $flags = FILEINFO_NONE, string $magic_database = "")
  * text/plain or application/octet-stream.
  * @throws FileinfoException
  *
+ * @psalm-pure
  */
 function mime_content_type($filename): string
 {

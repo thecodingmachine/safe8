@@ -23,6 +23,7 @@ use Safe\Exceptions\UodbcException;
  * success.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_autocommit($odbc, bool $enable = false)
 {
@@ -133,6 +134,7 @@ function odbc_autocommit($odbc, bool $enable = false)
  *
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_binmode(int $statement, int $mode): void
 {
@@ -180,6 +182,7 @@ function odbc_binmode(int $statement, int $mode): void
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_columnprivileges($odbc, string $catalog, string $schema, string $table, string $column)
 {
@@ -236,6 +239,7 @@ function odbc_columnprivileges($odbc, string $catalog, string $schema, string $t
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_columns($odbc, string $catalog = null, string $schema = null, string $table = null, string $column = null)
 {
@@ -265,6 +269,7 @@ function odbc_columns($odbc, string $catalog = null, string $schema = null, stri
  * see odbc_connect for details.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_commit($odbc): void
 {
@@ -307,6 +312,7 @@ function odbc_commit($odbc): void
  * @return resource Returns an ODBC connection.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_connect(string $dsn, string $user, string $password, int $cursor_option = SQL_CUR_USE_DRIVER)
 {
@@ -326,6 +332,7 @@ function odbc_connect(string $dsn, string $user, string $password, int $cursor_o
  * @return string Returns the cursor name, as a string.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_cursor($statement): string
 {
@@ -352,6 +359,7 @@ function odbc_cursor($statement): string
  * the last available DSN.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_data_source($odbc, int $fetch_type): array
 {
@@ -374,6 +382,7 @@ function odbc_data_source($odbc, int $fetch_type): array
  * successfully.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_exec($odbc, string $query)
 {
@@ -401,6 +410,7 @@ function odbc_exec($odbc, string $query)
  * appropriate placeholder.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_execute($statement, array $params = []): void
 {
@@ -425,6 +435,7 @@ function odbc_execute($statement, array $params = []): void
  * FALSE on error.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_fetch_into($statement, ?array &$array, int $row = 0): int
 {
@@ -446,6 +457,7 @@ function odbc_fetch_into($statement, ?array &$array, int $row = 0): int
  * @return int Returns the field length.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_field_len($statement, int $field): int
 {
@@ -467,6 +479,7 @@ function odbc_field_len($statement, int $field): int
  * @return string Returns the field name as a string.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_field_name($statement, int $field): string
 {
@@ -489,6 +502,7 @@ function odbc_field_name($statement, int $field): string
  * Field numbering starts at 1.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_field_num($statement, string $field): int
 {
@@ -510,6 +524,7 @@ function odbc_field_num($statement, string $field): int
  * @return int Returns the field scale as a integer.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_field_scale($statement, int $field): int
 {
@@ -531,6 +546,7 @@ function odbc_field_scale($statement, int $field): int
  * @return string Returns the field type as a string.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_field_type($statement, int $field): string
 {
@@ -578,6 +594,7 @@ function odbc_field_type($statement, int $field): string
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_foreignkeys($odbc, string $pk_catalog, string $pk_schema, string $pk_table, string $fk_catalog, string $fk_schema, string $fk_table)
 {
@@ -621,6 +638,7 @@ function odbc_foreignkeys($odbc, string $pk_catalog, string $pk_schema, string $
  * The result set is ordered by DATA_TYPE and TYPE_NAME.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_gettypeinfo($odbc, int $data_type = 0)
 {
@@ -644,6 +662,7 @@ function odbc_gettypeinfo($odbc, int $data_type = 0)
  * client (i.e. printed) when retrieved with odbc_result.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_longreadlen($statement, int $length): void
 {
@@ -675,6 +694,7 @@ function odbc_longreadlen($statement, int $length): void
  * error.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_pconnect(string $dsn, string $user, string $password, int $cursor_option = SQL_CUR_USE_DRIVER)
 {
@@ -703,6 +723,7 @@ function odbc_pconnect(string $dsn, string $user, string $password, int $cursor_
  * successfully.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_prepare($odbc, string $query)
 {
@@ -738,6 +759,7 @@ function odbc_prepare($odbc, string $query)
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_primarykeys($odbc, string $catalog, string $schema, string $table)
 {
@@ -797,6 +819,7 @@ function odbc_primarykeys($odbc, string $catalog, string $schema, string $table)
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_procedurecolumns($odbc, string $catalog = null, string $schema = null, string $procedure = null, string $column = null)
 {
@@ -850,6 +873,7 @@ function odbc_procedurecolumns($odbc, string $catalog = null, string $schema = n
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_procedures($odbc, string $catalog = null, string $schema = null, string $procedure = null)
 {
@@ -883,6 +907,7 @@ function odbc_procedures($odbc, string $catalog = null, string $schema = null, s
  * @return int Returns the number of rows in the result.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_result_all($statement, string $format = ""): int
 {
@@ -906,6 +931,7 @@ function odbc_result_all($statement, string $format = ""): int
  * NULL data, or TRUE for binary data.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_result($statement, $field)
 {
@@ -925,6 +951,7 @@ function odbc_result($statement, $field)
  * see odbc_connect for details.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_rollback($odbc): void
 {
@@ -965,6 +992,7 @@ function odbc_rollback($odbc): void
  * @param int $value The value for the given option.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_setoption($odbc, int $which, int $option, int $value): void
 {
@@ -1008,6 +1036,7 @@ function odbc_setoption($odbc, int $which, int $option, int $value): void
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_specialcolumns($odbc, int $type, string $catalog, string $schema, string $table, int $scope, int $nullable)
 {
@@ -1054,6 +1083,7 @@ function odbc_specialcolumns($odbc, int $type, string $catalog, string $schema, 
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_statistics($odbc, string $catalog, string $schema, string $table, int $unique, int $accuracy)
 {
@@ -1096,6 +1126,7 @@ function odbc_statistics($odbc, string $catalog, string $schema, string $table, 
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_tableprivileges($odbc, string $catalog, string $schema, string $table)
 {
@@ -1180,6 +1211,7 @@ function odbc_tableprivileges($odbc, string $catalog, string $schema, string $ta
  * Drivers can report additional columns.
  * @throws UodbcException
  *
+ * @psalm-pure
  */
 function odbc_tables($odbc, string $catalog = null, string $schema = null, string $table = null, string $types = null)
 {

@@ -24,6 +24,7 @@ use Safe\Exceptions\PsException;
  * @param string $filename The path of the program to be started, when the link is clicked on.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename): void
 {
@@ -62,6 +63,7 @@ function ps_add_launchlink($psdoc, float $llx, float $lly, float $urx, float $ur
  * fitbbox.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury, int $page, string $dest): void
 {
@@ -101,6 +103,7 @@ function ps_add_locallink($psdoc, float $llx, float $lly, float $urx, float $ury
  * be shown unfolded after opening the document with a pdf viewer.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, string $contents, string $title, string $icon, int $open): void
 {
@@ -141,6 +144,7 @@ function ps_add_note($psdoc, float $llx, float $lly, float $urx, float $ury, str
  * fitbbox.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, string $filename, int $page, string $dest): void
 {
@@ -174,6 +178,7 @@ function ps_add_pdflink($psdoc, float $llx, float $lly, float $urx, float $ury, 
  * this link, e.g. http://www.php.net.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, string $url): void
 {
@@ -203,6 +208,7 @@ function ps_add_weblink($psdoc, float $llx, float $lly, float $urx, float $ury, 
  * @param float $beta The end angle given in degrees.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
@@ -232,6 +238,7 @@ function ps_arc($psdoc, float $x, float $y, float $radius, float $alpha, float $
  * @param float $beta The end angle given in degrees.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float $beta): void
 {
@@ -283,6 +290,7 @@ function ps_arcn($psdoc, float $x, float $y, float $radius, float $alpha, float 
  * @param float $height The height of the page in pixel, e.g. 842 for A4 format.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_begin_page($psdoc, float $width, float $height): void
 {
@@ -312,6 +320,7 @@ function ps_begin_page($psdoc, float $width, float $height): void
  * @return int The identifier of the pattern.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, float $ystep, int $painttype): int
 {
@@ -339,6 +348,7 @@ function ps_begin_pattern($psdoc, float $width, float $height, float $xstep, flo
  * @return int Returns TRUE on success.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_begin_template($psdoc, float $width, float $height): int
 {
@@ -368,6 +378,7 @@ function ps_begin_template($psdoc, float $width, float $height): int
  * @param float $radius The radius of the circle
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_circle($psdoc, float $x, float $y, float $radius): void
 {
@@ -387,6 +398,7 @@ function ps_circle($psdoc, float $x, float $y, float $radius): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_clip($psdoc): void
 {
@@ -409,6 +421,7 @@ function ps_clip($psdoc): void
  * ps_open_image_file.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_close_image($psdoc, int $imageid): void
 {
@@ -434,6 +447,7 @@ function ps_close_image($psdoc, int $imageid): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_close($psdoc): void
 {
@@ -453,6 +467,7 @@ function ps_close($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_closepath_stroke($psdoc): void
 {
@@ -472,6 +487,7 @@ function ps_closepath_stroke($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_closepath($psdoc): void
 {
@@ -495,6 +511,7 @@ function ps_closepath($psdoc): void
  * @param string $text The text to output.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_continue_text($psdoc, string $text): void
 {
@@ -520,6 +537,7 @@ function ps_continue_text($psdoc, string $text): void
  * @param float $y3 y-coordinate of third control point.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x3, float $y3): void
 {
@@ -543,6 +561,7 @@ function ps_curveto($psdoc, float $x1, float $y1, float $x2, float $y2, float $x
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_delete($psdoc): void
 {
@@ -564,6 +583,7 @@ function ps_delete($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_end_page($psdoc): void
 {
@@ -584,6 +604,7 @@ function ps_end_page($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_end_pattern($psdoc): void
 {
@@ -603,6 +624,7 @@ function ps_end_pattern($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_end_template($psdoc): void
 {
@@ -622,6 +644,7 @@ function ps_end_template($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_fill_stroke($psdoc): void
 {
@@ -641,6 +664,7 @@ function ps_fill_stroke($psdoc): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_fill($psdoc): void
 {
@@ -777,6 +801,7 @@ function ps_fill($psdoc): void
  * @return string Returns the value of the parameter.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_get_parameter($psdoc, string $name, float $modifier = null): string
 {
@@ -813,6 +838,7 @@ function ps_get_parameter($psdoc, string $name, float $modifier = null): string
  * the text.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_hyphenate($psdoc, string $text): array
 {
@@ -835,6 +861,7 @@ function ps_hyphenate($psdoc, string $text): array
  * @param string $file
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_include_file($psdoc, string $file): void
 {
@@ -857,6 +884,7 @@ function ps_include_file($psdoc, string $file): void
  * @param float $y y-coordinate of the end point of the line.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_lineto($psdoc, float $x, float $y): void
 {
@@ -880,6 +908,7 @@ function ps_lineto($psdoc, float $x, float $y): void
  * @param float $y y-coordinate of the point to move to.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_moveto($psdoc, float $x, float $y): void
 {
@@ -901,6 +930,7 @@ function ps_moveto($psdoc, float $x, float $y): void
  * is passed to all other functions as the first argument.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_new()
 {
@@ -924,6 +954,7 @@ function ps_new()
  * created in memory and all output will go straight to the browser.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_open_file($psdoc, string $filename = null): void
 {
@@ -956,6 +987,7 @@ function ps_open_file($psdoc, string $filename = null): void
  * 1 point.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale): void
 {
@@ -983,6 +1015,7 @@ function ps_place_image($psdoc, int $imageid, float $x, float $y, float $scale):
  * @param float $height The height of the image.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_rect($psdoc, float $x, float $y, float $width, float $height): void
 {
@@ -1005,6 +1038,7 @@ function ps_rect($psdoc, float $x, float $y, float $width, float $height): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_restore($psdoc): void
 {
@@ -1024,6 +1058,7 @@ function ps_restore($psdoc): void
  * @param float $rot Angle of rotation in degree.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_rotate($psdoc, float $rot): void
 {
@@ -1044,6 +1079,7 @@ function ps_rotate($psdoc, float $rot): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_save($psdoc): void
 {
@@ -1064,6 +1100,7 @@ function ps_save($psdoc): void
  * @param float $y Scaling factor in vertical direction.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_scale($psdoc, float $x, float $y): void
 {
@@ -1090,6 +1127,7 @@ function ps_scale($psdoc, float $x, float $y): void
  * @param float $blue The blue component of the border color.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_border_color($psdoc, float $red, float $green, float $blue): void
 {
@@ -1116,6 +1154,7 @@ function ps_set_border_color($psdoc, float $red, float $green, float $blue): voi
  * @param float $white The length of the gap between dashes.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_border_dash($psdoc, float $black, float $white): void
 {
@@ -1142,6 +1181,7 @@ function ps_set_border_dash($psdoc, float $black, float $white): void
  * @param float $width The line width of the border.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_border_style($psdoc, string $style, float $width): void
 {
@@ -1189,6 +1229,7 @@ function ps_set_border_style($psdoc, string $style, float $width): void
  * unless ps_findfont has been called before.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_info($p, string $key, string $val): void
 {
@@ -1210,6 +1251,7 @@ function ps_set_info($p, string $key, string $val): void
  * @param string $value The value of the parameter.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_parameter($psdoc, string $name, string $value): void
 {
@@ -1237,6 +1279,7 @@ function ps_set_parameter($psdoc, string $name, string $value): void
  * @param float $y y-coordinate of the new text position.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_text_pos($psdoc, float $x, float $y): void
 {
@@ -1310,6 +1353,7 @@ function ps_set_text_pos($psdoc, float $x, float $y): void
  * @param float $value The way how text is shown.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_set_value($psdoc, string $name, float $value): void
 {
@@ -1345,6 +1389,7 @@ function ps_set_value($psdoc, string $name, float $value): void
  * component.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float $c2, float $c3, float $c4): void
 {
@@ -1365,6 +1410,7 @@ function ps_setcolor($psdoc, string $type, string $colorspace, float $c1, float 
  * @param float $off The length of the gap between dashes.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setdash($psdoc, float $on, float $off): void
 {
@@ -1386,6 +1432,7 @@ function ps_setdash($psdoc, float $on, float $off): void
  * @param float $value The value must be between 0.2 and 1.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setflat($psdoc, float $value): void
 {
@@ -1408,6 +1455,7 @@ function ps_setflat($psdoc, float $value): void
  * @param float $size The size of the font.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setfont($psdoc, int $fontid, float $size): void
 {
@@ -1427,6 +1475,7 @@ function ps_setfont($psdoc, int $fontid, float $size): void
  * @param float $gray The value must be between 0 (white) and 1 (black).
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setgray($psdoc, float $gray): void
 {
@@ -1449,6 +1498,7 @@ function ps_setgray($psdoc, float $gray): void
  * PS_LINECAP_SQUARED.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setlinecap($psdoc, int $type): void
 {
@@ -1471,6 +1521,7 @@ function ps_setlinecap($psdoc, int $type): void
  * PS_LINEJOIN_BEVEL.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setlinejoin($psdoc, int $type): void
 {
@@ -1490,6 +1541,7 @@ function ps_setlinejoin($psdoc, int $type): void
  * @param float $width The width of lines in points.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setlinewidth($psdoc, float $width): void
 {
@@ -1514,6 +1566,7 @@ function ps_setlinewidth($psdoc, float $width): void
  * in a small angle. Keep the default unless you know what you are doing.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setmiterlimit($psdoc, float $value): void
 {
@@ -1535,6 +1588,7 @@ function ps_setmiterlimit($psdoc, float $value): void
  * @param int $mode
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setoverprintmode($psdoc, int $mode): void
 {
@@ -1557,6 +1611,7 @@ function ps_setoverprintmode($psdoc, int $mode): void
  * the black and white portion.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_setpolydash($psdoc, float $arr): void
 {
@@ -1581,6 +1636,7 @@ function ps_setpolydash($psdoc, float $arr): void
  * @return int The identifier of the pattern.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_shading_pattern($psdoc, int $shadingid, string $optlist): int
 {
@@ -1626,6 +1682,7 @@ function ps_shading_pattern($psdoc, int $shadingid, string $optlist): int
  * @return int Returns the identifier of the pattern.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float $y1, float $c1, float $c2, float $c3, float $c4, string $optlist): int
 {
@@ -1650,6 +1707,7 @@ function ps_shading($psdoc, string $type, float $x0, float $y0, float $x1, float
  * ps_shading.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_shfill($psdoc, int $shadingid): void
 {
@@ -1671,6 +1729,7 @@ function ps_shfill($psdoc, int $shadingid): void
  * @param float $y y-coordinate of the lower left corner of the box surrounding the text.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_show_xy($psdoc, string $text, float $x, float $y): void
 {
@@ -1694,6 +1753,7 @@ function ps_show_xy($psdoc, string $text, float $x, float $y): void
  * @param float $ycoor
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor): void
 {
@@ -1721,6 +1781,7 @@ function ps_show_xy2($psdoc, string $text, int $len, float $xcoor, float $ycoor)
  * @param string $text The text to be output.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_show($psdoc, string $text): void
 {
@@ -1741,6 +1802,7 @@ function ps_show($psdoc, string $text): void
  * @param int $len The maximum number of characters to print.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_show2($psdoc, string $text, int $len): void
 {
@@ -1760,6 +1822,7 @@ function ps_show2($psdoc, string $text, int $len): void
  * as returned by ps_new.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_stroke($psdoc): void
 {
@@ -1781,6 +1844,7 @@ function ps_stroke($psdoc): void
  * @param int $ord The position of the glyph in the font encoding vector.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_symbol($psdoc, int $ord): void
 {
@@ -1801,6 +1865,7 @@ function ps_symbol($psdoc, int $ord): void
  * @param float $y y-coordinate of the origin of the translated coordinate system.
  * @throws PsException
  *
+ * @psalm-pure
  */
 function ps_translate($psdoc, float $x, float $y): void
 {

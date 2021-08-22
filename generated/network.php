@@ -10,6 +10,7 @@ use Safe\Exceptions\NetworkException;
  *
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function closelog(): void
 {
@@ -208,7 +209,7 @@ function closelog(): void
  *
  *
  *
- * A6(PHP &gt;= 5.1.0)
+ * A6
  *
  * masklen: Length (in bits) to inherit from the target
  * specified by chain.
@@ -244,6 +245,7 @@ function closelog(): void
  *
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function dns_get_record(string $hostname, int $type = DNS_ANY, ?array &$authoritative_name_servers = null, ?array &$additional_records = null, bool $raw = false): array
 {
@@ -303,6 +305,7 @@ function dns_get_record(string $hostname, int $type = DNS_ANY, ?array &$authorit
  * feof). If the call fails, it will return FALSE
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function fsockopen(string $hostname, int $port = -1, ?int &$error_code = null, ?string &$error_message = null, float $timeout = null)
 {
@@ -327,6 +330,7 @@ function fsockopen(string $hostname, int $port = -1, ?int &$error_code = null, ?
  * returned.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function gethostname(): string
 {
@@ -348,6 +352,7 @@ function gethostname(): string
  * @return int Returns the protocol number.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function getprotobyname(string $protocol): int
 {
@@ -369,6 +374,7 @@ function getprotobyname(string $protocol): int
  * @return string Returns the protocol name as a string.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function getprotobynumber(int $protocol): string
 {
@@ -392,6 +398,7 @@ function getprotobynumber(int $protocol): string
  * @return string Returns the Internet service name as a string.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function getservbyport(int $port, string $protocol): string
 {
@@ -415,6 +422,7 @@ function getservbyport(int $port, string $protocol): string
  * and the return value is ignored.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function header_register_callback(callable $callback): void
 {
@@ -433,6 +441,7 @@ function header_register_callback(callable $callback): void
  * @return string Returns a string representation of the address.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function inet_ntop(string $ip): string
 {
@@ -454,6 +463,7 @@ function inet_ntop(string $ip): string
  * @return string Returns the Internet IP address as a string.
  * @throws NetworkException
  *
+ * @psalm-pure
  */
 function long2ip(int $ip): string
 {
@@ -609,6 +619,40 @@ function openlog(string $prefix, int $flags, int $facility): void
 
 
 /**
+ * This function behaves exactly as fsockopen with the
+ * difference that the connection is not closed after the script finishes.
+ * It is the persistent version of fsockopen.
+ *
+ * @param string $hostname
+ * @param int $port
+ * @param int|null $errno
+ * @param string|null $errstr
+ * @param float $timeout
+ * @return resource pfsockopen returns a file pointer which may be used
+ * together with the other file functions (such as
+ * fgets, fgetss,
+ * fwrite, fclose, and
+ * feof).
+ * @throws NetworkException
+ *
+ * @psalm-pure
+ */
+function pfsockopen(string $hostname, int $port = -1, ?int &$errno = null, ?string &$errstr = null, float $timeout = null)
+{
+    error_clear_last();
+    if ($timeout !== null) {
+        $result = \pfsockopen($hostname, $port, $errno, $errstr, $timeout);
+    } else {
+        $result = \pfsockopen($hostname, $port, $errno, $errstr);
+    }
+    if ($result === false) {
+        throw NetworkException::createFromPhpError();
+    }
+    return $result;
+}
+
+
+/**
  * syslog generates a log message that will be
  * distributed by the system logger.
  *
@@ -666,10 +710,7 @@ function openlog(string $prefix, int $flags, int $facility): void
  *
  *
  *
- * @param string $message The message to send, except that the two characters
- * %m will be replaced by the error message string
- * (strerror) corresponding to the present value of
- * errno.
+ * @param string $message The message to send.
  * @throws NetworkException
  *
  */

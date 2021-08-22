@@ -5,6 +5,33 @@ namespace Safe;
 use Safe\Exceptions\PcreException;
 
 /**
+ * Returns the array consisting of the elements of the
+ * array array that match the given
+ * pattern.
+ *
+ * @param string $pattern The pattern to search for, as a string.
+ * @param array $array The input array.
+ * @param int $flags If set to PREG_GREP_INVERT, this function returns
+ * the elements of the input array that do not match
+ * the given pattern.
+ * @return array Returns an array indexed using the keys from the
+ * array array.
+ * @throws PcreException
+ *
+ * @psalm-pure
+ */
+function preg_grep(string $pattern, array $array, int $flags = 0): array
+{
+    error_clear_last();
+    $result = \preg_grep($pattern, $array, $flags);
+    if ($result === false) {
+        throw PcreException::createFromPhpError();
+    }
+    return $result;
+}
+
+
+/**
  * Searches subject for all matches to the regular
  * expression given in pattern and puts them in
  * matches in the order specified by
@@ -346,6 +373,7 @@ use Safe\Exceptions\PcreException;
  * @return int Returns the number of full pattern matches (which might be zero).
  * @throws PcreException
  *
+ * @psalm-pure
  */
 function preg_match_all(string $pattern, string $subject, ?array &$matches = null, int $flags = 0, int $offset = 0): int
 {
@@ -583,6 +611,7 @@ function preg_match_all(string $pattern, string $subject, ?array &$matches = nul
  * matches given subject, 0 if it does not.
  * @throws PcreException
  *
+ * @psalm-pure
  */
 function preg_match(string $pattern, string $subject, ?iterable &$matches = null, int $flags = 0, int $offset = 0): int
 {
@@ -647,6 +676,7 @@ function preg_match(string $pattern, string $subject, ?iterable &$matches = null
  * split along boundaries matched by pattern.
  * @throws PcreException
  *
+ * @psalm-pure
  */
 function preg_split(string $pattern, string $subject, ?int $limit = -1, int $flags = 0): array
 {

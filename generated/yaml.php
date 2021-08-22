@@ -22,6 +22,7 @@ use Safe\Exceptions\YamlException;
  * in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
@@ -59,6 +60,7 @@ function yaml_parse_file(string $filename, int $pos = 0, ?int &$ndocs = null, ar
  * for each document found in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {
@@ -93,6 +95,7 @@ function yaml_parse_url(string $url, int $pos = 0, ?int &$ndocs = null, array $c
  * in the stream.
  * @throws YamlException
  *
+ * @psalm-pure
  */
 function yaml_parse(string $input, int $pos = 0, ?int &$ndocs = null, array $callbacks = null)
 {

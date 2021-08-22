@@ -13,6 +13,7 @@ use Safe\Exceptions\SwooleException;
  * @param callable $callback
  * @throws SwooleException
  *
+ * @psalm-pure
  */
 function swoole_async_write(string $filename, string $content, int $offset = null, callable $callback = null): void
 {
@@ -39,6 +40,7 @@ function swoole_async_write(string $filename, string $content, int $offset = nul
  * @param int $flags
  * @throws SwooleException
  *
+ * @psalm-pure
  */
 function swoole_async_writefile(string $filename, string $content, callable $callback = null, int $flags = 0): void
 {
@@ -62,6 +64,7 @@ function swoole_async_writefile(string $filename, string $content, callable $cal
  * @param callable $callback
  * @throws SwooleException
  *
+ * @psalm-pure
  */
 function swoole_event_defer(callable $callback): void
 {
@@ -79,6 +82,7 @@ function swoole_event_defer(callable $callback): void
  * @param int $fd
  * @throws SwooleException
  *
+ * @psalm-pure
  */
 function swoole_event_del(int $fd): void
 {
@@ -97,6 +101,7 @@ function swoole_event_del(int $fd): void
  * @param string $data
  * @throws SwooleException
  *
+ * @psalm-pure
  */
 function swoole_event_write(int $fd, string $data): void
 {

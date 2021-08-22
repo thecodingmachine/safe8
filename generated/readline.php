@@ -32,43 +32,12 @@ function readline_add_history(string $prompt): void
  * stream_select as it allows interleaving of IO and
  * user input, unlike readline.
  *
- *
- * Readline Callback Interface Example
- *
- * 10) {
- * $prompting = false;
- * readline_callback_handler_remove();
- * } else {
- * readline_callback_handler_install("[$c] Enter something: ", 'rl_callback');
- * }
- * }
- *
- * $c = 1;
- * $prompting = true;
- *
- * readline_callback_handler_install("[$c] Enter something: ", 'rl_callback');
- *
- * while ($prompting) {
- * $w = NULL;
- * $e = NULL;
- * $n = stream_select($r = array(STDIN), $w, $e, null);
- * if ($n && in_array(STDIN, $r)) {
- * // read a character, will call the callback when a newline is entered
- * readline_callback_read_char();
- * }
- * }
- *
- * echo "Prompting disabled. All done.\n";
- * ?>
- * ]]>
- *
- *
- *
  * @param string $prompt The prompt message.
  * @param callable $callback The callback function takes one parameter; the
  * user input returned.
  * @throws ReadlineException
  *
+ * @psalm-pure
  */
 function readline_callback_handler_install(string $prompt, callable $callback): void
 {
@@ -85,6 +54,7 @@ function readline_callback_handler_install(string $prompt, callable $callback): 
  *
  * @throws ReadlineException
  *
+ * @psalm-pure
  */
 function readline_clear_history(): void
 {
@@ -104,6 +74,7 @@ function readline_clear_history(): void
  * partial command line and returns an array of possible matches.
  * @throws ReadlineException
  *
+ * @psalm-pure
  */
 function readline_completion_function(callable $callback): void
 {
@@ -121,6 +92,7 @@ function readline_completion_function(callable $callback): void
  * @param string $filename Path to the filename containing the command history.
  * @throws ReadlineException
  *
+ * @psalm-pure
  */
 function readline_read_history(string $filename = null): void
 {
@@ -142,6 +114,7 @@ function readline_read_history(string $filename = null): void
  * @param string $filename Path to the saved file.
  * @throws ReadlineException
  *
+ * @psalm-pure
  */
 function readline_write_history(string $filename = null): void
 {

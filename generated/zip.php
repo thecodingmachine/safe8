@@ -10,6 +10,7 @@ use Safe\Exceptions\ZipException;
  * @param resource $zip_entry A directory entry previously opened zip_entry_open.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_close($zip_entry): void
 {
@@ -28,6 +29,7 @@ function zip_entry_close($zip_entry): void
  * @return int The compressed size.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_compressedsize($zip_entry): int
 {
@@ -48,6 +50,7 @@ function zip_entry_compressedsize($zip_entry): int
  * @return string The compression method.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_compressionmethod($zip_entry): string
 {
@@ -67,6 +70,7 @@ function zip_entry_compressionmethod($zip_entry): string
  * @return int The size of the directory entry.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_filesize($zip_entry): int
 {
@@ -86,6 +90,7 @@ function zip_entry_filesize($zip_entry): int
  * @return string The name of the directory entry.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_name($zip_entry): string
 {
@@ -111,6 +116,7 @@ function zip_entry_name($zip_entry): string
  * in PHP is read only access.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_open($zip_dp, $zip_entry, string $mode = "rb"): void
 {
@@ -132,6 +138,7 @@ function zip_entry_open($zip_dp, $zip_entry, string $mode = "rb"): void
  * @return string Returns the data read, empty string on end of a file.
  * @throws ZipException
  *
+ * @psalm-pure
  */
 function zip_entry_read($zip_entry, int $len = 1024): string
 {

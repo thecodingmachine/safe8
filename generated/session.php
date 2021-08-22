@@ -10,6 +10,7 @@ use Safe\Exceptions\SessionException;
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_abort(): void
 {
@@ -45,6 +46,7 @@ function session_abort(): void
  * On failure, FALSE is returned.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_create_id(string $prefix = ""): string
 {
@@ -94,6 +96,7 @@ function session_decode(string $data): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_destroy(): void
 {
@@ -115,6 +118,7 @@ function session_destroy(): void
  * @return string Returns the contents of the current session encoded.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_encode(): string
 {
@@ -177,6 +181,7 @@ function session_id(string $id = null): string
  * @return string Returns the name of the current session module.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_module_name(string $module = null): string
 {
@@ -282,6 +287,7 @@ function session_regenerate_id(bool $delete_old_session = false): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_reset(): void
 {
@@ -315,6 +321,7 @@ function session_reset(): void
  * @return string Returns the path of the current directory used for data storage.
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_save_path(string $path = null): string
 {
@@ -337,6 +344,7 @@ function session_save_path(string $path = null): string
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_unset(): void
 {
@@ -361,6 +369,7 @@ function session_unset(): void
  *
  * @throws SessionException
  *
+ * @psalm-pure
  */
 function session_write_close(): void
 {

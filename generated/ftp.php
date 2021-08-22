@@ -14,6 +14,7 @@ use Safe\Exceptions\FtpException;
  * reference in response if a variable is provided.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_alloc($ftp, int $size, ?string &$response = null): void
 {
@@ -34,6 +35,7 @@ function ftp_alloc($ftp, int $size, ?string &$response = null): void
  * @param int $mode
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_append($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY): void
 {
@@ -51,6 +53,7 @@ function ftp_append($ftp, string $remote_filename, string $local_filename, int $
  * @param resource $ftp The link identifier of the FTP connection.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_cdup($ftp): void
 {
@@ -69,6 +72,7 @@ function ftp_cdup($ftp): void
  * @param string $directory The target directory.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_chdir($ftp, string $directory): void
 {
@@ -90,6 +94,7 @@ function ftp_chdir($ftp, string $directory): void
  * @return int Returns the new file permissions on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_chmod($ftp, int $permissions, string $filename): int
 {
@@ -135,6 +140,7 @@ function ftp_close($ftp): void
  * @return resource Returns a FTP stream on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_connect(string $hostname, int $port = 21, int $timeout = 90)
 {
@@ -155,6 +161,7 @@ function ftp_connect(string $hostname, int $port = 21, int $timeout = 90)
  * @param string $filename The file to delete.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_delete($ftp, string $filename): void
 {
@@ -178,6 +185,7 @@ function ftp_delete($ftp, string $filename): void
  * @param int $offset The position in the remote file to start downloading from.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_fget($ftp, $stream, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
@@ -201,6 +209,7 @@ function ftp_fget($ftp, $stream, string $remote_filename, int $mode = FTP_BINARY
  * @param int $offset The position in the remote file to start uploading to.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_fput($ftp, string $remote_filename, $stream, int $mode = FTP_BINARY, int $offset = 0): void
 {
@@ -224,6 +233,7 @@ function ftp_fput($ftp, string $remote_filename, $stream, int $mode = FTP_BINARY
  * @param int $offset The position in the remote file to start downloading from.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_get($ftp, string $local_filename, string $remote_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
@@ -243,6 +253,7 @@ function ftp_get($ftp, string $local_filename, string $remote_filename, int $mod
  * @param string $password The password (PASS).
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_login($ftp, string $username, string $password): void
 {
@@ -262,6 +273,7 @@ function ftp_login($ftp, string $username, string $password): void
  * @return string Returns the newly created directory name on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_mkdir($ftp, string $directory): string
 {
@@ -282,6 +294,7 @@ function ftp_mkdir($ftp, string $directory): string
  * @return array Returns an array of arrays with file infos from the specified directory on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_mlsd($ftp, string $directory): array
 {
@@ -311,6 +324,7 @@ function ftp_mlsd($ftp, string $directory): array
  * or FTP_MOREDATA to open the local file.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_nb_put($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): int
 {
@@ -334,6 +348,7 @@ function ftp_nb_put($ftp, string $remote_filename, string $local_filename, int $
  * @return array Returns an array of filenames from the specified directory on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_nlist($ftp, string $directory): array
 {
@@ -359,6 +374,7 @@ function ftp_nlist($ftp, string $directory): array
  * @param bool $enable If TRUE, the passive mode is turned on, else it's turned off.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_pasv($ftp, bool $enable): void
 {
@@ -381,6 +397,7 @@ function ftp_pasv($ftp, bool $enable): void
  * @param int $offset The position in the remote file to start uploading to.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_put($ftp, string $remote_filename, string $local_filename, int $mode = FTP_BINARY, int $offset = 0): void
 {
@@ -399,6 +416,7 @@ function ftp_put($ftp, string $remote_filename, string $local_filename, int $mod
  * @return string Returns the current directory name.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_pwd($ftp): string
 {
@@ -420,6 +438,7 @@ function ftp_pwd($ftp): string
  * @param string $to The new name.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_rename($ftp, string $from, string $to): void
 {
@@ -439,6 +458,7 @@ function ftp_rename($ftp, string $from, string $to): void
  * path to an empty directory.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_rmdir($ftp, string $directory): void
 {
@@ -463,6 +483,7 @@ function ftp_rmdir($ftp, string $directory): void
  * be some issues with filenames containing spaces and other characters.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_site($ftp, string $command): void
 {
@@ -494,6 +515,7 @@ function ftp_site($ftp, string $command): void
  * @return resource Returns a SSL-FTP stream on success.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90)
 {
@@ -513,6 +535,7 @@ function ftp_ssl_connect(string $hostname, int $port = 21, int $timeout = 90)
  * @return string Returns the remote system type.
  * @throws FtpException
  *
+ * @psalm-pure
  */
 function ftp_systype($ftp): string
 {
