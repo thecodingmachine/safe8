@@ -256,7 +256,8 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  *
  *
- * For g and G
+ * For g, G,
+ * h and H
  * specifiers: this is the maximum number of significant
  * digits to be printed.
  *
@@ -316,9 +317,6 @@ function sha1_file(string $filename, bool $binary = false): string
  * e
  *
  * The argument is treated as scientific notation (e.g. 1.2e+2).
- * The precision specifier stands for the number of digits after the
- * decimal point since PHP 5.2.1. In earlier versions, it was taken as
- * number of significant digits (one less).
  *
  *
  *
@@ -340,7 +338,6 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  * The argument is treated as a float and presented
  * as a floating-point number (non-locale aware).
- * Available as of PHP 5.0.3.
  *
  *
  *
@@ -448,7 +445,7 @@ function sha1_file(string $filename, bool $binary = false): string
  * s
  *
  *
- * integer
+ * int
  *
  * d,
  * u,
@@ -460,14 +457,16 @@ function sha1_file(string $filename, bool $binary = false): string
  *
  *
  *
- * double
+ * float
  *
- * g,
- * G,
  * e,
  * E,
  * f,
- * F
+ * F,
+ * g,
+ * G,
+ * h,
+ * H
  *
  *
  *
@@ -479,78 +478,13 @@ function sha1_file(string $filename, bool $binary = false): string
  * @throws StringsException
  *
  */
-function sprintf(string $format, ...$values): string
+function sprintf(string $format,   ...$values): string
 {
     error_clear_last();
     if ($values !== []) {
         $result = \sprintf($format, ...$values);
-    } else {
+    }else {
         $result = \sprintf($format);
-    }
-    if ($result === false) {
-        throw StringsException::createFromPhpError();
-    }
-    return $result;
-}
-
-
-/**
- * Returns the portion of string specified by the
- * offset and length parameters.
- *
- * @param string $string The input string.
- * @param int $offset If offset is non-negative, the returned string
- * will start at the offset'th position in
- * string, counting from zero. For instance,
- * in the string 'abcdef', the character at
- * position 0 is 'a', the
- * character at position 2 is
- * 'c', and so forth.
- *
- * If offset is negative, the returned string
- * will start at the offset'th character
- * from the end of string.
- *
- * If string is less than
- * offset characters long, FALSE will be returned.
- *
- *
- * Using a negative offset
- *
- *
- * ]]>
- *
- *
- * @param int $length If length is given and is positive, the string
- * returned will contain at most length characters
- * beginning from offset (depending on the length of
- * string).
- *
- * If length is given and is negative, then that many
- * characters will be omitted from the end of string
- * (after the start position has been calculated when a
- * offset is negative).  If
- * offset denotes the position of this truncation or
- * beyond, FALSE will be returned.
- *
- * If length is given and is 0,
- * FALSE or NULL, an empty string will be returned.
- *
- * If length is omitted, the substring starting from
- * offset until the end of the string will be
- * returned.
- * @return string Returns the extracted part of string;, or
- * an empty string.
- * @throws StringsException
- *
- */
-function substr(string $string, int $offset, int $length = null): string
-{
-    error_clear_last();
-    if ($length !== null) {
-        $result = \substr($string, $offset, $length);
-    } else {
-        $result = \substr($string, $offset);
     }
     if ($result === false) {
         throw StringsException::createFromPhpError();
@@ -641,7 +575,8 @@ function substr(string $string, int $offset, int $length = null): string
  *
  *
  *
- * For g and G
+ * For g, G,
+ * h and H
  * specifiers: this is the maximum number of significant
  * digits to be printed.
  *
@@ -701,9 +636,6 @@ function substr(string $string, int $offset, int $length = null): string
  * e
  *
  * The argument is treated as scientific notation (e.g. 1.2e+2).
- * The precision specifier stands for the number of digits after the
- * decimal point since PHP 5.2.1. In earlier versions, it was taken as
- * number of significant digits (one less).
  *
  *
  *
@@ -725,7 +657,6 @@ function substr(string $string, int $offset, int $length = null): string
  *
  * The argument is treated as a float and presented
  * as a floating-point number (non-locale aware).
- * Available as of PHP 5.0.3.
  *
  *
  *
@@ -833,7 +764,7 @@ function substr(string $string, int $offset, int $length = null): string
  * s
  *
  *
- * integer
+ * int
  *
  * d,
  * u,
@@ -845,14 +776,16 @@ function substr(string $string, int $offset, int $length = null): string
  *
  *
  *
- * double
+ * float
  *
- * g,
- * G,
  * e,
  * E,
  * f,
- * F
+ * F,
+ * g,
+ * G,
+ * h,
+ * H
  *
  *
  *
@@ -873,3 +806,4 @@ function vsprintf(string $format, array $values): string
     }
     return $result;
 }
+

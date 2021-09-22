@@ -7,7 +7,7 @@ use Safe\Exceptions\MiscException;
 /**
  * Defines a named constant at runtime.
  *
- * @param string $name The name of the constant.
+ * @param string $constant_name The name of the constant.
  *
  * It is possible to define constants with reserved or
  * even invalid names, whose value can (only) be retrieved with
@@ -28,10 +28,10 @@ use Safe\Exceptions\MiscException;
  * @throws MiscException
  *
  */
-function define(string $name, $value, bool $case_insensitive = false): void
+function define(string $constant_name,  $value, bool $case_insensitive = false): void
 {
     error_clear_last();
-    $result = \define($name, $value, $case_insensitive);
+    $result = \define($constant_name, $value, $case_insensitive);
     if ($result === false) {
         throw MiscException::createFromPhpError();
     }
@@ -72,7 +72,7 @@ function highlight_file(string $filename, bool $return = false)
 /**
  *
  *
- * @param string $str The PHP code to be highlighted. This should include the opening tag.
+ * @param string $string The PHP code to be highlighted. This should include the opening tag.
  * @param bool $return Set this parameter to TRUE to make this function return the
  * highlighted code.
  * @return string|bool If return is set to TRUE, returns the highlighted
@@ -81,10 +81,10 @@ function highlight_file(string $filename, bool $return = false)
  * @throws MiscException
  *
  */
-function highlight_string(string $str, bool $return = false)
+function highlight_string(string $string, bool $return = false)
 {
     error_clear_last();
-    $result = \highlight_string($str, $return);
+    $result = \highlight_string($string, $return);
     if ($result === false) {
         throw MiscException::createFromPhpError();
     }
@@ -256,7 +256,7 @@ function hrtime(bool $as_number = false)
  *
  *
  * Z
- * NUL-padded string (new in PHP 5.5)
+ * NUL-padded string
  *
  *
  * @
@@ -270,12 +270,12 @@ function hrtime(bool $as_number = false)
  * @throws MiscException
  *
  */
-function pack(string $format, ...$values): string
+function pack(string $format,   ...$values): string
 {
     error_clear_last();
     if ($values !== []) {
         $result = \pack($format, ...$values);
-    } else {
+    }else {
         $result = \pack($format);
     }
     if ($result === false) {
@@ -298,7 +298,7 @@ function pack(string $format, ...$values): string
  * @throws MiscException
  *
  */
-function sapi_windows_cp_conv($in_codepage, $out_codepage, string $subject): string
+function sapi_windows_cp_conv( $in_codepage,  $out_codepage, string $subject): string
 {
     error_clear_last();
     $result = \sapi_windows_cp_conv($in_codepage, $out_codepage, $subject);
@@ -363,12 +363,12 @@ function sapi_windows_generate_ctrl_event(int $event, int $pid = 0): void
  * @throws MiscException
  *
  */
-function sapi_windows_vt100_support($stream, bool $enable = null): void
+function sapi_windows_vt100_support( $stream, bool $enable = null): void
 {
     error_clear_last();
     if ($enable !== null) {
         $result = \sapi_windows_vt100_support($stream, $enable);
-    } else {
+    }else {
         $result = \sapi_windows_vt100_support($stream);
     }
     if ($result === false) {
@@ -522,3 +522,4 @@ function unpack(string $format, string $string, int $offset = 0): array
     }
     return $result;
 }
+
