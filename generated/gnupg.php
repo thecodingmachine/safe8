@@ -14,7 +14,7 @@ use Safe\Exceptions\GnupgException;
  * @throws GnupgException
  *
  */
-function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphrase): void
+function gnupg_adddecryptkey( $identifier, string $fingerprint, string $passphrase): void
 {
     error_clear_last();
     $result = \gnupg_adddecryptkey($identifier, $fingerprint, $passphrase);
@@ -33,7 +33,7 @@ function gnupg_adddecryptkey($identifier, string $fingerprint, string $passphras
  * @throws GnupgException
  *
  */
-function gnupg_addencryptkey($identifier, string $fingerprint): void
+function gnupg_addencryptkey( $identifier, string $fingerprint): void
 {
     error_clear_last();
     $result = \gnupg_addencryptkey($identifier, $fingerprint);
@@ -53,12 +53,12 @@ function gnupg_addencryptkey($identifier, string $fingerprint): void
  * @throws GnupgException
  *
  */
-function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase = null): void
+function gnupg_addsignkey( $identifier, string $fingerprint, string $passphrase = null): void
 {
     error_clear_last();
     if ($passphrase !== null) {
         $result = \gnupg_addsignkey($identifier, $fingerprint, $passphrase);
-    } else {
+    }else {
         $result = \gnupg_addsignkey($identifier, $fingerprint);
     }
     if ($result === false) {
@@ -75,7 +75,7 @@ function gnupg_addsignkey($identifier, string $fingerprint, string $passphrase =
  * @throws GnupgException
  *
  */
-function gnupg_cleardecryptkeys($identifier): void
+function gnupg_cleardecryptkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_cleardecryptkeys($identifier);
@@ -93,7 +93,7 @@ function gnupg_cleardecryptkeys($identifier): void
  * @throws GnupgException
  *
  */
-function gnupg_clearencryptkeys($identifier): void
+function gnupg_clearencryptkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_clearencryptkeys($identifier);
@@ -111,10 +111,30 @@ function gnupg_clearencryptkeys($identifier): void
  * @throws GnupgException
  *
  */
-function gnupg_clearsignkeys($identifier): void
+function gnupg_clearsignkeys( $identifier): void
 {
     error_clear_last();
     $result = \gnupg_clearsignkeys($identifier);
+    if ($result === false) {
+        throw GnupgException::createFromPhpError();
+    }
+}
+
+
+/**
+ *
+ *
+ * @param resource $identifier The gnupg identifier, from a call to
+ * gnupg_init or gnupg.
+ * @param string $key The key to delete.
+ * @param bool $allow_secret It specifies whether to delete secret keys as well.
+ * @throws GnupgException
+ *
+ */
+function gnupg_deletekey( $identifier, string $key, bool $allow_secret): void
+{
+    error_clear_last();
+    $result = \gnupg_deletekey($identifier, $key, $allow_secret);
     if ($result === false) {
         throw GnupgException::createFromPhpError();
     }
@@ -132,7 +152,7 @@ function gnupg_clearsignkeys($identifier): void
  * @throws GnupgException
  *
  */
-function gnupg_setarmor($identifier, int $armor): void
+function gnupg_setarmor( $identifier, int $armor): void
 {
     error_clear_last();
     $result = \gnupg_setarmor($identifier, $armor);
@@ -158,7 +178,7 @@ function gnupg_setarmor($identifier, int $armor): void
  * @throws GnupgException
  *
  */
-function gnupg_setsignmode($identifier, int $signmode): void
+function gnupg_setsignmode( $identifier, int $signmode): void
 {
     error_clear_last();
     $result = \gnupg_setsignmode($identifier, $signmode);
@@ -166,3 +186,4 @@ function gnupg_setsignmode($identifier, int $signmode): void
         throw GnupgException::createFromPhpError();
     }
 }
+

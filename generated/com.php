@@ -47,12 +47,12 @@ function com_create_guid(): string
  * @throws ComException
  *
  */
-function com_event_sink(object $variant, object $sink_object, $sink_interface = null): void
+function com_event_sink(object $variant, object $sink_object,  $sink_interface = null): void
 {
     error_clear_last();
     if ($sink_interface !== null) {
         $result = \com_event_sink($variant, $sink_object, $sink_interface);
-    } else {
+    }else {
         $result = \com_event_sink($variant, $sink_object);
     }
     if ($result === false) {
@@ -65,10 +65,10 @@ function com_event_sink(object $variant, object $sink_object, $sink_interface = 
  * Loads a type-library and registers its constants in the engine, as though
  * they were defined using define.
  *
- * Note that it is much more efficient to use the  configuration setting to pre-load and
+ * Note that it is much more efficient to use the com.typelib-file php.ini setting to pre-load and
  * register the constants, although not so flexible.
  *
- * If you have turned on , then
+ * If com.autoregister-typelib is turned on, then
  * PHP will attempt to automatically register the constants associated with a
  * COM object when you instantiate it.  This depends on the interfaces
  * provided by the COM object itself, and may not always be possible.
@@ -145,7 +145,7 @@ function com_print_typeinfo(object $variant, string $dispatch_interface = null, 
         $result = \com_print_typeinfo($variant, $dispatch_interface, $display_sink);
     } elseif ($dispatch_interface !== null) {
         $result = \com_print_typeinfo($variant, $dispatch_interface);
-    } else {
+    }else {
         $result = \com_print_typeinfo($variant);
     }
     if ($result === false) {
@@ -185,7 +185,7 @@ function variant_date_to_timestamp(object $variant): int
  * @throws ComException
  *
  */
-function variant_round($value, int $decimals)
+function variant_round( $value, int $decimals)
 {
     error_clear_last();
     $result = \variant_round($value, $decimals);
@@ -194,3 +194,4 @@ function variant_round($value, int $decimals)
     }
     return $result;
 }
+
