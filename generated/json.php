@@ -6,7 +6,12 @@ use Safe\Exceptions\JsonException;
 
 /**
  * Returns a string containing the JSON representation of the supplied
- * value.
+ * value.  If the parameter is an array or object,
+ * it will be serialized recursively.
+ *
+ * If a value to be serialized is an object, then by default only publicly visible
+ * properties will be included. Alternatively, a class may implement JsonSerializable
+ * to control how its values are serialized to JSON.
  *
  * The encoding is affected by the supplied flags
  * and additionally the encoding of float values depends on the value of
@@ -42,7 +47,7 @@ use Safe\Exceptions\JsonException;
  * @throws JsonException
  *
  */
-function json_encode($value, int $flags = 0, int $depth = 512): string
+function json_encode( $value, int $flags = 0, int $depth = 512): string
 {
     error_clear_last();
     $result = \json_encode($value, $flags, $depth);
@@ -51,3 +56,4 @@ function json_encode($value, int $flags = 0, int $depth = 512): string
     }
     return $result;
 }
+

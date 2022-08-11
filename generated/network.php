@@ -53,7 +53,8 @@ function closelog(): void
  * always return every record, the slower DNS_ALL
  * will collect all records more reliably.
  *
- * DNS_CAA is not supported on Windows.
+ * Windows: DNS_CAA is not supported.
+ * Support for DNS_A6 is not implemented.
  * @param array|null $authoritative_name_servers Passed by reference and, if given, will be populated with Resource
  * Records for the Authoritative Name Servers.
  * @param array|null $additional_records Passed by reference and, if given, will be populated with any
@@ -208,7 +209,7 @@ function closelog(): void
  *
  *
  *
- * A6(PHP &gt;= 5.1.0)
+ * A6
  *
  * masklen: Length (in bits) to inherit from the target
  * specified by chain.
@@ -289,7 +290,8 @@ function dns_get_record(string $hostname, int $type = DNS_ANY, ?array &$authorit
  * connect() call. This is most likely due to a
  * problem initializing the socket.
  * @param string|null $error_message The error message as a string.
- * @param float $timeout The connection timeout, in seconds.
+ * @param float $timeout The connection timeout, in seconds. When NULL, the
+ * default_socket_timeout php.ini setting is used.
  *
  * If you need to set a timeout for reading/writing data over the
  * socket, use stream_set_timeout, as the
@@ -309,7 +311,7 @@ function fsockopen(string $hostname, int $port = -1, ?int &$error_code = null, ?
     error_clear_last();
     if ($timeout !== null) {
         $result = \fsockopen($hostname, $port, $error_code, $error_message, $timeout);
-    } else {
+    }else {
         $result = \fsockopen($hostname, $port, $error_code, $error_message);
     }
     if ($result === false) {
@@ -467,6 +469,111 @@ function long2ip(int $ip): string
 
 
 /**
+ * Returns an enumeration of network interfaces (adapters) on the local machine.
+ *
+ * @return array Returns an associative array where the key is the name of the interface and
+ * the value an associative array of interface attributes.
+ *
+ * Each interface associative array contains:
+ *
+ * Interface attributes
+ *
+ *
+ *
+ * Name
+ * Description
+ *
+ *
+ *
+ *
+ * description
+ *
+ * Optional string value for description of the interface.
+ * Windows only.
+ *
+ *
+ *
+ * mac
+ *
+ * Optional string value for MAC address of the interface.
+ * Windows only.
+ *
+ *
+ *
+ * mtu
+ *
+ * Integer value for Maximum transmission unit (MTU) of the interface.
+ * Windows only.
+ *
+ *
+ *
+ * unicast
+ *
+ * Array of associative arrays, see Unicast attributes below.
+ *
+ *
+ *
+ * up
+ *
+ * Boolean status (on/off) for interface.
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * Unicast attributes
+ *
+ *
+ *
+ * Name
+ * Description
+ *
+ *
+ *
+ *
+ * flags
+ *
+ * Integer value.
+ *
+ *
+ *
+ * family
+ *
+ * Integer value.
+ *
+ *
+ *
+ * address
+ *
+ * String value for address in either IPv4 or IPv6.
+ *
+ *
+ *
+ * netmask
+ *
+ * String value for netmask in either IPv4 or IPv6.
+ *
+ *
+ *
+ *
+ *
+ * @throws NetworkException
+ *
+ */
+function net_get_interfaces(): array
+{
+    error_clear_last();
+    $result = \net_get_interfaces();
+    if ($result === false) {
+        throw NetworkException::createFromPhpError();
+    }
+    return $result;
+}
+
+
+/**
  * openlog opens a connection to the system
  * logger for a program.
  *
@@ -609,6 +716,39 @@ function openlog(string $prefix, int $flags, int $facility): void
 
 
 /**
+ * This function behaves exactly as fsockopen with the
+ * difference that the connection is not closed after the script finishes.
+ * It is the persistent version of fsockopen.
+ *
+ * @param string $hostname
+ * @param int $port
+ * @param int|null $error_code
+ * @param string|null $error_message
+ * @param float $timeout
+ * @return resource pfsockopen returns a file pointer which may be used
+ * together with the other file functions (such as
+ * fgets, fgetss,
+ * fwrite, fclose, and
+ * feof).
+ * @throws NetworkException
+ *
+ */
+function pfsockopen(string $hostname, int $port = -1, ?int &$error_code = null, ?string &$error_message = null, float $timeout = null)
+{
+    error_clear_last();
+    if ($timeout !== null) {
+        $result = \pfsockopen($hostname, $port, $error_code, $error_message, $timeout);
+    }else {
+        $result = \pfsockopen($hostname, $port, $error_code, $error_message);
+    }
+    if ($result === false) {
+        throw NetworkException::createFromPhpError();
+    }
+    return $result;
+}
+
+
+/**
  * syslog generates a log message that will be
  * distributed by the system logger.
  *
@@ -666,10 +806,7 @@ function openlog(string $prefix, int $flags, int $facility): void
  *
  *
  *
- * @param string $message The message to send, except that the two characters
- * %m will be replaced by the error message string
- * (strerror) corresponding to the present value of
- * errno.
+ * @param string $message The message to send.
  * @throws NetworkException
  *
  */
@@ -681,3 +818,4 @@ function syslog(int $priority, string $message): void
         throw NetworkException::createFromPhpError();
     }
 }
+
