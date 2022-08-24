@@ -9,6 +9,13 @@
 Safe PHP
 ========
 
+---
+📌 **Deprecation Notice**
+
+This repository is deprecated and no more work will be done on this by The Coding Machine. You can use instead [safe v2](https://github.com/thecodingmachine/safe) for same usage. 
+
+---
+
 **Work in progress**
 
 A set of core PHP functions rewritten to throw exceptions instead of returning `false` when an error is encountered.
